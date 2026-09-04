@@ -1,0 +1,191 @@
+/* ==========================================================================
+   ATELIER EDITORIAL NAVBAR: 740PX BREAKPOINT & SIGNATURE SERIF TYPOGRAPHY [1]
+   ========================================================================== */
+
+.luxury-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 68px;
+  background: rgba(232, 222, 209, 0.98);
+  backdrop-filter: blur(14px);
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  transition: height 0.3s ease;
+}
+
+@media (min-width: 740px) {
+  .luxury-navbar { 
+    height: 76px; 
+  }
+}
+
+@media (min-width: 1200px) {
+  .luxury-navbar { 
+    height: 82px; 
+  }
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* TWO-TIER ATELIER BRAND LOCKUP */
+.navbar-logo-lockup {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+.logo-brand-main {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(1.1rem, 2.8vw, 1.45rem) !important;
+  font-weight: 700 !important;
+  color: var(--dark-onyx) !important;
+  letter-spacing: -0.01em !important;
+  white-space: nowrap !important;
+  line-height: 1.1 !important;
+}
+
+.logo-brand-sub {
+  font-family: var(--font-sans) !important;
+  font-size: 0.52rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.24em !important;
+  color: var(--primary-gold) !important;
+  text-transform: uppercase !important;
+  margin-top: 2px !important;
+  display: block !important;
+}
+
+/* ==========================================================================
+   DESKTOP NAVIGATION: ACTIVATES STRICTLY AT 740PX [1]
+   ========================================================================== */
+.navbar-links:not(.mobile-open) {
+  display: none;
+}
+
+@media (min-width: 740px) {
+  .navbar-links:not(.mobile-open) {
+    display: flex !important;
+    align-items: center !important;
+    gap: clamp(0.75rem, 1.8vw, 1.75rem) !important; /* Adaptive spacing prevents collision */
+  }
+}
+
+/* SIGNATURE SERIF TYPOGRAPHY ON NAV LINKS (MATCHING HERO) [1] */
+.navbar-links a {
+  font-family: var(--font-serif) !important; /* Playfair Display Serif [1] */
+  font-size: clamp(0.92rem, 1.2vw, 1.08rem) !important;
+  font-weight: 600 !important;
+  color: var(--dark-onyx) !important;
+  transition: var(--transition) !important;
+  white-space: nowrap !important; /* Prevents "Our Works" from breaking into 2 lines [1] */
+  text-transform: capitalize !important;
+  letter-spacing: 0.01em !important;
+}
+
+.navbar-links a.active { 
+  color: var(--primary-gold) !important; 
+}
+
+/* HEADER ACTIONS */
+.navbar-actions { 
+  display: flex !important; 
+  align-items: center !important; 
+  gap: 0.75rem !important; 
+  flex-shrink: 0 !important;
+}
+
+.btn-nav-cta {
+  background: var(--dark-onyx) !important;
+  color: #FFFFFF !important;
+  padding: 0.55rem 1rem !important;
+  border-radius: 4px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  transition: var(--transition) !important;
+}
+
+@media (min-width: 740px) {
+  .btn-nav-cta {
+    padding: 0.65rem 1.25rem !important;
+    gap: 0.45rem !important;
+  }
+}
+
+.btn-nav-cta:hover {
+  background: var(--primary-gold) !important;
+}
+
+.cta-full { display: none; }
+.cta-short { display: inline; font-size: 0.7rem; font-weight: 700; font-family: var(--font-sans); }
+
+@media (min-width: 900px) {
+  .cta-full { display: inline; font-size: 0.76rem; font-weight: 700; font-family: var(--font-sans); }
+  .cta-short { display: none; }
+}
+
+/* ==========================================================================
+   MOBILE HAMBURGER: STRICTLY HIDES AT >= 740PX [1]
+   ========================================================================== */
+.mobile-hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+@media (min-width: 740px) { 
+  .mobile-hamburger { 
+    display: none !important; 
+  } 
+}
+
+.burger-line { 
+  width: 22px; 
+  height: 2px; 
+  background: var(--dark-onyx); 
+  transition: all 0.3s ease; 
+}
+
+.burger-line.open.top { transform: translateY(7px) rotate(45deg); }
+.burger-line.open.mid { opacity: 0; }
+.burger-line.open.bot { transform: translateY(-7px) rotate(-45deg); }
+
+/* MOBILE DRAWER WITH LUXURY SERIF TYPOGRAPHY [1] */
+.navbar-links.mobile-open {
+  position: absolute;
+  top: 68px;
+  left: 0;
+  right: 0;
+  background: var(--bg-sand);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-links.mobile-open a {
+  font-family: var(--font-serif) !important; /* Playfair Display on mobile drawer [1] */
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: var(--dark-onyx) !important;
+}

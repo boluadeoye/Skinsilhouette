@@ -1,0 +1,84 @@
+/* ==========================================================================
+   ATELIER NUDE TOKENS & SYSTEM TYPOGRAPHY RESETS
+   ========================================================================== */
+
+:root {
+  --bg-nude: #E8DED1;       /* Master Canvas Palette */
+  --bg-warm-silk: #EFE6DB;   /* Tonal Section Bridge */
+  --bg-sand: #F4F3EE;        /* Surface Cards */
+  --bg-tan: #E2C8B1;         /* Policy & CTA Accent */
+  --dark-onyx: #0C0608;      /* Deep Onyx Black */
+  --primary-gold: #C8A96A;   /* Champagne Gold */
+  --primary-gold-hover: #D8B97A;
+  --text-muted: #6E685F;     /* Warm Charcoal Subtext */
+  --border-light: rgba(12, 6, 8, 0.06);
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --nav-height: 80px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--bg-nude);
+  color: var(--dark-onyx);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-emoji: text; /* HARD-BLOCKS OS EMOJI FALLBACK INJECTIONS [1] */
+}
+
+/* STICKY FOOTER FLEXBOX ENGINE */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  background-color: var(--bg-nude);
+  position: relative;
+}
+
+.main-content {
+  padding-top: var(--nav-height);
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2.5rem;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

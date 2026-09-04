@@ -1,0 +1,106 @@
+.luxury-footer {
+  background: var(--dark-onyx);
+  color: #FFFFFF;
+  padding: 5.5rem 0 2.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem 2rem;
+  margin-bottom: 4rem;
+}
+
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.footer-logo {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.footer-brand-desc {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  max-width: 320px;
+}
+
+.footer-col-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  margin-bottom: 1.75rem;
+  position: relative;
+  font-weight: 500;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footer-links a {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary-gold);
+  transform: translateX(3px);
+}
+
+.footer-contact-list {
+  gap: 1.15rem !important;
+}
+
+.footer-contact-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.25rem !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.95rem !important;
+}
+
+.footer-contact-icon {
+  width: 20px !important;
+  height: 20px !important;
+  color: #FFFFFF !important;
+  flex-shrink: 0 !important;
+}
+
+.footer-contact-icon.filled-pin {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.footer-bottom-bar p {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (min-width: 740px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: 2rem;
+  }
+}

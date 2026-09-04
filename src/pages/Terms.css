@@ -1,0 +1,86 @@
+.terms-page-wrapper {
+  background: var(--bg-nude);
+  width: 100% !important;
+}
+
+.legal-hero-header {
+  padding: 4.5rem 0 3rem 0;
+}
+
+.legal-header-container {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.legal-pill-badge {
+  display: inline-block;
+  background: var(--bg-sand);
+  border-radius: 9999px;
+  padding: 0.35rem 1rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--border-light);
+}
+
+.legal-pill-badge span {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--dark-onyx);
+}
+
+.legal-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--dark-onyx);
+  margin-bottom: 1.25rem;
+}
+
+.legal-main-subtitle {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* EDITORIAL GRID COUMNS FOR TERMS */
+.legal-content-section {
+  padding: 2rem 0 6rem 0;
+}
+
+.legal-editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.legal-article {
+  background: var(--bg-sand);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 30px rgba(12, 6, 8, 0.03);
+}
+
+.legal-section-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  color: var(--dark-onyx);
+  margin-bottom: 1rem;
+}
+
+.legal-text {
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.legal-text strong {
+  color: var(--dark-onyx);
+}

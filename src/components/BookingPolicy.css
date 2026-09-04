@@ -1,0 +1,84 @@
+.booking-policy-section {
+  padding: 2.5rem 0 3.5rem 0;
+  background: var(--bg-nude);
+}
+
+.booking-policy-card {
+  background: #E2C8B1 !important; /* Perfect Tan background matching the Figma */
+  border: 1px solid rgba(12, 6, 8, 0.05) !important;
+  border-radius: 16px;
+  padding: 1.5rem 2rem !important; /* Tighter padding for the slim bar look */
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  box-shadow: 0 10px 30px rgba(12, 6, 8, 0.04) !important;
+  align-items: center !important;
+}
+
+.policy-info-col {
+  display: flex !important;
+  align-items: center !important; /* Aligns the icon and single-line text perfectly */
+  gap: 1.25rem !important;
+  width: 100%;
+}
+
+.policy-info-icon-wrap {
+  width: 38px !important;
+  height: 38px !important;
+  flex-shrink: 0 !important;
+}
+
+.policy-info-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* SINGLE-LINE TYPOGRAPHY */
+.policy-desc-single-line {
+  font-family: var(--font-sans) !important;
+  font-size: 0.95rem !important;
+  color: var(--dark-onyx) !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+.policy-desc-single-line strong {
+  font-weight: 700 !important;
+  color: var(--dark-onyx) !important;
+}
+
+.btn-secure-date {
+  display: inline-block !important;
+  background: var(--dark-onyx) !important;
+  color: #FFFFFF !important;
+  padding: 0.85rem 2.25rem !important;
+  border-radius: 8px !important; /* Matching curved button */
+  font-family: var(--font-sans) !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  text-transform: none !important; /* Sentence case "Secure Date" */
+  text-decoration: none !important;
+  transition: var(--transition) !important;
+  white-space: nowrap !important;
+  box-shadow: 0 5px 15px rgba(12, 6, 8, 0.1) !important;
+}
+
+.btn-secure-date:hover {
+  background: #000000 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* DESKTOP SINGLE ROW ALIGNMENT (>= 740PX) */
+@media (min-width: 740px) {
+  .booking-policy-card {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 1.25rem 2.5rem !important;
+  }
+
+  .policy-info-col {
+    width: auto !important;
+  }
+}

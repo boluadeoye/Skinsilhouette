@@ -1,0 +1,87 @@
+.luxury-hero {
+  position: relative;
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  color: #FFFFFF;
+  /* NEW ASSET INJECTION */
+  background-image: linear-gradient(to right, rgba(12, 6, 8, 0.45) 0%, transparent 100%), 
+                    url('https://res.cloudinary.com/dwbjb3svx/image/upload/v1788168712/blog_assets/o17pzcnqfxdnx4ujmww7.jpg');
+  background-size: cover;
+  background-position: center 35%; /* Optimized focal point for clinical action */
+  overflow: hidden;
+}
+
+.luxury-hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 680px;
+}
+
+.luxury-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.3rem, 5.2vw, 4.2rem);
+  color: #FFFFFF;
+  font-weight: 600;
+  line-height: 1.12;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.luxury-hero-sub {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2.25rem;
+  max-width: 580px;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.luxury-hero-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.btn-luxury-white {
+  background: var(--bg-sand);
+  color: var(--dark-onyx);
+  padding: 0.85rem 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  font-family: var(--font-sans);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.btn-luxury-white:hover {
+  background: var(--primary-gold);
+  color: #FFFFFF;
+}
+
+.btn-luxury-outline {
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: #FFFFFF;
+  padding: 0.85rem 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  font-family: var(--font-sans);
+  transition: var(--transition);
+}
+
+.btn-luxury-outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #FFFFFF;
+}
+
+@media (min-width: 740px) {
+  .luxury-hero-btns {
+    flex-direction: row;
+  }
+}

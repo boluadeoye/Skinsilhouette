@@ -1,0 +1,112 @@
+.stats-floating-section {
+  position: relative;
+  z-index: 20;
+  margin-top: -3rem;
+  padding-bottom: 3.5rem;
+}
+
+.stats-floating-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+.stat-floating-card {
+  background: var(--bg-sand);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 0.75rem !important; /* Balanced internal breathing room */
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(12, 6, 8, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.stat-floating-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(12, 6, 8, 0.07);
+}
+
+.stat-floating-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--primary-gold);
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   STRICT SINGLE-LINE METRIC RULE: NO BREAKING ON MOBILE [1]
+   ========================================================================== */
+.stat-floating-num {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(1.1rem, 4.4vw, 1.85rem) !important;
+  font-weight: 700 !important;
+  color: var(--dark-onyx) !important;
+  margin-bottom: 0.15rem !important;
+  white-space: nowrap !important; /* ENFORCES ZERO LINE BREAKS ON ALL SCREENS [1] */
+  display: inline-block !important;
+  line-height: 1.15 !important;
+}
+
+.stat-floating-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 2.2vw, 0.82rem);
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* ULTRA-SLIM DARK STATS RIBBON FOR DETAIL PAGES */
+.stats-floating-section.dark,
+.hydro-stats-ribbon {
+  background: #0C0608 !important;
+  margin-top: 0 !important;
+  padding: 1.25rem 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.stats-floating-section.dark .stat-floating-card,
+.hydro-stats-ribbon .stat-floating-card {
+  background: #0C0608 !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0.5rem 0.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.stats-floating-section.dark .stat-floating-icon {
+  color: var(--primary-gold) !important;
+  width: 28px !important;
+  height: 28px !important;
+  margin-bottom: 0.15rem !important;
+}
+
+.stats-floating-section.dark .stat-floating-num {
+  color: #FFFFFF !important;
+  font-size: clamp(1.05rem, 3.8vw, 1.45rem) !important;
+  white-space: nowrap !important; /* STRICT SINGLE LINE [1] */
+}
+
+.stats-floating-section.dark .stat-floating-desc {
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-size: 0.75rem !important;
+}
+
+@media (min-width: 740px) {
+  .stats-floating-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.25rem !important;
+  }
+
+  .stat-floating-card {
+    padding: 1.75rem 1.25rem !important;
+  }
+}

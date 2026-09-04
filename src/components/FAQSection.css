@@ -1,0 +1,108 @@
+.faq-section-wrapper {
+  padding: clamp(4rem, 7vw, 6rem) 0;
+  background: var(--bg-warm-silk) !important; /* Soft warm silk bridge */
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-section-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 700;
+  color: rgba(12, 6, 8, 0.035);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.faq-section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem auto;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-section-badge {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--primary-gold);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.faq-section-header h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  color: var(--dark-onyx);
+  margin-bottom: 0.85rem;
+}
+
+.faq-section-header p {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.faq-section-list {
+  max-width: 840px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-section-row {
+  border-bottom: 1px solid var(--border-light);
+  padding: 1.5rem 0.5rem;
+  cursor: pointer;
+}
+
+.faq-section-row-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.faq-section-index {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-gold);
+}
+
+.faq-section-question {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--dark-onyx);
+  flex: 1;
+}
+
+.faq-section-toggle-icon {
+  font-size: 1.4rem;
+  color: var(--primary-gold);
+  font-weight: 300;
+}
+
+.faq-section-row-body {
+  padding: 1rem 0 0 2.25rem;
+}
+
+.faq-section-row-body p {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}

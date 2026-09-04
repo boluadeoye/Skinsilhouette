@@ -1,0 +1,271 @@
+/* ==========================================================================
+   ISOLATED CONTACT PAGE MODULE (1:1 FIGMA ALIGNMENT & VERTICAL FLEX STRETCH) [1]
+   ========================================================================== */
+
+.contact-page-wrapper {
+  background: var(--bg-nude) !important; /* Rich warm nude canvas background [2] */
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important; /* Pushes CtaBanner to the very bottom [1] */
+  flex: 1 0 auto !important; /* Stretches to fill all remaining vertical space [1] */
+}
+
+.contact-main-section {
+  padding: clamp(3.5rem, 6vw, 6rem) 0 !important;
+  background: var(--bg-nude) !important;
+}
+
+.contact-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 3.5rem !important;
+  align-items: start !important;
+}
+
+/* LEFT FORM COLUMN */
+.contact-form-col {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.contact-badge-tag {
+  font-family: var(--font-sans) !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.15em !important;
+  color: var(--dark-onyx) !important;
+  text-transform: uppercase !important;
+  margin-bottom: 0.75rem !important;
+  display: block !important;
+}
+
+.contact-title {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
+  font-weight: 600 !important;
+  color: var(--dark-onyx) !important;
+  margin-bottom: 2.5rem !important;
+  line-height: 1.1 !important;
+}
+
+.contact-success-msg {
+  background: #E6F4EA !important;
+  color: #137333 !important;
+  padding: 1rem 1.25rem !important;
+  border-radius: 8px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.contact-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+}
+
+.contact-input-row {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 1.25rem !important;
+  width: 100% !important;
+}
+
+@media (min-width: 540px) {
+  .contact-input-row {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+.contact-field-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+  width: 100% !important;
+}
+
+.contact-field-group.full-width {
+  width: 100% !important;
+}
+
+.contact-field-group label {
+  font-family: var(--font-serif) !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  color: var(--dark-onyx) !important;
+}
+
+/* PURE WHITE INPUTS & TEXTAREAS [2] */
+.contact-field-group input,
+.contact-field-group textarea {
+  width: 100% !important;
+  background: #FFFFFF !important; /* Pure White input canvas [2] */
+  border: 1px solid rgba(12, 6, 8, 0.08) !important;
+  border-radius: 10px !important;
+  padding: 0.85rem 1.15rem !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.92rem !important;
+  color: var(--dark-onyx) !important;
+  transition: all 0.25s ease !important;
+  outline: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
+  box-sizing: border-box !important;
+}
+
+.contact-field-group input::placeholder,
+.contact-field-group textarea::placeholder {
+  color: #A3A3A3 !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 400 !important;
+}
+
+.contact-field-group input:focus,
+.contact-field-group textarea:focus {
+  border-color: var(--primary-gold) !important;
+  box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.15) !important;
+}
+
+/* FLUSH SUBMIT BUTTON */
+.contact-submit-btn {
+  width: 100% !important;
+  align-self: stretch !important;
+  box-sizing: border-box !important;
+  background: var(--dark-onyx) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  padding: 1.15rem 2rem !important;
+  border-radius: 0px !important; /* Flat sharp rectangular banner */
+  font-family: var(--font-sans) !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+  margin-top: 0.5rem !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 10px 25px rgba(12, 6, 8, 0.1) !important;
+}
+
+.contact-submit-btn:hover {
+  background: var(--primary-gold) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+}
+
+.btn-arrow {
+  font-size: 0.8rem !important;
+  transition: transform 0.25s ease !important;
+}
+
+.contact-submit-btn:hover .btn-arrow {
+  transform: translateX(4px) !important;
+}
+
+/* RIGHT NEWSLETTER COLUMN */
+.contact-newsletter-col {
+  display: flex !important;
+  flex-direction: column !important;
+  padding-top: 0.5rem !important;
+}
+
+.newsletter-title {
+  font-family: var(--font-sans) !important;
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem) !important;
+  font-weight: 700 !important;
+  color: var(--dark-onyx) !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.newsletter-subtitle {
+  font-family: var(--font-sans) !important;
+  font-size: 0.98rem !important;
+  color: var(--dark-onyx) !important;
+  line-height: 1.6 !important;
+  margin-bottom: 2rem !important;
+  max-width: 380px !important;
+}
+
+.newsletter-success-msg {
+  background: #E6F4EA !important;
+  color: #137333 !important;
+  padding: 0.85rem 1.15rem !important;
+  border-radius: 8px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.88rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.newsletter-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.15rem !important;
+  width: 100% !important;
+  max-width: 420px !important;
+}
+
+/* PURE WHITE NEWSLETTER INPUT [2] */
+.newsletter-field-wrap input {
+  width: 100% !important;
+  background: #FFFFFF !important; /* Pure White background [2] */
+  border: 1px solid rgba(12, 6, 8, 0.1) !important;
+  border-radius: 9999px !important; /* Ultra-rounded pill shape */
+  padding: 0.95rem 1.5rem !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.92rem !important;
+  color: var(--dark-onyx) !important;
+  outline: none !important;
+  transition: all 0.25s ease !important;
+}
+
+.newsletter-field-wrap input::placeholder {
+  color: #8C8C9A !important;
+  font-family: var(--font-sans) !important;
+}
+
+.newsletter-field-wrap input:focus {
+  border-color: var(--primary-gold) !important;
+  box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.15) !important;
+}
+
+/* PURE WHITE GHOST BUTTON [2] */
+.newsletter-submit-btn {
+  width: 100% !important;
+  background: #FFFFFF !important; /* Pure White background [2] */
+  color: var(--dark-onyx) !important; /* High contrast Onyx text [2] */
+  border: 1.5px solid var(--dark-onyx) !important; /* Crisp outline [2] */
+  padding: 0.95rem 2rem !important;
+  border-radius: 9999px !important; /* Matching pill ghost button */
+  font-family: var(--font-sans) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-align: center !important;
+}
+
+.newsletter-submit-btn:hover {
+  background: var(--dark-onyx) !important;
+  color: #FFFFFF !important;
+}
+
+/* DESKTOP BREAKPOINT (>= 740PX) */
+@media (min-width: 740px) {
+  .contact-grid {
+    grid-template-columns: 1.15fr 0.85fr !important;
+    gap: 4.5rem !important;
+  }
+
+  .contact-newsletter-col {
+    padding-top: 3.8rem !important;
+  }
+}

@@ -1,0 +1,287 @@
+.services-page-wrapper {
+  background: var(--bg-nude);
+  width: 100%;
+}
+
+.services-hero-header {
+  padding: 4.5rem 0 3rem 0;
+}
+
+.services-header-container {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.services-pill-badge {
+  display: inline-block;
+  background: var(--bg-sand);
+  border-radius: 9999px;
+  padding: 0.35rem 1rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--border-light);
+}
+
+.services-pill-badge span {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--dark-onyx);
+}
+
+.services-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--dark-onyx);
+  margin-bottom: 1.25rem;
+}
+
+.services-main-subtitle {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* 1:1 GAPLESS MARQUEE TRACK [1] */
+.services-marquee-ribbon {
+  background: var(--dark-onyx) !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  padding: 1.5rem 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.marquee-track {
+  display: flex !important;
+  width: max-content !important;
+  animation: marquee-infinite 28s linear infinite !important;
+  will-change: transform !important;
+}
+
+.marquee-item {
+  font-family: var(--font-sans) !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  letter-spacing: 0.18em !important;
+  padding-right: 0 !important; /* Removes gap at the loop seam */
+  margin-right: 0 !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+
+.gold-star { color: var(--primary-gold); }
+
+/* ROLLING GOLD STAR ANIMATION [1] */
+.spinning-star {
+  display: inline-block !important;
+  animation: spin-clockwise 5s linear infinite !important;
+  transform-origin: center center !important;
+}
+
+@keyframes spin-clockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes marquee-infinite {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.services-filter-bar-section {
+  padding: 3rem 0 1.5rem 0;
+}
+
+.services-filter-bar {
+  display: flex !important;
+  gap: 1rem !important;
+  overflow-x: auto !important;
+  padding: 0.5rem 1.5rem !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.services-filter-btn {
+  background: var(--bg-sand);
+  border: 1px solid var(--border-light);
+  padding: 0.6rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 9999px;
+  transition: var(--transition);
+}
+
+.services-filter-btn.active {
+  background: var(--dark-onyx);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-color: var(--dark-onyx);
+}
+
+.services-grid-section {
+  padding: 1.5rem 0 5rem 0;
+}
+
+.services-3x3-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 740px) {
+  .services-filter-bar {
+    justify-content: center !important;
+    padding: 0.5rem 0 !important;
+  }
+
+  .services-3x3-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.treatment-card {
+  background: var(--bg-sand);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 25px rgba(12, 6, 8, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.treatment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(12, 6, 8, 0.07);
+}
+
+.treatment-card-content {
+  padding: 2rem;
+}
+
+.treatment-card-cat {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--primary-gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.treatment-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--dark-onyx);
+  margin-bottom: 0.85rem;
+}
+
+.treatment-card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.treatment-card-image-wrap {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.treatment-card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* services faq */
+.services-faq-section {
+  padding: clamp(4rem, 7vw, 6rem) 0;
+  background: var(--bg-warm-silk);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+}
+
+.faq-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 15vw, 10rem);
+  font-weight: 700;
+  color: rgba(12, 6, 8, 0.035);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.faq-list-container {
+  max-width: 840px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-accordion-row {
+  border-bottom: 1px solid var(--border-light);
+  padding: 1.5rem 0.5rem;
+  cursor: pointer;
+}
+
+.faq-row-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.faq-index {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-gold);
+}
+
+.faq-question {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--dark-onyx);
+  flex: 1;
+}
+
+.faq-toggle-icon {
+  font-size: 1.4rem;
+  color: var(--primary-gold);
+  font-weight: 300;
+}
+
+.faq-row-body {
+  padding: 1rem 0 0 2.25rem;
+}
+
+.faq-row-body p {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}

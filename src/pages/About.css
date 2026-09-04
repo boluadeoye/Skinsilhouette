@@ -1,0 +1,251 @@
+.about-page-wrapper {
+  background: var(--bg-nude);
+  width: 100%;
+}
+
+/* TIER 1: CLINICAL MARQUEE */
+.about-marquee-ribbon {
+  background: var(--dark-onyx) !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  padding: 1.35rem 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.about-marquee-track {
+  display: flex !important;
+  width: max-content !important;
+  animation: about-marquee-infinite 35s linear infinite !important;
+  will-change: transform !important;
+}
+
+.about-marquee-item {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.18em;
+  padding-right: 0 !important; /* Removes gaps at the loop seam */
+  margin-right: 0 !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+
+.gold-star { color: var(--primary-gold); }
+
+/* ROLLING STAR CLASSES [1] */
+.spinning-star {
+  display: inline-block !important;
+  animation: spin-clockwise 5s linear infinite !important;
+  transform-origin: center center !important;
+}
+
+@keyframes spin-clockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes about-marquee-infinite {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* TIER 2 */
+.about-hero-section {
+  padding: 4rem 0 5rem 0 !important;
+  background: var(--bg-nude) !important;
+}
+
+.about-hero-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 2rem !important;
+  align-items: stretch !important;
+}
+
+.about-hero-card {
+  background: #FFFFFF !important;
+  border-radius: 24px !important;
+  padding: 3rem 2.25rem !important;
+  box-shadow: 0 15px 35px rgba(12, 6, 8, 0.04) !important;
+  border: 1px solid var(--border-light) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+}
+
+.about-pill-badge {
+  display: inline-block !important;
+  background: var(--bg-sand) !important;
+  border-radius: 9999px !important;
+  padding: 0.35rem 1rem !important;
+  margin-bottom: 1.25rem !important;
+  border: 1px solid var(--border-light) !important;
+}
+
+.about-pill-badge span {
+  font-family: var(--font-sans) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--dark-onyx) !important;
+}
+
+.about-hero-title {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem) !important;
+  font-weight: 700 !important;
+  color: var(--dark-onyx) !important;
+  margin-bottom: 1.25rem !important;
+  line-height: 1.15 !important;
+}
+
+.about-hero-body {
+  font-family: var(--font-sans) !important;
+  color: var(--text-muted) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.75 !important;
+}
+
+.about-hero-btns {
+  margin-top: 2rem !important;
+}
+
+.btn-download-profile {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  background: transparent !important;
+  color: var(--dark-onyx) !important;
+  border: 1.5px solid var(--dark-onyx) !important;
+  padding: 0.8rem 1.75rem !important;
+  border-radius: 9999px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  white-space: nowrap !important;
+}
+
+.btn-download-profile:hover {
+  background: var(--dark-onyx) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+}
+
+.btn-download-profile svg {
+  transition: transform 0.25s ease !important;
+}
+
+.btn-download-profile:hover svg {
+  transform: translate(2px, -2px) !important;
+}
+
+.about-hero-image-wrap {
+  width: 100% !important;
+  aspect-ratio: 344 / 432 !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 15px 35px rgba(12, 6, 8, 0.05) !important;
+  border: 1px solid var(--border-light) !important;
+}
+
+.about-hero-image-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* TIER 3 */
+.about-dark-section {
+  background: var(--dark-onyx) !important;
+  padding: 5rem 0;
+}
+
+.about-accordion-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.about-accordion-item {
+  border-top: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+  padding-top: 1.5rem !important;
+  width: 100% !important;
+}
+
+.about-accordion-item.active {
+  border-top: 2px solid var(--primary-gold) !important;
+}
+
+.about-accordion-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  cursor: pointer !important;
+}
+
+.about-accordion-header h3 {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem) !important;
+  color: #FFFFFF !important;
+  font-weight: 500;
+}
+
+.about-accordion-icon {
+  font-size: 1.5rem !important;
+  color: var(--primary-gold) !important;
+}
+
+.about-accordion-content-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 2rem !important;
+  padding-top: 1.5rem !important;
+  align-items: center !important;
+}
+
+.about-accordion-desc {
+  font-family: var(--font-sans) !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+  font-size: 0.98rem !important;
+  line-height: 1.8 !important;
+}
+
+.about-accordion-image-wrap {
+  width: 100% !important;
+  aspect-ratio: 748 / 341 !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.about-accordion-image-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+@media (min-width: 740px) {
+  .about-hero-grid {
+    grid-template-columns: 1.25fr 1fr !important;
+    gap: 3rem !important;
+  }
+
+  .about-hero-card {
+    padding: 4rem 3.5rem !important;
+  }
+
+  .about-accordion-content-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 3.5rem !important;
+  }
+}

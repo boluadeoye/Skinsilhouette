@@ -1,0 +1,61 @@
+.about-pod-section {
+  padding: 3rem 0;
+  background: var(--bg-nude);
+}
+
+@media (max-width: 740px) {
+  .about-pod-section {
+    padding: 2rem 0 !important; /* REDUCED EXCESSIVE MOBILE EMPTY SPACE [1] */
+  }
+}
+
+.about-floating-pod {
+  background: var(--bg-sand);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  text-align: center;
+  box-shadow: 0 12px 35px rgba(12, 6, 8, 0.04);
+  border: 1px solid var(--border-light);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (max-width: 740px) {
+  .about-floating-pod {
+    padding: 2.25rem 1.5rem !important; /* SQUEEZED INTERNAL POD MARGINS [1] */
+  }
+}
+
+.about-pod-badge-wrap {
+  margin-bottom: 1.25rem;
+}
+
+.about-pod-badge {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--dark-onyx);
+  text-transform: uppercase;
+  background: var(--bg-nude);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  display: inline-block;
+}
+
+.about-pod-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+  color: var(--dark-onyx);
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+}
+
+.about-pod-desc {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+  line-height: 1.75;
+  max-width: 780px;
+  margin: 0 auto;
+}

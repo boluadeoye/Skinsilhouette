@@ -1,0 +1,200 @@
+.luxury-review-section {
+  position: relative;
+  background-color: var(--bg-warm-silk) !important;
+  padding: 7rem 0 8rem 0;
+  overflow: hidden;
+  text-align: center;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.review-watermark-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  font-family: var(--font-serif);
+  font-size: clamp(6rem, 20vw, 16rem);
+  font-weight: 700;
+  color: rgba(12, 6, 8, 0.035);
+  letter-spacing: 0.1em;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.review-carousel-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.review-slider-viewport {
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.review-slider-viewport:active {
+  cursor: grabbing;
+}
+
+.review-slider-track {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.review-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.luxury-review-card {
+  max-width: 740px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-avatar-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--bg-sand);
+  color: var(--dark-onyx);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-light);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(12, 6, 8, 0.03);
+}
+
+.review-stars-row {
+  color: var(--primary-gold);
+  font-size: 1.1rem;
+  letter-spacing: 5px;
+  margin-bottom: 2rem;
+}
+
+.review-quote-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--dark-onyx);
+  margin-bottom: 2.5rem;
+  min-height: 120px;
+}
+
+.review-author-name {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark-onyx);
+  margin-bottom: 0.25rem;
+}
+
+.review-author-date {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.nav-arrow {
+  background: none;
+  border: none;
+  color: var(--primary-gold);
+  cursor: pointer;
+  padding: 1rem;
+  transition: var(--transition);
+  display: none;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .nav-arrow { display: block; }
+}
+
+.nav-arrow:hover {
+  color: var(--dark-onyx);
+  transform: scale(1.2);
+}
+
+.review-pagination {
+  position: absolute;
+  bottom: -3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+}
+
+.pagination-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(12, 6, 8, 0.15);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.pagination-dot.active {
+  width: 28px;
+  border-radius: 10px;
+  background: var(--primary-gold);
+}
+
+/* ==========================================================================
+   MOBILE-FIRST COMPACT CHASSIS OVERRIDES (40% SQUEEZE AT < 740PX) [1]
+   ========================================================================== */
+@media (max-width: 740px) {
+  .luxury-review-section {
+    padding: 3.5rem 0 4.5rem 0 !important; /* Shrunk overall vertical section footprint */
+  }
+
+  .review-avatar-circle {
+    width: 54px !important; /* Shrunk avatar */
+    height: 54px !important;
+    font-size: 1.05rem !important;
+    margin-bottom: 0.85rem !important; /* Squeezed spacing */
+  }
+
+  .review-stars-row {
+    font-size: 0.9rem !important;
+    letter-spacing: 3px !important;
+    margin-bottom: 1rem !important; /* Squeezed spacing */
+  }
+
+  .review-quote-text {
+    font-size: clamp(1rem, 4.5vw, 1.15rem) !important; /* Clean, condensed micro-typography [1] */
+    line-height: 1.55 !important;
+    margin-bottom: 1.25rem !important; /* Squeezed spacing */
+    min-height: 90px !important; /* Shorter card boundary prevents massive gaps [1] */
+  }
+
+  .review-author-name {
+    font-size: 0.95rem !important;
+  }
+
+  .review-author-date {
+    font-size: 0.78rem !important;
+  }
+
+  .review-pagination {
+    bottom: -2rem !important;
+  }
+}

@@ -1,0 +1,96 @@
+/* ==========================================================================
+   CTA BANNER: SLIM & SLEEK LOW-PROFILE HORIZONTAL RIBBON
+   ========================================================================== */
+
+.cta-banner-section {
+  background: transparent !important; /* Seamless background blending */
+  padding: 0 !important;
+  position: relative !important;
+  z-index: 20 !important;
+  width: 100% !important;
+}
+
+.cta-banner-card-light {
+  background: #E2C8B1 !important; /* Synchronized Atelier Tan */
+  border-radius: 20px !important;
+  padding: 2rem 1.5rem !important;
+  margin: 0 auto !important;
+  transform: translateY(2rem) !important; /* Mobile overlap */
+  position: relative !important;
+  z-index: 30 !important;
+  box-shadow: 0 15px 35px rgba(12, 6, 8, 0.05) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 1.25rem !important;
+  border: 1px solid rgba(12, 6, 8, 0.05) !important;
+}
+
+.cta-heading {
+  font-family: var(--font-serif) !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: var(--dark-onyx) !important;
+  line-height: 1.15 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.cta-subtext {
+  font-family: var(--font-sans) !important;
+  color: var(--dark-onyx) !important;
+  font-size: 0.88rem !important;
+  line-height: 1.55 !important;
+  max-width: 480px !important;
+  opacity: 0.85;
+}
+
+.btn-pill-black {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #000000 !important; /* Solid Black Button */
+  color: #FFFFFF !important;
+  padding: 0.8rem 2rem !important;
+  border-radius: 9999px !important; /* Perfect Pill */
+  font-family: var(--font-sans) !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  transition: var(--transition) !important;
+  white-space: nowrap !important;
+}
+
+.btn-pill-black:hover {
+  background-color: var(--dark-onyx) !important;
+  color: var(--primary-gold) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* DESKTOP SLIM HORIZONTAL COMPRESSION (>= 768PX) */
+@media (min-width: 768px) {
+  .cta-banner-section {
+    padding: 0 !important;
+  }
+
+  .cta-banner-card-light {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    text-align: left !important;
+    padding: 2.25rem 4rem !important; /* Compressed vertical padding */
+    transform: translateY(3.25rem) !important; /* Recalibrated slim overlap */
+  }
+
+  .cta-heading {
+    font-size: 1.75rem !important; /* Scaled-down heading prevents block bloating */
+  }
+
+  .cta-subtext {
+    font-size: 0.92rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta-banner-card-light {
+    padding: 2.5rem 5rem !important;
+  }
+}

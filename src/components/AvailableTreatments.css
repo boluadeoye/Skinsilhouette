@@ -1,0 +1,202 @@
+/* 1. SECTION ISOLATION & CANVAS */
+section.available-treatments-section {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  background: var(--bg-nude);
+  position: relative;
+  width: 100%;
+  clear: both; /* Prevents sibling overlap */
+}
+
+.editorial-section-head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.editorial-section-badge {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--primary-gold);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.editorial-section-head h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  color: var(--dark-onyx);
+  margin-bottom: 1rem;
+}
+
+.editorial-section-head p {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* 2. ASYMMETRICAL GRID (MOBILE FIRST) */
+.available-asym-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+  width: 100%;
+}
+
+.available-card-large, 
+.available-card-small {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--bg-sand);
+  box-shadow: 0 12px 30px rgba(12, 6, 8, 0.04);
+}
+
+.available-card-large { aspect-ratio: 4 / 5; }
+.available-card-small { aspect-ratio: 16 / 9; }
+
+.available-card-large img, 
+.available-card-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.available-card-large:hover img, 
+.available-card-small:hover img {
+  transform: scale(1.06);
+}
+
+.available-right-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* 3. DESKTOP HORIZONTAL ANCHOR (>= 740PX) - VERBATIM EDITORIAL LOGIC */
+@media (min-width: 740px) {
+  .available-asym-layout {
+    grid-template-columns: 1.25fr 1fr !important;
+    gap: 1.75rem !important;
+    align-items: stretch !important;
+    height: auto !important;
+  }
+
+  .available-card-large {
+    aspect-ratio: 1.5 / 1 !important; /* Master ratio drives horizontal look */
+    height: 100% !important;
+  }
+
+  .available-right-stack {
+    height: 100% !important;
+    justify-content: space-between !important;
+  }
+
+  .available-card-small {
+    flex: 1 1 0 !important; /* Splits height perfectly with baseline flush */
+    height: 100% !important;
+    aspect-ratio: auto !important;
+  }
+}
+
+/* 4. OVERLAYS & TYPOGRAPHY */
+.dark-foreground-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(12, 6, 8, 0.85) 0%, rgba(12, 6, 8, 0.2) 60%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.card-content-top {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 5;
+}
+
+.card-content-bottom {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 5;
+}
+
+.card-overlay-content {
+  position: absolute;
+  inset: 0;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(180deg, transparent 0%, rgba(12, 6, 8, 0.85) 100%);
+  z-index: 5;
+}
+
+.card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--primary-gold);
+  letter-spacing: 0.15em;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.card-title-small {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+
+.book-link {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+.book-link:hover { color: var(--primary-gold); }
+
+.available-cta-wrap {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.btn-black-center {
+  display: inline-block;
+  background: var(--dark-onyx);
+  color: #FFFFFF;
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.btn-black-center:hover {
+  background: var(--primary-gold);
+  color: var(--dark-onyx);
+  transform: translateY(-2px);
+}

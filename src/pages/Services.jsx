@@ -8,35 +8,13 @@ import { CLINIC_CONTENT } from '../data/content.js';
 import { ASSETS } from '../assets.js';
 import './Services.css';
 
-const CATEGORIES = ["All", "Treatments", "Injectables", "Plastic Surgery", "Consultation"];
+/* CATEGORIES WITHOUT PLASTIC SURGERY */
+const CATEGORIES = ["All", "Consultation", "Treatments", "Injectables"];
 
+/* STRICT ORDER OF TREATMENTS */
 const SERVICES_DATA = [
   {
     id: 1,
-    slug: "laser-hair-removal",
-    category: "TREATMENTS",
-    title: "Anti-Wrinkle Treatments", // Hyphenated & plural
-    description: "Advanced clinical treatments designed to relax facial muscles, smoothing fine lines and restoring a youthful, refreshed appearance.",
-    image: ASSETS.blog_hero
-  },
-  {
-    id: 2,
-    slug: "laser-hair-removal",
-    category: "INJECTABLES",
-    title: "Fat Dissolving",
-    description: "A target-specific clinical injectable treatment that permanently dissolves localized fat cells, contouring and refining the silhouette.",
-    image: ASSETS.blog_2
-  },
-  {
-    id: 3,
-    slug: "laser-hair-removal",
-    category: "PLASTIC SURGERY",
-    title: "Hair Restoration",
-    description: "Medical-grade scalp therapies and regenerative techniques aimed at stimulating dormant hair follicles and restoring natural density.",
-    image: ASSETS.blog_6
-  },
-  {
-    id: 4,
     slug: "laser-hair-removal",
     category: "CONSULTATION",
     title: "Initial Assessment",
@@ -44,28 +22,28 @@ const SERVICES_DATA = [
     image: ASSETS.blog_4
   },
   {
-    id: 5,
-    slug: "laser-hair-removal",
-    category: "INJECTABLES",
-    title: "Regenerative Injectables",
-    description: "Cutting-edge bio-stimulators and skin boosters that trigger natural collagen synthesis, improving elasticity and structural depth.",
-    image: ASSETS.blog_3
-  },
-  {
-    id: 6,
+    id: 2,
     slug: "laser-hair-removal",
     category: "TREATMENTS",
-    title: "Skin Remodelling Treatments",
-    description: "High-performance hydrofacials and clinical resurfacing treatments that refine skin texture, resolve tone, and tighten structural layers.",
-    image: ASSETS.blog_1
+    title: "Anti-Wrinkle Treatments",
+    description: "Advanced clinical treatments designed to relax facial muscles, smoothing fine lines and restoring a youthful, refreshed appearance.",
+    image: ASSETS.blog_hero
   },
   {
-    id: 7,
+    id: 3,
     slug: "laser-hair-removal",
-    category: "CONSULTATION",
-    title: "Wellness and Vitamin Therapy",
-    description: "Intravenous and intramuscular nutrient infusions engineered to optimize cellular health, overall energy levels, and skin radiance.",
-    image: ASSETS.blog_5
+    category: "INJECTABLES",
+    title: "Facial Harmonisation – Dermal Fillers",
+    description: "Targeted dermal filler therapies designed to restore lost structural volume, enhance facial contours, and balance natural symmetry.",
+    image: ASSETS.blog_2
+  },
+  {
+    id: 4,
+    slug: "laser-hair-removal",
+    category: "TREATMENTS",
+    title: "Skin Regenerative",
+    description: "Cutting-edge bio-stimulators, hydrofacials, and skin boosters that trigger natural collagen synthesis and restore deep tissue elasticity.",
+    image: ASSETS.blog_3
   }
 ];
 
@@ -120,6 +98,7 @@ export default function Services() {
         </div>
       </section>
 
+      {/* FILTERED SERVICES GRID */}
       <section className="services-grid-section">
         <div className="container">
           <div className="services-3x3-grid">
@@ -139,6 +118,7 @@ export default function Services() {
         </div>
       </section>
 
+      {/* SERVICE FAQ */}
       <section className="services-faq-section">
         <div className="container">
           <div className="faq-watermark">FAQ</div>

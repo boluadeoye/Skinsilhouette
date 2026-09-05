@@ -15,7 +15,7 @@
   background: var(--bg-sand);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
-  padding: 1.5rem 0.75rem !important; /* Balanced internal breathing room */
+  padding: 1.5rem 0.75rem !important;
   text-align: center;
   box-shadow: 0 10px 30px rgba(12, 6, 8, 0.04);
   display: flex;
@@ -40,16 +40,13 @@
   justify-content: center;
 }
 
-/* ==========================================================================
-   STRICT SINGLE-LINE METRIC RULE: NO BREAKING ON MOBILE [1]
-   ========================================================================== */
 .stat-floating-num {
   font-family: var(--font-serif) !important;
-  font-size: clamp(1.1rem, 4.4vw, 1.85rem) !important;
+  font-size: clamp(1rem, 3.8vw, 1.75rem) !important;
   font-weight: 700 !important;
   color: var(--dark-onyx) !important;
   margin-bottom: 0.15rem !important;
-  white-space: nowrap !important; /* ENFORCES ZERO LINE BREAKS ON ALL SCREENS [1] */
+  white-space: nowrap !important;
   display: inline-block !important;
   line-height: 1.15 !important;
 }
@@ -91,8 +88,8 @@
 
 .stats-floating-section.dark .stat-floating-num {
   color: #FFFFFF !important;
-  font-size: clamp(1.05rem, 3.8vw, 1.45rem) !important;
-  white-space: nowrap !important; /* STRICT SINGLE LINE [1] */
+  font-size: clamp(0.95rem, 3.4vw, 1.35rem) !important;
+  white-space: nowrap !important;
 }
 
 .stats-floating-section.dark .stat-floating-desc {

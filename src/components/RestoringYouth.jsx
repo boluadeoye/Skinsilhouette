@@ -4,13 +4,7 @@ import './RestoringYouth.css';
 
 export default function RestoringYouth({ customImage }) {
   const [swapped, setSwapped] = useState(false);
-
-  // Dynamic image resolution: Uses customImage if passed, defaults to ry_home
   const activeSrc = customImage || ASSETS.ry_home || ASSETS.works_redhead;
-
-  const handleSwap = () => {
-    setSwapped(!swapped);
-  };
 
   return (
     <section className="ry-boundary-section">
@@ -30,9 +24,10 @@ export default function RestoringYouth({ customImage }) {
                 We make it a priority to not only listen to your story, but to also address any questions or concerns that you may have about the services offered at our clinic.
               </p>
               
+              {/* METRIC UPDATED: 50+ PATIENTS TREATED */}
               <div className="ry-metrics-row">
                 <div className="ry-metric">
-                  <h3>200+</h3>
+                  <h3>50+</h3>
                   <p>PATIENTS TREATED</p>
                 </div>
                 <div className="ry-metric">
@@ -41,6 +36,7 @@ export default function RestoringYouth({ customImage }) {
                 </div>
               </div>
 
+              {/* ACTION UPDATED: BOOK CONSULTATION */}
               <div className="ry-btn-wrap">
                 <a 
                   href="https://wa.me/2348140000000" 
@@ -48,25 +44,24 @@ export default function RestoringYouth({ customImage }) {
                   rel="noopener noreferrer" 
                   className="btn-ry-white"
                 >
-                  Book Appointment
+                  Book Consultation
                 </a>
               </div>
             </div>
           </div>
 
-          {/* PROGRAMMATIC INTERACTIVE PICTURE-IN-PICTURE LAYER */}
+          {/* PICTURE-IN-PICTURE (PIP) MEDIA */}
           <div 
             className="ry-media-col" 
-            onClick={handleSwap} 
+            onClick={() => setSwapped(!swapped)} 
             style={{ cursor: 'pointer' }}
             role="button"
             tabIndex={0}
             aria-label="Click to swap before and after views"
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleSwap(); }}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setSwapped(!swapped); }}
           >
             <div className="ry-image-frame">
               
-              {/* MAIN BACKGROUND */}
               <div className="ry-pip-bg">
                 <img 
                   src={activeSrc} 
@@ -77,7 +72,6 @@ export default function RestoringYouth({ customImage }) {
                 <span className="ry-badge ry-badge-after">{swapped ? 'BEFORE' : 'AFTER'}</span>
               </div>
 
-              {/* INSET BOX */}
               <div className="ry-pip-inset">
                 <img 
                   src={activeSrc} 
@@ -88,7 +82,6 @@ export default function RestoringYouth({ customImage }) {
                 <span className="ry-badge ry-badge-before">{swapped ? 'AFTER' : 'BEFORE'}</span>
               </div>
 
-              {/* JUNCTION CORNER BADGE */}
               <div className="ry-junction-badge" aria-hidden="true">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="15 18 9 12 15 6"></polyline>

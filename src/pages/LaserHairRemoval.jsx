@@ -4,7 +4,7 @@ import KineticText from '../components/KineticText.jsx';
 import BeforeAfterGrid from '../components/BeforeAfterGrid.jsx';
 import BookingPolicy from '../components/BookingPolicy.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
-import Review from '../components/Review.jsx'; // Imported the unified review carousel
+import Review from '../components/Review.jsx';
 import { CLINIC_CONTENT } from '../data/content.js';
 import { ASSETS } from '../assets.js';
 import { universalTouchSquash } from '../utils/motion.js';
@@ -50,7 +50,6 @@ export default function LaserHairRemoval() {
   const [activeHiw, setActiveHiw] = useState(0);
   const [activeFaq, setActiveFaq] = useState(0);
 
-  // Dynamic clinical FAQs from central registry
   const clinicalFaqs = CLINIC_CONTENT.treatmentFAQs.slice(0, 3);
 
   return (
@@ -60,8 +59,6 @@ export default function LaserHairRemoval() {
       <section className="laser-hero-section">
         <div className="container">
           <div className="laser-hero-grid">
-            
-            {/* HERO LEFT: CLINICAL FACE IMAGE */}
             <motion.div 
               className="laser-hero-media"
               initial={{ opacity: 0, x: -30 }}
@@ -71,7 +68,6 @@ export default function LaserHairRemoval() {
               <img src={ASSETS.service_detail_hero} alt="Laser Hair Removal Clinical Result" />
             </motion.div>
 
-            {/* HERO RIGHT: SHARP BLACK SERVICE CARD */}
             <motion.div 
               className="laser-hero-card"
               initial={{ opacity: 0, x: 30 }}
@@ -83,8 +79,10 @@ export default function LaserHairRemoval() {
               <p className="laser-hero-desc">
                 Laser hair removal is a medical procedure that uses a concentrated beam of light (laser) to remove unwanted hair.
               </p>
+              
+              {/* 50+ PATIENTS TREATED */}
               <div className="ry-metrics-row">
-                <div className="ry-metric"><h3>200+</h3><p>PATIENTS TREATED</p></div>
+                <div className="ry-metric"><h3>50+</h3><p>PATIENTS TREATED</p></div>
                 <div className="ry-metric"><h3>5.0</h3><p>STAR REVIEWS</p></div>
               </div>
               <div className="laser-btn-wrap">
@@ -96,7 +94,7 @@ export default function LaserHairRemoval() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={universalTouchSquash}
                 >
-                  Book Appointment
+                  Book Consultation
                 </motion.a>
               </div>
             </motion.div>
@@ -119,10 +117,8 @@ export default function LaserHairRemoval() {
       <section className="laser-hiw-section">
         <div className="container">
           <div className="laser-hiw-card">
-            
             <div className="laser-hiw-left">
               <span className="hiw-standalone-heading">HOW IT WORKS</span>
-
               <div className="hiw-accordion-list">
                 {LASER_HOW_IT_WORKS.map((faq, idx) => (
                   <div 
@@ -159,7 +155,6 @@ export default function LaserHairRemoval() {
             >
               <img src={ASSETS.service_detail_hiw} alt="Clinical Wand Procedure Action" loading="lazy" />
             </motion.div>
-
           </div>
         </div>
       </section>
@@ -214,7 +209,7 @@ export default function LaserHairRemoval() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={universalTouchSquash}
               >
-                BOOK AN APPOINTMENT
+                BOOK A CONSULTATION
               </motion.a>
             </div>
           </div>

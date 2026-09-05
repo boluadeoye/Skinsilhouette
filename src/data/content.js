@@ -11,11 +11,16 @@ export const CLINIC_CONTENT = {
     mission: "To provide safe, personalised and evidence-based aesthetic care that supports long-term skin health while enhancing individuality. Underpinned by clinical excellence, ethical practice and transparency, we empower clients through education, informed decision-making and advocacy, always placing their best interests at the centre of care.",
     vision: "To shape the future of aesthetics and skin health by advancing standards in clinical excellence, innovation, inclusivity and ethical practice, creating better and more individualised outcomes for every client."
   },
+  contactInfo: {
+    email: "hello@skinsilhouetteaesthestics.co.uk",
+    phone: "+234 812 582 1771",
+    location: "Birmingham, United Kingdom"
+  },
   stats: [
     { number: "6yrs+", label: "Clinical experience" },
     { number: "100%", label: "Safety record" },
     { number: "Nurse-Led", label: "Bespoke Care" },
-    { number: "24/7", label: "Emergency response" }
+    { number: "Dedicated", label: "After care" }
   ],
   reviews: [
     {
@@ -59,16 +64,16 @@ export const CLINIC_CONTENT = {
   ],
   bookingFAQs: [
     {
-      q: "How do I book an appointment?",
-      a: "Appointments can be booked online through our booking system. Select your preferred treatment or consultation and choose an available appointment time."
+      q: "How do I book a consultation?",
+      a: "Consultations can be booked online through our booking system. Select your preferred treatment and choose an available date."
     },
     {
       q: "Do I need to pay a booking fee?",
-      a: "A non-refundable booking fee of £50 is required to secure your appointment. This fee is fully deducted from your final treatment balance at checkout."
+      a: "A non-refundable booking fee of £50 is required to secure your consultation. This fee is fully deducted from your final treatment balance at checkout."
     },
     {
       q: "Can I reschedule my appointment?",
-      a: "Yes. We understand that plans can change. We kindly ask for at least 48 hours' notice if you need to reschedule your appointment without forfeiting your deposit."
+      a: "Yes. We understand that plans can change. We kindly ask for at least 48 hours' notice if you need to reschedule without forfeiting your deposit."
     }
   ]
 };

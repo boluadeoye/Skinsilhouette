@@ -30,7 +30,7 @@ export default function Navbar() {
           </Link>
         </motion.div>
 
-        {/* DESKTOP SERIF NAVIGATION LINKS (ENFORCED 740PX BREAKPOINT) */}
+        {/* DESKTOP SERIF NAVIGATION LINKS */}
         <nav className="navbar-links">
           {['/', '/services', '/works', '/about', '/blog', '/contact'].map((path) => {
             const labels = { 
@@ -52,7 +52,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* ACTIONS */}
+        {/* ACTIONS: "BOOK CONSULTATION" */}
         <div className="navbar-actions">
           <motion.a
             href="https://wa.me/2348140000000"
@@ -61,8 +61,8 @@ export default function Navbar() {
             className="btn-nav-cta"
             whileTap={universalTouchSquash}
           >
-            <span className="cta-full">BOOK APPOINTMENT</span>
-            <span className="cta-short">BOOK NOW</span>
+            <span className="cta-full">BOOK CONSULTATION</span>
+            <span className="cta-short">CONSULT</span>
             <ArrowUpRightIcon size={10} color="#FFFFFF" />
           </motion.a>
 
@@ -79,7 +79,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE SERIF DRAWER (< 740PX) */}
+      {/* MOBILE SERIF DRAWER */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.nav 

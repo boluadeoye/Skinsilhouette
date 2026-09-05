@@ -10,14 +10,14 @@
 
 .social-journey-head h2 {
   font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 5.2vw, 3rem); /* Calibrated scale prevents single-word breaks */
+  font-size: clamp(1.75rem, 5.2vw, 3rem);
   color: var(--dark-onyx);
   font-weight: 700;
   line-height: 1.18;
-  margin-bottom: 1.35rem; /* Balanced breathing space */
+  margin-bottom: 1.35rem;
 }
 
-/* CENTER-SYMMETRICAL PARAGRAPH CONTAINER (NO FLEXBOX TRAP) */
+/* CENTER-SYMMETRICAL PARAGRAPH CONTAINER */
 .social-handle-badge {
   font-family: var(--font-sans);
   font-size: clamp(0.88rem, 2.2vw, 0.98rem);
@@ -25,7 +25,7 @@
   line-height: 1.65;
   max-width: 520px;
   margin: 0 auto;
-  display: block; /* Pure block flow ensures symmetrical line wrapping */
+  display: block;
   text-align: center;
 }
 
@@ -39,11 +39,13 @@
   color: var(--dark-onyx);
 }
 
-/* INLINE ICON ANCHOR: PERMANENTLY ATTACHED TO "FOLLOW" */
+/* OPTICALLY BALANCED INLINE ICON ANCHOR (NUDGED UP TO MATCH CAPITAL 'F') */
 .insta-icon-inline {
-  display: inline-block;
-  vertical-align: -2px;
-  margin-right: 7px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  transform: translateY(-1.5px); /* Micro-nudge upward aligns with cap-height */
+  margin-right: 6px;
 }
 
 .social-dual-frame {

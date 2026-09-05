@@ -2,8 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRightIcon } from './Icons.jsx';
+import { BOOKING_URL } from '../data/content.js';
 import { universalTouchSquash, SPRINGS } from '../utils/motion.js';
 import './Navbar.css';
+
+const NAV_LINKS = [
+  { path: '/', label: 'Home' },
+  { path: '/about', label: 'About' },
+  { path: '/services', label: 'Treatments' },
+  { path: '/blog', label: 'Blog' },
+  { path: '/contact', label: 'Contact' }
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,32 +39,27 @@ export default function Navbar() {
           </Link>
         </motion.div>
 
-        {/* DESKTOP SERIF NAVIGATION LINKS */}
+        {/* DESKTOP 5-LINK SERIF MENU */}
         <nav className="navbar-links">
-          {['/', '/services', '/works', '/about', '/blog', '/contact'].map((path) => {
-            const labels = { 
-              '/': 'Home', 
-              '/services': 'Services', 
-              '/works': 'Our Works', 
-              '/about': 'About', 
-              '/blog': 'Blog', 
-              '/contact': 'Contact' 
-            };
-            const isActive = path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
+          {NAV_LINKS.map(({ path, label }) => {
+            const isActive = path === '/' 
+              ? location.pathname === '/' 
+              : (location.pathname.startsWith(path) || (path === '/services' && location.pathname.startsWith('/treatments')));
+
             return (
               <motion.div key={path} whileHover={{ y: -2 }} whileTap={universalTouchSquash}>
                 <Link to={path} className={isActive ? 'active' : ''}>
-                  {labels[path]}
+                  {label}
                 </Link>
               </motion.div>
             );
           })}
         </nav>
 
-        {/* ACTIONS: "BOOK CONSULTATION" */}
+        {/* LIVE FACES CONSENT BOOKING CTA */}
         <div className="navbar-actions">
           <motion.a
-            href="https://wa.me/2348140000000"
+            href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-nav-cta"
@@ -89,12 +93,11 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={SPRINGS.extremeBouncy}
           >
-            <Link to="/">Home</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/works">Our Works</Link>
-            <Link to="/about">About</Link>
-            <Link to="/blog">Blog</Link>
-            <Link to="/contact">Contact</Link>
+            {NAV_LINKS.map(({ path, label }) => (
+              <Link key={path} to={path}>
+                {label}
+              </Link>
+            ))}
           </motion.nav>
         )}
       </AnimatePresence>

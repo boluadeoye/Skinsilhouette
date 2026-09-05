@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import KineticText from '../components/KineticText.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
-import { CLINIC_CONTENT } from '../data/content.js';
+import { CLINIC_CONTENT, BOOKING_URL } from '../data/content.js';
 import { ASSETS } from '../assets.js';
 import { universalTouchSquash } from '../utils/motion.js';
 import './BlogDetail.css';
@@ -72,23 +72,23 @@ export default function BlogDetail() {
         </div>
       </section>
 
-      {/* RESTORING YOUTH WITH 50+ PATIENTS & BOOK CONSULTATION */}
+      {/* RESTORING YOUTH WITH NEW HEADLINE & COPY */}
       <section className="blog-detail-ry-section">
         <div className="container">
           <div className="blog-detail-ry-white-card">
             <div className="blog-detail-ry-flex-wrapper">
               <div className="blog-detail-ry-text-block">
                 <span className="ry-gold-badge">ADVANCED AESTHETIC CLINIC</span>
-                <h2 className="ry-title-dark">RESTORING YOUR<br />YOUTH IS ONE<br />CALL AWAY</h2>
+                <h2 className="ry-title-dark">Your Treatment Begins<br />With a Consultation.</h2>
                 <p className="ry-desc-dark">
-                  On your first visit to the clinic, you will receive a consultation with a specialist.
+                  Individualised recommendations. Evidence-led treatment. No pressure.
                 </p>
                 <div className="ry-metrics-row-dark">
                   <div className="ry-metric-dark"><h3>50+</h3><p>PATIENTS TREATED</p></div>
                   <div className="ry-metric-dark"><h3>5.0</h3><p>STAR REVIEWS</p></div>
                 </div>
                 <div className="ry-btn-wrap">
-                  <a href="https://wa.me/2348140000000" target="_blank" rel="noopener noreferrer" className="btn-ry-black">
+                  <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-ry-black">
                     Book Consultation
                   </a>
                 </div>

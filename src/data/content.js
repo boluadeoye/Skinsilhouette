@@ -1,8 +1,10 @@
+export const BOOKING_URL = "https://facesconsent.com/v1/bookings/SkinSilhouetteAesthetics?clinicSlug=skin-silhouette-aesthetics-a37768132a8a";
+
 export const CLINIC_CONTENT = {
   about: {
     badge: "• About",
     tagline: "Personalised Care. Clinically Led.",
-    title: "Clinical Aesthetics, Considered Around You.",
+    title: "Clinical Aesthetics, Tailored to You.",
     p1: "Skin Silhouette Aesthetics is a nurse-led aesthetics and skin clinic providing personalised, evidence-based care with a strong focus on clinical excellence and individuality. The clinic offers a considered range of advanced skin, regenerative and injectable treatments, tailored to individual skin needs, concerns and aesthetic goals. With a particular understanding of melanin-rich skin and diverse skin tones, Skin Silhouette Aesthetics provides inclusive care across all complexions and skin types.",
     p2: "Our approach is consultation-led, combining clinical knowledge with ethical treatment planning, transparency, client education and continuity of care. Rather than following trends or adopting a one-size-fits-all approach, we prioritise appropriate intervention, long-term skin health and individualised outcomes. We provide a professional, discreet and highly personalised standard of care, with your safety, individuality and best interests at the centre of every decision.",
     practitioner_statement: "We provide a professional, discreet and highly personalised standard of care, with your safety, individuality and best interests at the centre of every decision."
@@ -12,13 +14,13 @@ export const CLINIC_CONTENT = {
     vision: "To shape the future of aesthetics and skin health by advancing standards in clinical excellence, innovation, inclusivity and ethical practice, creating better and more individualised outcomes for every client."
   },
   contactInfo: {
-    email: "hello@skinsilhouetteaesthestics.co.uk",
-    phone: "+234 812 582 1771",
+    email: "hello@skinsilhouetteaesthetics.co.uk",
+    phone: "+44 7474 578572",
     location: "Birmingham, United Kingdom"
   },
   stats: [
     { number: "6yrs+", label: "Clinical experience" },
-    { number: "100%", label: "Safety record" },
+    { number: "NMC", label: "Registered" }, // Replaced 100% Safety Record
     { number: "Nurse-Led", label: "Bespoke Care" },
     { number: "Dedicated", label: "After care" }
   ],
@@ -65,7 +67,7 @@ export const CLINIC_CONTENT = {
   bookingFAQs: [
     {
       q: "How do I book a consultation?",
-      a: "Consultations can be booked online through our booking system. Select your preferred treatment and choose an available date."
+      a: "Consultations can be booked online through our Faces Consent booking portal. Select your preferred treatment and choose an available date."
     },
     {
       q: "Do I need to pay a booking fee?",

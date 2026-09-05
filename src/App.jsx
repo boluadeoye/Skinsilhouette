@@ -28,16 +28,20 @@ export default function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+            <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+            
+            {/* TREATMENTS / SERVICES CANONICAL AND ALIAS ROUTES */}
             <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
+            <Route path="/treatments" element={<PageTransition><Services /></PageTransition>} />
             <Route path="/services/:slug" element={<PageTransition><LaserHairRemoval /></PageTransition>} />
+            <Route path="/treatments/:slug" element={<PageTransition><LaserHairRemoval /></PageTransition>} />
+            
+            {/* CASE STUDIES & WORKS */}
             <Route path="/works" element={<PageTransition><Works /></PageTransition>} />
             <Route path="/works/:slug" element={<PageTransition><Hydrofacial /></PageTransition>} />
-            <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+            
             <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
-            
-            {/* OFFICIAL BLOG DETAIL ROUTE */}
             <Route path="/blog/:slug" element={<PageTransition><BlogDetail /></PageTransition>} />
-            
             <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
             <Route path="/terms" element={<PageTransition><Terms /></PageTransition>} />
             <Route path="/privacy" element={<PageTransition><Privacy /></PageTransition>} />

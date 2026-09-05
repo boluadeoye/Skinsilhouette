@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import MagneticButton from './MagneticButton.jsx';
+import { BOOKING_URL } from '../data/content.js';
 import './CtaBanner.css';
 
 export default function CtaBanner() {
@@ -24,7 +25,7 @@ export default function CtaBanner() {
           </div>
           <div className="cta-action">
             <MagneticButton
-              href="https://wa.me/2348140000000"
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-pill-black"

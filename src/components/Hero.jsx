@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import KineticText from './KineticText.jsx';
 import MagneticButton from './MagneticButton.jsx';
 import { ArrowRightIcon } from './Icons.jsx';
+import { BOOKING_URL } from '../data/content.js';
 import './Hero.css';
 
 export default function Hero() {
@@ -11,14 +12,13 @@ export default function Hero() {
       <div className="container">
         <div className="luxury-hero-content">
           
-          {/* VERBATIM HOMEPAGE HEADING */}
+          {/* ADJUSTED HOMEPAGE HEADLINE */}
           <KineticText 
-            text="Clinical Aesthetics, Considered Around You." 
+            text="Clinical Aesthetics, Tailored to You." 
             className="luxury-hero-title"
             tag="h1"
           />
 
-          {/* VERBATIM HOMEPAGE SUBTEXT */}
           <motion.p 
             className="luxury-hero-sub"
             initial={{ opacity: 0, y: 35 }}
@@ -28,7 +28,6 @@ export default function Hero() {
             Nurse-led, evidence-based skin, regenerative and injectable treatments tailored to your individual needs.
           </motion.p>
 
-          {/* VERBATIM BUTTON LABELS WITH VECTOR ARROW */}
           <motion.div 
             className="luxury-hero-btns"
             initial={{ opacity: 0, y: 40 }}
@@ -37,10 +36,12 @@ export default function Hero() {
           >
             <MagneticButton href="#services" className="btn-luxury-white" strength={20}>
               <span>Explore Treatments</span>
-              <ArrowRightIcon size={13} color="currentColor" />
+              <ArrowRightIcon size={14} color="currentColor" />
             </MagneticButton>
+            
+            {/* LIVE FACES CONSENT BOOKING LINK */}
             <MagneticButton 
-              href="https://wa.me/2348140000000" 
+              href={BOOKING_URL}
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn-luxury-outline"

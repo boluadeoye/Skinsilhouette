@@ -15,7 +15,7 @@ export const ASSETS = {
   available_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788169316/blog_assets/szow5k7cnsvbohml3q0m.jpg", // Skin Remodelling
   available_3: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614410/blog_assets/ug9n4ftwuhmetl1jkgkp.jpg", // Anti-Wrinkle (White Lady)
 
-  // Restoring Youth Breakout Specific Assets (Homepage Uses Branded Mirror for Sleek Landscape Breakout)
+  // Restoring Youth Breakout Specific Assets
   ry_home: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788514772/blog_assets/qw97siv6ch1iiy2oqonp.jpg",
   ry_services: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788270248/blog_assets/drptucb1bdjdg3wffyx3.jpg",
   ry_works: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788270422/blog_assets/zmev94jazzlk9e7tdun8.jpg",
@@ -80,11 +80,13 @@ export const ASSETS = {
   social_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787914771/blog_assets/nx5fosjxe8b9sxj9bgws.jpg",
   works_redhead: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788173271/blog_assets/mc9z4rxslrmutkld5y4t.jpg",
 
-  // 4 NEW TRANSPARENT ACCREDITATION BADGE LOGOS (OLD LOGOS FULLY PURGED) [1]
+  // 6 OFFICIAL VERIFIED TRANSPARENT ACCREDITATION LOGOS (1 REPLACED + 2 ADDED) [1]
   honours: [
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614152/blog_assets/m6rfidygq41m00wmqiru.png",
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614141/blog_assets/j6g7uy566bqspucbprc3.png",
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614128/blog_assets/eeqd85ysl3uwo0dkoxdk.png",
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614115/blog_assets/eet69hk5vaaflnhl6xqv.png"
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788634288/blog_assets/oact7nx52ucdq4fmmxuh.png", // Replacement logo
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614141/blog_assets/j6g7uy566bqspucbprc3.png", // Capsule Clinics
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614128/blog_assets/eeqd85ysl3uwo0dkoxdk.png", // NMC (Nursing & Midwifery Council)
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614115/blog_assets/eet69hk5vaaflnhl6xqv.png", // Derma
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788634426/blog_assets/ntxbdqouw638cqzwvomy.png", // New accreditation 1
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788634308/blog_assets/p84hy5slcbfmjncpksbt.png"  // New accreditation 2
   ]
 };

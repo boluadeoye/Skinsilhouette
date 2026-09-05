@@ -1,52 +1,61 @@
 .social-journey-section {
-  padding: clamp(4rem, 8vw, 6rem) 0;
+  padding: clamp(4.5rem, 8vw, 6.5rem) 0;
   background: var(--bg-nude);
-  width: 100%;
-  overflow: hidden;
 }
 
 .social-journey-head {
   text-align: center;
   margin-bottom: 3.5rem;
-  padding: 0 1.5rem;
 }
 
 .social-journey-head h2 {
   font-family: var(--font-serif);
   font-size: clamp(2.2rem, 4.5vw, 3.2rem);
   color: var(--dark-onyx);
+  font-weight: 700;
   margin-bottom: 0.85rem;
-  font-weight: 600;
 }
 
 .social-handle-badge {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--primary-gold);
+  font-size: clamp(0.88rem, 2vw, 1rem);
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 580px;
+  margin: 0 auto;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  text-transform: lowercase;
-  letter-spacing: 0.05em;
+}
+
+.social-handle-badge a:hover {
+  color: var(--dark-onyx);
 }
 
 .social-dual-frame {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0 !important;
-  max-width: 1140px;
+  max-width: 1040px;
   margin: 0 auto;
-  background: var(--dark-onyx);
-  box-shadow: 0 25px 50px rgba(12, 6, 8, 0.08);
+  border-radius: 0px !important;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(12, 6, 8, 0.08);
+}
+
+@media (min-width: 740px) {
+  .social-dual-frame {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .social-feature-card {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  border-radius: 0 !important;
-  overflow: hidden;
   width: 100%;
+  aspect-ratio: 4 / 3.2;
+  overflow: hidden;
+  background: var(--bg-sand);
+  border-radius: 0px !important;
 }
 
 .social-feature-card img {
@@ -54,26 +63,5 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 0 !important;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.social-feature-card:hover img {
-  transform: scale(1.05);
-}
-
-@media (min-width: 740px) {
-  .social-dual-frame {
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
-  }
-  .social-feature-card:first-child {
-    margin-right: -0.5px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .social-dual-frame {
-    max-width: 1280px;
-  }
+  border-radius: 0px !important;
 }

@@ -33,9 +33,9 @@ export default function Footer() {
             <h4 className="footer-col-title">Quick Links</h4>
             <ul className="footer-links">
               <li><Link to="/" onClick={scrollToTop}>Home</Link></li>
-              <li><Link to="/services" onClick={scrollToTop}>Services</Link></li>
-              <li><Link to="/works" onClick={scrollToTop}>Our Works</Link></li>
               <li><Link to="/about" onClick={scrollToTop}>About</Link></li>
+              <li><Link to="/services" onClick={scrollToTop}>Treatments</Link></li>
+              <li><Link to="/blog" onClick={scrollToTop}>Blog</Link></li>
             </ul>
           </motion.div>
 
@@ -50,10 +50,11 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* CONTACT LIST WITH BIRMINGHAM & VERBATIM EMAIL */}
+          {/* CONTACT LIST WITH VERBATIM DATA */}
           <motion.div className="footer-col" variants={staggerCardExtreme}>
             <h4 className="footer-col-title">Contact Us</h4>
             <ul className="footer-links footer-contact-list">
+              
               <motion.li className="footer-contact-item" whileHover={{ x: 6 }} whileTap={universalTouchSquash}>
                 <svg className="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <rect x="2" y="4" width="20" height="16" rx="0"></rect>
@@ -69,7 +70,9 @@ export default function Footer() {
                   <rect x="5" y="2" width="14" height="20" rx="2"></rect>
                   <line x1="12" y1="18" x2="12.01" y2="18"></line>
                 </svg>
-                <span>{phone}</span>
+                <a href="tel:+447474578572" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  {phone}
+                </a>
               </motion.li>
 
               <motion.li className="footer-contact-item" whileHover={{ x: 6 }} whileTap={universalTouchSquash}>

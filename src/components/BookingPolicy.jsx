@@ -1,15 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import MagneticButton from './MagneticButton.jsx';
-import { universalTouchSquash } from '../utils/motion.js';
+import { BOOKING_URL } from '../data/content.js';
 import './BookingPolicy.css';
 
 export default function BookingPolicy() {
   return (
     <section className="booking-policy-section">
       <div className="container">
-        
-        {/* ELASTIC SCALE & LAUNCH */}
         <motion.div 
           className="booking-policy-card"
           initial={{ opacity: 0, scale: 0.88, y: 50 }}
@@ -18,7 +16,6 @@ export default function BookingPolicy() {
           transition={{ type: "spring", stiffness: 180, damping: 16 }}
           whileHover={{ scale: 1.01 }}
         >
-          
           <div className="policy-info-col">
             <motion.div 
               className="policy-info-icon-wrap" 
@@ -40,7 +37,7 @@ export default function BookingPolicy() {
 
           <div className="policy-action-col">
             <MagneticButton
-              href="https://wa.me/2348140000000?text=Hi,%20I%20would%20like%20to%20secure%20a%20date%20for%20my%20treatment%20session."
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secure-date"
@@ -49,7 +46,6 @@ export default function BookingPolicy() {
               Secure Date
             </MagneticButton>
           </div>
-
         </motion.div>
       </div>
     </section>

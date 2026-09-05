@@ -12,23 +12,32 @@ export default function InstagramGrid() {
       <div className="container">
         
         <div className="social-journey-head">
-          <KineticText text="Follow Our Beauty Journey" tag="h2" />
+          {/* UPDATED HEADING */}
+          <KineticText text="Inside Skin Silhouette" tag="h2" />
+          
+          {/* UPDATED SUBTEXT DIRECTIVE */}
           <motion.p 
             className="social-handle-badge"
-            initial={{ scale: 0.8, opacity: 0 }}
+            initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            transition={{ type: "spring", stiffness: 260, damping: 16 }}
           >
-            {/* IMMUNIZED VECTOR CAMERA ICON (NO EMOJI) */}
-            <CameraIcon size={14} color="var(--primary-gold)" />
-            <span>@skinsilhouette</span>
+            <CameraIcon size={15} color="var(--primary-gold)" />
+            <a 
+              href="https://instagram.com/skinsilhouetteaesthetics" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              Follow @skinsilhouetteaesthetics for clinic updates, treatment insights and skin education.
+            </a>
           </motion.p>
         </div>
 
         <motion.div 
           className="social-dual-frame"
-          initial={{ opacity: 0, scale: 0.88, y: 50 }}
+          initial={{ opacity: 0, scale: 0.9, y: 50 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ type: "spring", stiffness: 140, damping: 16 }}

@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import KineticText from '../components/KineticText.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import { ASSETS } from '../assets.js';
+import { BOOKING_URL } from '../data/content.js';
 import { staggerGridContainer, staggerCardExtreme, universalTouchSquash } from '../utils/motion.js';
 import './Works.css';
 
-/* PURGED PLASTIC SURGERY CATEGORY */
 const CATEGORIES = ["All", "Consultation", "Treatments", "Injectables", "Cosmetology"];
 
 const WORKS_ITEMS = [
@@ -136,23 +136,25 @@ export default function Works() {
         </div>
       </section>
 
-      {/* RESTORING YOUTH BREAKOUT VARIANT (50+ PATIENTS & BOOK CONSULTATION) */}
+      {/* RESTORING YOUTH BREAKOUT VARIANT */}
       <section className="works-ry-section">
         <div className="container">
           <div className="works-ry-grid-master">
             <div className="works-ry-dark-card">
               <div className="works-ry-content">
                 <span className="ry-gold-badge">ADVANCED AESTHETIC CLINIC</span>
-                <h2 className="ry-title">RESTORING YOUR<br />YOUTH IS ONE<br />CALL AWAY</h2>
+                
+                {/* UPDATED HEADING & COPY */}
+                <h2 className="ry-title">Your Treatment Begins<br />With a Consultation.</h2>
                 <p className="ry-desc">
-                  We make it a priority to not only listen to your story, but to also address any questions or concerns that you may have about the services offered at our clinic.
+                  Individualised recommendations. Evidence-led treatment. No pressure.
                 </p>
                 <div className="ry-metrics-row">
-                  <h3>50+</h3>
-                  <p>PATIENTS TREATED</p>
+                  <div className="ry-metric"><h3>50+</h3><p>PATIENTS TREATED</p></div>
+                  <div className="ry-metric"><h3>5.0</h3><p>STAR REVIEWS</p></div>
                 </div>
                 <div className="ry-btn-wrap">
-                  <a href="https://wa.me/2348140000000" target="_blank" rel="noopener noreferrer" className="btn-ry-white">
+                  <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-ry-white">
                     Book Consultation
                   </a>
                 </div>

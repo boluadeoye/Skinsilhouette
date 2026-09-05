@@ -1,10 +1,12 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ASSETS } from '../assets.js';
+import { BOOKING_URL } from '../data/content.js';
+import { universalTouchSquash } from '../utils/motion.js';
 import './RestoringYouth.css';
 
 export default function RestoringYouth({ customImage }) {
-  // Uses customImage if passed, defaults to the new asset
-  const activeSrc = customImage || ASSETS.ry_home || ASSETS.works_redhead;
+  const activeSrc = customImage || ASSETS.ry_home;
 
   return (
     <section className="ry-boundary-section">
@@ -16,12 +18,14 @@ export default function RestoringYouth({ customImage }) {
             <div className="ry-content-inner">
               <span className="ry-gold-badge">ADVANCED AESTHETIC CLINIC</span>
               
+              {/* UPDATED HEADING */}
               <h2 className="ry-title">
-                RESTORING YOUR<br />YOUTH IS ONE<br />CALL AWAY
+                Your Treatment Begins<br />With a Consultation.
               </h2>
               
+              {/* UPDATED SUBTEXT DIRECTIVE */}
               <p className="ry-desc">
-                We make it a priority to not only listen to your story, but to also address any questions or concerns that you may have about the services offered at our clinic.
+                Individualised recommendations. Evidence-led treatment. No pressure.
               </p>
               
               {/* METRIC: 50+ PATIENTS TREATED */}
@@ -36,26 +40,28 @@ export default function RestoringYouth({ customImage }) {
                 </div>
               </div>
 
-              {/* ACTION: BOOK CONSULTATION */}
+              {/* ACTION: BOOK CONSULTATION LINKING TO FACES CONSENT */}
               <div className="ry-btn-wrap">
-                <a 
-                  href="https://wa.me/2348140000000" 
+                <motion.a 
+                  href={BOOKING_URL} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn-ry-white"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={universalTouchSquash}
                 >
                   Book Consultation
-                </a>
+                </motion.a>
               </div>
             </div>
           </div>
 
-          {/* SINGLE CLEAN TALL IMAGE (PIP REMOVED) */}
+          {/* TALL BREAKOUT MEDIA COLUMN */}
           <div className="ry-media-col">
             <div className="ry-image-frame">
               <img 
                 src={activeSrc} 
-                alt="Skin Silhouette Aesthetics Clinical Result" 
+                alt="Skin Silhouette Aesthetics Clinical Excellence" 
                 className="ry-fused-img"
                 loading="lazy" 
               />

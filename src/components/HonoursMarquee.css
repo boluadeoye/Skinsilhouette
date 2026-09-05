@@ -1,6 +1,10 @@
+/* ==========================================================================
+   HONOURS MARQUEE: TRANSPARENT ACCREDITATIONS & OPTICAL PROPORTIONING
+   ========================================================================== */
+
 .honours-section {
-  padding: clamp(4rem, 6vw, 6rem) 0;
-  background: var(--bg-sand) !important; /* Solid tonal band */
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+  background: var(--bg-sand) !important;
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
   width: 100%;
@@ -34,37 +38,60 @@
 
 .honours-marquee-track {
   display: flex;
-  gap: 3.5rem;
-  animation: honours-scroll 45s linear infinite;
+  gap: 3rem;
+  animation: honours-scroll 35s linear infinite;
   will-change: transform;
+  align-items: center;
 }
 
 @keyframes honours-scroll {
   0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(-33.333%, 0, 0); }
 }
 
 .brand-img-wrap {
-  width: 180px;
+  width: 170px;
   height: 65px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  padding: 0.5rem;
 }
 
+/* BASE LOGO STYLES (OCN & CAPSULE CLINICS REMAIN AT 1.0 SCALE) */
 .brand-img-wrap img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  filter: none !important;
+  opacity: 1 !important;
+  transition: transform 0.3s ease;
+}
+
+.brand-img-wrap:hover img {
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   TARGETED OPTICAL BOOST: DERMA & NMC LOGOS ONLY (+38% SCALE)
+   ========================================================================== */
+.brand-img-wrap.brand-img-enlarged img {
+  transform: scale(1.38) !important; /* Expands visual surface area by 38% */
+  transform-origin: center center !important;
+}
+
+.brand-img-wrap.brand-img-enlarged:hover img {
+  transform: scale(1.46) !important; /* Preserves smooth relative hover scaling */
 }
 
 @media (min-width: 740px) {
   .honours-marquee-track {
-    gap: 7rem !important;
+    gap: 5.5rem !important;
   }
+  
   .brand-img-wrap {
-    width: 280px !important;
-    height: 110px !important;
+    width: 240px !important;
+    height: 95px !important;
   }
 }

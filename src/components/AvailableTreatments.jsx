@@ -21,14 +21,15 @@ export default function AvailableTreatments() {
 
         <div className="available-asym-layout">
           
-          {/* CARD 1: MALE PROCEDURE SHOT (PROMINENT TITLE OVERLAY + NO EMOJIS) */}
+          {/* CARD 1: HIGH-ACTION MALE PROCEDURE SHOT (PROMINENT TITLE OVERLAY + NO EMOJIS) */}
           <motion.div 
             className="available-card-large" 
             whileTap={universalTouchSquash}
           >
             <div className="dark-foreground-overlay"></div>
-            <img src={ASSETS.available_1} alt="Regenerative Injectables Procedure" loading="lazy" />
+            <img src={ASSETS.available_1} alt="Regenerative Injectables Clinical Treatment" loading="lazy" />
             
+            {/* GUARANTEED TITLE & TAG VISIBILITY ON ALL VIEWPORTS [1] */}
             <div className="card-content-top">
               <span className="card-tag">INJECTABLES</span>
               <h3 className="card-title">Regenerative Injectables</h3>
@@ -44,20 +45,20 @@ export default function AvailableTreatments() {
 
           <div className="available-right-stack">
             
-            {/* CARD 2 */}
+            {/* CARD 2: SKIN REMODELLING */}
             <motion.div className="available-card-small" whileTap={universalTouchSquash}>
               <img src={ASSETS.available_2} alt="Skin Remodelling Treatments" loading="lazy" />
               <div className="card-overlay-content">
                 <span className="card-tag">TREATMENTS</span>
                 <h3 className="card-title-small">Skin Remodelling Treatments</h3>
-                <a href="/services/hydrofacial" className="book-link">
+                <a href="/services/laser-hair-removal" className="book-link">
                   <span>BOOK NOW</span>
                   <ArrowUpRightIcon size={12} color="#FFFFFF" />
                 </a>
               </div>
             </motion.div>
 
-            {/* CARD 3: ANTI-WRINKLE TREATMENTS (HYPHENATED & PLURAL) */}
+            {/* CARD 3: ANTI-WRINKLE TREATMENTS (WHITE LADY CLINICAL SHOT) */}
             <motion.div className="available-card-small" whileTap={universalTouchSquash}>
               <img src={ASSETS.available_3} alt="Anti-Wrinkle Treatments" loading="lazy" />
               <div className="card-overlay-content">

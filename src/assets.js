@@ -6,17 +6,17 @@ export const ASSETS = {
   laser_hiw: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788277702/blog_assets/q8s1q6qmbxiodktrkuad.jpg",
   works_hero: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788260862/blog_assets/dkpebhhurctjz5chzcrt.jpg",
 
-  // Official About Page Assets
+  // Official About Page Hero (Branded Mirror & Juvéderm Box)
   about_hero: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788514772/blog_assets/qw97siv6ch1iiy2oqonp.jpg",
   about_mission: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788270022/blog_assets/awjdwnovec0q8u75fudh.jpg",
 
   // Our Treatments Homepage Assets
-  available_1: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788514765/blog_assets/d8t3cabf3slym255awyx.jpg",
-  available_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788169316/blog_assets/szow5k7cnsvbohml3q0m.jpg",
-  available_3: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788169327/blog_assets/avbqlkjjpb4llzqv7rob.jpg",
+  available_1: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788514765/blog_assets/d8t3cabf3slym255awyx.jpg", // Male Injectable Procedure
+  available_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788169316/blog_assets/szow5k7cnsvbohml3q0m.jpg", // Skin Remodelling
+  available_3: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614410/blog_assets/ug9n4ftwuhmetl1jkgkp.jpg", // Anti-Wrinkle (White Lady)
 
-  // Restoring Youth Breakout Specific Assets
-  ry_home: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788173271/blog_assets/mc9z4rxslrmutkld5y4t.jpg",
+  // Restoring Youth Breakout Specific Assets (Homepage Uses Branded Mirror for Sleek Landscape Breakout)
+  ry_home: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788514772/blog_assets/qw97siv6ch1iiy2oqonp.jpg",
   ry_services: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788270248/blog_assets/drptucb1bdjdg3wffyx3.jpg",
   ry_works: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788270422/blog_assets/zmev94jazzlk9e7tdun8.jpg",
 
@@ -28,7 +28,7 @@ export const ASSETS = {
   case_study_work_main: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788276151/blog_assets/yxbwagcxigxeg4yvw94e.jpg",
   case_study_ry_body: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788276161/blog_assets/daksslleivbjp6dbjbr5.jpg",
 
-  // Hydrofacial Case Study "THE WORK" 4-Mosaic Grid (ACTIVE ASSETS RESTORED) [1]
+  // Hydrofacial Case Study "THE WORK" 4-Mosaic Grid
   hydro_work_face: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788276151/blog_assets/yxbwagcxigxeg4yvw94e.jpg",
   hydro_mosaic_1: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788279959/blog_assets/kxhxuefkgulnqxqknqim.jpg",
   hydro_mosaic_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788279966/blog_assets/ggh2ztjjromktru2djuq.jpg",
@@ -80,12 +80,11 @@ export const ASSETS = {
   social_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787914771/blog_assets/nx5fosjxe8b9sxj9bgws.jpg",
   works_redhead: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788173271/blog_assets/mc9z4rxslrmutkld5y4t.jpg",
 
-  // Honours Logos
+  // 4 NEW TRANSPARENT ACCREDITATION BADGE LOGOS (OLD LOGOS FULLY PURGED) [1]
   honours: [
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787570892/blog_assets/es9ypwvd4uzyfjkvznze.png",
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787570902/blog_assets/yhftfezrzkojbm3zqhgq.png",
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787570924/tsuydhgayf5oqlefpxcv.png",
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787570972/blog_assets/fkco3oyagrhjidamtzdx.png",
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787570979/blog_assets/g2gzkt4bnbrasax9kugs.png"
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614152/blog_assets/m6rfidygq41m00wmqiru.png",
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614141/blog_assets/j6g7uy566bqspucbprc3.png",
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614128/blog_assets/eeqd85ysl3uwo0dkoxdk.png",
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614115/blog_assets/eet69hk5vaaflnhl6xqv.png"
   ]
 };

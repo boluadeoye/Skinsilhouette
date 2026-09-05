@@ -3,10 +3,8 @@ import { ASSETS } from '../assets.js';
 import './HonoursMarquee.css';
 
 export default function HonoursMarquee() {
-  const doubled = [...ASSETS.honours, ...ASSETS.honours, ...ASSETS.honours];
-  
-  // Surgically filter out Tile 3 (index 2) and Tile 8 (index 7) from rendering
-  const filteredTrack = doubled.filter((_, i) => i !== 2 && i !== 7);
+  // Triple the 4 verified logos for a seamless infinite loop
+  const marqueeTrack = [...ASSETS.honours, ...ASSETS.honours, ...ASSETS.honours];
 
   return (
     <section className="honours-section">
@@ -17,12 +15,19 @@ export default function HonoursMarquee() {
 
       <div className="marquee-container">
         <div className="honours-marquee-track">
-          {filteredTrack.map((img, i) => (
-            <div key={i} className="brand-img-wrap">
-              {/* Purged explicit text fallback: alt is set empty so the browser remains silent if a network lag occurs */}
-              <img src={img} alt="" loading="lazy" />
-            </div>
-          ))}
+          {marqueeTrack.map((img, i) => {
+            // Target ONLY Derma (eet69hk5vaaflnhl6xqv) and NMC (eeqd85ysl3uwo0dkoxdk)
+            const isEnlarged = img.includes('eet69hk5vaaflnhl6xqv') || img.includes('eeqd85ysl3uwo0dkoxdk');
+
+            return (
+              <div 
+                key={i} 
+                className={`brand-img-wrap ${isEnlarged ? 'brand-img-enlarged' : ''}`}
+              >
+                <img src={img} alt="" loading="lazy" />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

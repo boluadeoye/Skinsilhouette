@@ -16,11 +16,13 @@ export default function CtaBanner() {
           transition={{ type: "spring", stiffness: 120, damping: 20 }}
         >
           <div className="cta-text">
+            {/* CLINICAL LUXURY HEADLINE */}
             <h2 className="cta-heading">
-              Planning Your Next<br />Brand Activation?
+              Ready to Begin Your<br />Skin Journey?
             </h2>
+            {/* BESPOKE CLINICAL SUBTEXT */}
             <p className="cta-subtext">
-              Tell us and we'll help you turn the idea into a memorable brand experience.
+              Book a comprehensive consultation with our nurse-led clinic for an individualised, evidence-based treatment plan tailored to you.
             </p>
           </div>
           <div className="cta-action">

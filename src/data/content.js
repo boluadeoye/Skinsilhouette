@@ -1,10 +1,13 @@
 export const BOOKING_URL = "https://facesconsent.com/v1/bookings/SkinSilhouetteAesthetics?clinicSlug=skin-silhouette-aesthetics-a37768132a8a";
+export const INSTAGRAM_URL = "https://www.instagram.com/skinsilhouetteaesthetics?stkn=aThtY2w1dTE4cXBo&utm_source=qr";
 
 export const CLINIC_CONTENT = {
   about: {
     badge: "• About",
     tagline: "Personalised Care. Clinically Led.",
     title: "Clinical Aesthetics, Tailored to You.",
+    // VERBATIM CONCISE ABOUT NARRATIVE
+    concise: "Skin Silhouette Aesthetics is a nurse-led clinic delivering evidence-based aesthetic, regenerative and skin treatments through individual assessment and considered treatment planning. Our approach is ethical, inclusive and centred on long-term skin health, with particular understanding of melanin-rich and diverse skin tones.",
     p1: "Skin Silhouette Aesthetics is a nurse-led aesthetics and skin clinic providing personalised, evidence-based care with a strong focus on clinical excellence and individuality. The clinic offers a considered range of advanced skin, regenerative and injectable treatments, tailored to individual skin needs, concerns and aesthetic goals. With a particular understanding of melanin-rich skin and diverse skin tones, Skin Silhouette Aesthetics provides inclusive care across all complexions and skin types.",
     p2: "Our approach is consultation-led, combining clinical knowledge with ethical treatment planning, transparency, client education and continuity of care. Rather than following trends or adopting a one-size-fits-all approach, we prioritise appropriate intervention, long-term skin health and individualised outcomes. We provide a professional, discreet and highly personalised standard of care, with your safety, individuality and best interests at the centre of every decision.",
     practitioner_statement: "We provide a professional, discreet and highly personalised standard of care, with your safety, individuality and best interests at the centre of every decision."
@@ -16,13 +19,15 @@ export const CLINIC_CONTENT = {
   contactInfo: {
     email: "hello@skinsilhouetteaesthetics.co.uk",
     phone: "+44 7474 578572",
-    location: "Birmingham, United Kingdom"
+    location: "Birmingham, United Kingdom",
+    instagramHandle: "@skinsilhouetteaesthetics"
   },
+  // 4 VERIFIED CLINICAL STATS PILLARS
   stats: [
-    { number: "6yrs+", label: "Clinical experience" },
-    { number: "NMC", label: "Registered" }, // Replaced 100% Safety Record
-    { number: "Nurse-Led", label: "Bespoke Care" },
-    { number: "Dedicated", label: "After care" }
+    { number: "NMC", label: "Registered" },
+    { number: "6+ Years", label: "Clinical Experience" },
+    { number: "Evidence-Based", label: "Practice" },
+    { number: "Dedicated", label: "Aftercare" }
   ],
   reviews: [
     {
@@ -62,20 +67,6 @@ export const CLINIC_CONTENT = {
     {
       q: "Will I look overdone?",
       a: "Our approach is subtle and considered. Every treatment is tailored to your individual features with the aim of enhancing, not changing, what makes you uniquely you."
-    }
-  ],
-  bookingFAQs: [
-    {
-      q: "How do I book a consultation?",
-      a: "Consultations can be booked online through our Faces Consent booking portal. Select your preferred treatment and choose an available date."
-    },
-    {
-      q: "Do I need to pay a booking fee?",
-      a: "A non-refundable booking fee of £50 is required to secure your consultation. This fee is fully deducted from your final treatment balance at checkout."
-    },
-    {
-      q: "Can I reschedule my appointment?",
-      a: "Yes. We understand that plans can change. We kindly ask for at least 48 hours' notice if you need to reschedule without forfeiting your deposit."
     }
   ]
 };

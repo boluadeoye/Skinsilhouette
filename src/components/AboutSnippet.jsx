@@ -10,7 +10,7 @@ export default function AboutSnippet() {
       <div className="container">
         <motion.div 
           className="about-floating-pod"
-          initial={{ opacity: 0, scale: 0.92, y: 40 }}
+          initial={{ opacity: 0, scale: 0.94, y: 30 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ type: "spring", stiffness: 140, damping: 18 }}
@@ -19,15 +19,15 @@ export default function AboutSnippet() {
             <span className="about-pod-badge">&bull; About</span>
           </div>
 
-          {/* VERBATIM TAGLINE REPLACEMENT */}
           <KineticText 
             text="Personalised Care. Clinically Led."
             className="about-pod-title"
             tag="h2"
           />
 
+          {/* VERBATIM CONCISE PARAGRAPH */}
           <p className="about-pod-desc">
-            {CLINIC_CONTENT.about.p1}
+            {CLINIC_CONTENT.about.concise}
           </p>
         </motion.div>
       </div>

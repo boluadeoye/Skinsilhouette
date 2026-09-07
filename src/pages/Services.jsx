@@ -4,14 +4,13 @@ import CtaBanner from '../components/CtaBanner.jsx';
 import BookingPolicy from '../components/BookingPolicy.jsx';
 import RestoringYouth from '../components/RestoringYouth.jsx';
 import Review from '../components/Review.jsx';
-import { CLINIC_CONTENT } from '../data/content.js';
+import { CLINIC_CONTENT, BOOKING_URL } from '../data/content.js';
 import { ASSETS } from '../assets.js';
 import './Services.css';
 
-/* CATEGORIES WITHOUT PLASTIC SURGERY */
 const CATEGORIES = ["All", "Consultation", "Treatments", "Injectables"];
 
-/* STRICT ORDER OF TREATMENTS */
+/* STRICT SEQUENCE OF CORE CLINICAL TREATMENTS WITH VERIFIED ASSETS */
 const SERVICES_DATA = [
   {
     id: 1,
@@ -27,7 +26,7 @@ const SERVICES_DATA = [
     category: "TREATMENTS",
     title: "Anti-Wrinkle Treatments",
     description: "Advanced clinical treatments designed to relax facial muscles, smoothing fine lines and restoring a youthful, refreshed appearance.",
-    image: ASSETS.blog_hero
+    image: ASSETS.available_3 // White Lady Shot
   },
   {
     id: 3,
@@ -35,7 +34,7 @@ const SERVICES_DATA = [
     category: "INJECTABLES",
     title: "Facial Harmonisation – Dermal Fillers",
     description: "Targeted dermal filler therapies designed to restore lost structural volume, enhance facial contours, and balance natural symmetry.",
-    image: ASSETS.blog_2
+    image: ASSETS.available_fillers // NEW CLINICAL INJECTABLE ASSET
   },
   {
     id: 4,
@@ -43,7 +42,7 @@ const SERVICES_DATA = [
     category: "TREATMENTS",
     title: "Skin Regenerative",
     description: "Cutting-edge bio-stimulators, hydrofacials, and skin boosters that trigger natural collagen synthesis and restore deep tissue elasticity.",
-    image: ASSETS.blog_3
+    image: ASSETS.available_1 // High-Action Male Procedure Shot
   }
 ];
 
@@ -98,7 +97,6 @@ export default function Services() {
         </div>
       </section>
 
-      {/* FILTERED SERVICES GRID */}
       <section className="services-grid-section">
         <div className="container">
           <div className="services-3x3-grid">
@@ -118,7 +116,6 @@ export default function Services() {
         </div>
       </section>
 
-      {/* SERVICE FAQ */}
       <section className="services-faq-section">
         <div className="container">
           <div className="faq-watermark">FAQ</div>

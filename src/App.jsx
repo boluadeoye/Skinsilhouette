@@ -30,18 +30,22 @@ export default function App() {
             <Route path="/" element={<PageTransition><Home /></PageTransition>} />
             <Route path="/about" element={<PageTransition><About /></PageTransition>} />
             
-            {/* TREATMENTS / SERVICES CANONICAL AND ALIAS ROUTES */}
+            {/* TREATMENTS / SERVICES ALIASES */}
             <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
             <Route path="/treatments" element={<PageTransition><Services /></PageTransition>} />
             <Route path="/services/:slug" element={<PageTransition><LaserHairRemoval /></PageTransition>} />
             <Route path="/treatments/:slug" element={<PageTransition><LaserHairRemoval /></PageTransition>} />
             
-            {/* CASE STUDIES & WORKS */}
+            {/* WORKS / CASE STUDIES */}
             <Route path="/works" element={<PageTransition><Works /></PageTransition>} />
             <Route path="/works/:slug" element={<PageTransition><Hydrofacial /></PageTransition>} />
             
+            {/* JOURNAL / BLOG ALIASES */}
+            <Route path="/journal" element={<PageTransition><Blog /></PageTransition>} />
             <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+            <Route path="/journal/:slug" element={<PageTransition><BlogDetail /></PageTransition>} />
             <Route path="/blog/:slug" element={<PageTransition><BlogDetail /></PageTransition>} />
+
             <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
             <Route path="/terms" element={<PageTransition><Terms /></PageTransition>} />
             <Route path="/privacy" element={<PageTransition><Privacy /></PageTransition>} />

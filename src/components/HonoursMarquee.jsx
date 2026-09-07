@@ -8,14 +8,14 @@ export default function HonoursMarquee() {
   return (
     <section className="honours-section">
       <div className="container" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-        <span className="badge-tag">Fully Certified</span>
-        <h2>Explore our honours</h2>
+        <span className="badge-tag">CLINICAL STANDARDS</span>
+        {/* REPLACED "Explore our honours" [1] */}
+        <h2>Accreditations & Certifications</h2>
       </div>
 
       <div className="marquee-container">
         <div className="honours-marquee-track">
           {marqueeTrack.map((img, i) => {
-            // Target specific scales based on unique Cloudinary hash
             const isScaleUp = img.includes('p84hy5slcbfmjncpksbt') || img.includes('eet69hk5vaaflnhl6xqv') || img.includes('eeqd85ysl3uwo0dkoxdk');
             const isScaleDown = img.includes('j6g7uy566bqspucbprc3'); // Capsule Clinics
 

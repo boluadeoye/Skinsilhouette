@@ -1,106 +1,223 @@
+/* ==========================================================================
+   LUXURY ATELIER FOOTER: MOBILE 2-COLUMN BREAK & DESKTOP SINGLE-HORIZON [1]
+   ========================================================================== */
+
 .luxury-footer {
-  background: var(--dark-onyx);
+  background-color: var(--dark-onyx);
   color: #FFFFFF;
-  padding: 5.5rem 0 2.5rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(4rem, 8vw, 6.5rem) 0 2.5rem 0;
+  width: 100%;
+  position: relative;
+  z-index: 10;
 }
 
-.footer-grid {
+/* ==========================================================================
+   MOBILE DEFAULT (< 768PX): BALANCED 2-COLUMN SITEMAP BREAK [1]
+   ========================================================================== */
+.footer-grid-4col {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 3.5rem 2rem;
-  margin-bottom: 4rem;
+  grid-template-columns: repeat(2, 1fr); /* 2 COLUMNS ON MOBILE: CUTS HEIGHT IN HALF [1] */
+  gap: 2.25rem 1.25rem;
+  margin-bottom: 3rem;
+  align-items: start;
 }
 
-.footer-brand-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+/* FULL-WIDTH SPAN FOR CONTACT & NEWSLETTER ON MOBILE [1] */
+@media (max-width: 767px) {
+  .footer-col:nth-child(3),
+  .footer-newsletter-col {
+    grid-column: span 2 !important; /* Full width prevents text squashing [1] */
+  }
+
+  .footer-links a,
+  .menu-disabled-link {
+    white-space: normal !important; /* Allows clean multi-line wrapping on tiny screens [1] */
+    line-height: 1.35 !important;
+  }
 }
 
-.footer-logo {
-  font-family: var(--font-serif);
-  font-size: 1.85rem;
-  color: #FFFFFF;
-  font-weight: 700;
+/* ==========================================================================
+   DESKTOP (>= 768PX): SINGLE CONTINUOUS 4-COLUMN HORIZON [1]
+   ========================================================================== */
+@media (min-width: 768px) {
+  .footer-grid-4col {
+    grid-template-columns: 1fr 1fr 1.25fr 1.65fr !important;
+    gap: clamp(1.25rem, 2.2vw, 2.75rem) !important;
+    margin-bottom: 3.5rem;
+  }
+
+  .footer-col:nth-child(3),
+  .footer-newsletter-col {
+    grid-column: auto !important;
+  }
 }
 
-.footer-brand-desc {
-  font-family: var(--font-sans);
-  font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.65);
-  line-height: 1.7;
-  max-width: 320px;
+@media (min-width: 1200px) {
+  .footer-grid-4col {
+    grid-template-columns: 1.1fr 1.05fr 1.35fr 1.75fr !important;
+    gap: 3.5rem !important;
+  }
 }
 
+/* COLUMN TITLES */
 .footer-col-title {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: clamp(1.05rem, 2vw, 1.18rem);
+  font-weight: 600;
   color: #FFFFFF;
-  margin-bottom: 1.75rem;
-  position: relative;
-  font-weight: 500;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .footer-links {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.75rem;
 }
 
-.footer-links a {
+.footer-links a,
+.menu-disabled-link {
   font-family: var(--font-sans);
-  font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: clamp(0.82rem, 1.8vw, 0.88rem);
+  color: rgba(255, 255, 255, 0.72);
   transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
 }
 
 .footer-links a:hover {
   color: var(--primary-gold);
-  transform: translateX(3px);
 }
 
+.coming-soon-pill {
+  font-size: 0.55rem;
+  font-weight: 700;
+  background: rgba(200, 169, 106, 0.2);
+  color: var(--primary-gold);
+  border: 1px solid var(--primary-gold);
+  padding: 2px 6px;
+  border-radius: 9999px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.highlighted-book-link {
+  color: var(--primary-gold) !important;
+  font-weight: 600;
+}
+
+/* CONTACT LIST */
 .footer-contact-list {
-  gap: 1.15rem !important;
+  gap: 1rem;
 }
 
 .footer-contact-item {
-  display: flex !important;
-  align-items: center !important;
-  gap: 1.25rem !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  font-family: var(--font-sans) !important;
-  font-size: 0.95rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: clamp(0.82rem, 1.8vw, 0.86rem);
+  color: rgba(255, 255, 255, 0.8);
+  word-break: break-word;
+}
+
+.footer-contact-item a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+.footer-contact-item a:hover {
+  color: var(--primary-gold);
 }
 
 .footer-contact-icon {
-  width: 20px !important;
-  height: 20px !important;
-  color: #FFFFFF !important;
-  flex-shrink: 0 !important;
+  width: 17px;
+  height: 17px;
+  color: var(--primary-gold);
+  flex-shrink: 0;
 }
 
-.footer-contact-icon.filled-pin {
-  width: 18px !important;
-  height: 18px !important;
+/* COLUMN 4: THE SILHOUETTE CLUB (NEWSLETTER) */
+.footer-newsletter-col {
+  width: 100%;
 }
 
-.footer-bottom-bar {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 2rem;
-  text-align: center;
-}
-
-.footer-bottom-bar p {
+.footer-club-text {
   font-family: var(--font-sans);
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: clamp(0.82rem, 1.8vw, 0.86rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 1.15rem;
+  max-width: 480px;
 }
 
-@media (min-width: 740px) {
-  .footer-grid {
-    grid-template-columns: 1.5fr repeat(3, 1fr);
-    gap: 2rem;
-  }
+.footer-success-msg {
+  background: rgba(200, 169, 106, 0.15);
+  color: var(--primary-gold);
+  border: 1px solid var(--primary-gold);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  margin-bottom: 1rem;
+}
+
+.footer-club-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.footer-club-form input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  color: #FFFFFF;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.footer-club-form input:focus {
+  border-color: var(--primary-gold);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.footer-club-btn {
+  background: var(--primary-gold);
+  color: var(--dark-onyx);
+  border: none;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.footer-club-btn:hover {
+  background: #FFFFFF;
+}
+
+/* COPYRIGHT BAR */
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.75rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
 }

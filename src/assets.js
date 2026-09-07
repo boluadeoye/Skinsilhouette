@@ -1,5 +1,4 @@
 export const ASSETS = {
-  // Hero & Sub-Hero
   hero: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788168712/blog_assets/o17pzcnqfxdnx4ujmww7.jpg",
   treatment_hydrofacial: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788169316/blog_assets/szow5k7cnsvbohml3q0m.jpg",
   laser_hero: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788277696/blog_assets/z4a3efbqff28ycbvz74n.jpg",
@@ -10,10 +9,11 @@ export const ASSETS = {
   about_hero: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788514772/blog_assets/qw97siv6ch1iiy2oqonp.jpg",
   about_mission: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788270022/blog_assets/awjdwnovec0q8u75fudh.jpg",
 
-  // Our Treatments Homepage Assets
-  available_1: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788514765/blog_assets/d8t3cabf3slym255awyx.jpg", // Male Injectable Procedure
+  // 4 Core Treatments Assets
+  available_1: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788514765/blog_assets/d8t3cabf3slym255awyx.jpg", // Male Procedure
   available_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788169316/blog_assets/szow5k7cnsvbohml3q0m.jpg", // Skin Remodelling
-  available_3: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614410/blog_assets/ug9n4ftwuhmetl1jkgkp.jpg", // Anti-Wrinkle (White Lady)
+  available_3: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614410/blog_assets/ug9n4ftwuhmetl1jkgkp.jpg", // White Lady Anti-Wrinkle
+  available_fillers: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788773709/blog_assets/onulhn92xedivnqdb0wi.jpg", // NEW Dermal Fillers Action Shot
 
   // Restoring Youth Breakout Specific Assets
   ry_home: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788514772/blog_assets/qw97siv6ch1iiy2oqonp.jpg",
@@ -35,7 +35,7 @@ export const ASSETS = {
   hydro_mosaic_3: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788279974/blog_assets/wpyfr5l2gwfoszhdlkbc.jpg",
   hydro_mosaic_4: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788280053/blog_assets/lbpizaf0ocm0fn7fght6.jpg",
 
-  // Blog Detail Specific Assets
+  // Journal / Blog Detail Specific Assets
   blog_hero: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788270488/blog_assets/gifjzn4pbpjx5bubw8tl.jpg",
   blog_1: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787907903/blog_assets/rsqcxfwmmvsdb0hjqq3w.jpg",
   blog_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787908113/blog_assets/yqr2uytxqa4r8hs643ov.jpg",
@@ -72,7 +72,6 @@ export const ASSETS = {
     "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788260763/blog_assets/oxyrpiav7q6pipyxz9c2.jpg"
   ],
 
-  // Editorial Journal & Socials
   editorial_main: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787821909/blog_assets/kmroncbaok0wf8tawd25.jpg",
   editorial_top: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787571119/blog_assets/sjlvunhz6mxxpecxzpb5.png",
   editorial_bot: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787822012/blog_assets/qkq7lykjlt4dooj9tnv1.jpg",
@@ -80,13 +79,13 @@ export const ASSETS = {
   social_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787914771/blog_assets/nx5fosjxe8b9sxj9bgws.jpg",
   works_redhead: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788173271/blog_assets/mc9z4rxslrmutkld5y4t.jpg",
 
-  // 6 OFFICIAL VERIFIED TRANSPARENT ACCREDITATION LOGOS (1 REPLACED + 2 ADDED) [1]
+  // 6 Accredited Logos
   honours: [
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788634288/blog_assets/oact7nx52ucdq4fmmxuh.png", // Replacement logo
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614141/blog_assets/j6g7uy566bqspucbprc3.png", // Capsule Clinics
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614128/blog_assets/eeqd85ysl3uwo0dkoxdk.png", // NMC (Nursing & Midwifery Council)
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614115/blog_assets/eet69hk5vaaflnhl6xqv.png", // Derma
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788634426/blog_assets/ntxbdqouw638cqzwvomy.png", // New accreditation 1
-    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788634308/blog_assets/p84hy5slcbfmjncpksbt.png"  // New accreditation 2
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788634288/blog_assets/oact7nx52ucdq4fmmxuh.png",
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614141/blog_assets/j6g7uy566bqspucbprc3.png",
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614128/blog_assets/eeqd85ysl3uwo0dkoxdk.png",
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614115/blog_assets/eet69hk5vaaflnhl6xqv.png",
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788634426/blog_assets/ntxbdqouw638cqzwvomy.png",
+    "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788634308/blog_assets/p84hy5slcbfmjncpksbt.png"
   ]
 };

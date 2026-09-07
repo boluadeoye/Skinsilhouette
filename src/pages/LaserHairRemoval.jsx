@@ -5,7 +5,7 @@ import BeforeAfterGrid from '../components/BeforeAfterGrid.jsx';
 import BookingPolicy from '../components/BookingPolicy.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import Review from '../components/Review.jsx';
-import { CLINIC_CONTENT } from '../data/content.js';
+import { CLINIC_CONTENT, BOOKING_URL } from '../data/content.js';
 import { ASSETS } from '../assets.js';
 import { universalTouchSquash } from '../utils/motion.js';
 import './LaserHairRemoval.css';
@@ -55,7 +55,7 @@ export default function LaserHairRemoval() {
   return (
     <div className="laser-page-wrapper">
       
-      {/* 1. SEAMLESS HERO SECTION */}
+      {/* 1. ASYMMETRICAL HERO SECTION */}
       <section className="laser-hero-section">
         <div className="container">
           <div className="laser-hero-grid">
@@ -80,14 +80,13 @@ export default function LaserHairRemoval() {
                 Laser hair removal is a medical procedure that uses a concentrated beam of light (laser) to remove unwanted hair.
               </p>
               
-              {/* 50+ PATIENTS TREATED */}
               <div className="ry-metrics-row">
                 <div className="ry-metric"><h3>50+</h3><p>PATIENTS TREATED</p></div>
                 <div className="ry-metric"><h3>5.0</h3><p>STAR REVIEWS</p></div>
               </div>
               <div className="laser-btn-wrap">
                 <motion.a 
-                  href="https://wa.me/2348140000000" 
+                  href={BOOKING_URL} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn-ry-white"
@@ -159,13 +158,16 @@ export default function LaserHairRemoval() {
         </div>
       </section>
 
-      {/* 4. UNIFIED DYNAMIC CLIENT REVIEW CAROUSEL */}
+      {/* 4. BOOKING POLICY BAR (MOVED IMMEDIATELY AFTER HOW IT WORKS) [1] */}
+      <BookingPolicy />
+
+      {/* 5. UNIFIED DYNAMIC CLIENT REVIEW CAROUSEL */}
       <Review />
 
-      {/* 5. BORROWED CASE STUDIES SECTION */}
+      {/* 6. BORROWED CASE STUDIES SECTION */}
       <BeforeAfterGrid title="CASE STUDIES" badge="RESULTS" />
 
-      {/* 6. SERVICE FAQ SECTION */}
+      {/* 7. SERVICE FAQ SECTION */}
       <section className="laser-faq-section">
         <div className="faq-watermark" aria-hidden="true">FAQ</div>
         <div className="container">
@@ -202,7 +204,7 @@ export default function LaserHairRemoval() {
 
             <div className="laser-faq-btn-wrap">
               <motion.a 
-                href="https://wa.me/2348140000000" 
+                href={BOOKING_URL} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn-faq-cta"
@@ -216,7 +218,7 @@ export default function LaserHairRemoval() {
         </div>
       </section>
 
-      <BookingPolicy />
+      {/* 8. CTA BANNER */}
       <CtaBanner />
 
     </div>

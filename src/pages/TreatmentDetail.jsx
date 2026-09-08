@@ -1,90 +1,105 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import KineticText from '../components/KineticText.jsx';
 import BeforeAfterGrid from '../components/BeforeAfterGrid.jsx';
 import BookingPolicy from '../components/BookingPolicy.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import Review from '../components/Review.jsx';
+import { fetchTreatmentBySlug } from '../services/api.js';
 import { CLINIC_CONTENT, BOOKING_URL } from '../data/content.js';
-import { ASSETS } from '../assets.js';
 import { universalTouchSquash } from '../utils/motion.js';
-import './LaserHairRemoval.css';
+import './TreatmentDetail.css';
 
-const LASER_HOW_IT_WORKS = [
+const TREATMENT_HOW_IT_WORKS = [
   { 
     id: "01", 
-    question: "How does the treatment work?", 
-    answer: "A concentrated beam of medical-grade laser light safely targets melanin in the hair follicle, disabling future regrowth while keeping the surrounding skin calm and protected." 
+    question: "How does the clinical procedure work?", 
+    answer: "Our medical-grade protocols target the root cellular structures to stimulate natural collagen, relax targeted muscle groups, or restore structural definition while safeguarding tissue health." 
   },
   { 
     id: "02", 
     question: "Do I need a consultation beforehand?", 
-    answer: "Yes, an initial clinical consultation is essential to evaluate your skin type, medical history, and treatment goals to design your bespoke roadmap." 
+    answer: "Yes, an initial clinical consultation is essential to evaluate your skin type, medical history, and aesthetic goals to design your bespoke roadmap." 
   },
   { 
     id: "03", 
-    question: "Is the laser procedure painful?", 
-    answer: "Our advanced laser platform features integrated contact cooling technology that continuously cools the skin surface for a comfortable, near-painless experience." 
+    question: "Is the procedure comfortable?", 
+    answer: "Client comfort is paramount. We employ integrated cooling technology and medical-grade topical anaesthetic agents to ensure an unhurried, comfortable experience." 
   }
 ];
 
-const SERVICE_FAQS = [
-  {
-    id: "01",
-    question: "How long does semi-permanent makeup last?",
-    answer: "Ombré Brows and Combo Brows typically last 1 to 2 years, depending on skin type, lifestyle, and aftercare. Regular touch-ups are recommended to maintain their appearance."
-  },
-  {
-    id: "02",
-    question: "Do I need a consultation before booking a brow service?",
-    answer: "Yes, consultations are highly recommended to assess your skin type, facial structure, and discuss your desired look to ensure the best possible aesthetic outcome."
-  },
-  {
-    id: "03",
-    question: "Is the brow procedure painful?",
-    answer: "Most clients experience minimal discomfort as a highly effective topical numbing cream is applied prior to and during the procedure."
-  }
-];
-
-export default function LaserHairRemoval() {
+export default function TreatmentDetail() {
+  const { slug } = useParams();
+  const [treatment, setTreatment] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [activeHiw, setActiveHiw] = useState(0);
   const [activeFaq, setActiveFaq] = useState(0);
 
   const clinicalFaqs = CLINIC_CONTENT.treatmentFAQs.slice(0, 3);
 
+  useEffect(() => {
+    fetchTreatmentBySlug(slug).then((data) => {
+      setTreatment(data);
+      setLoading(false);
+    });
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="treatment-detail-page-wrapper">
+        <div className="container" style={{ padding: '8rem 1.5rem', textAlign: 'center' }}>
+          <p style={{ color: 'var(--text-muted)' }}>Loading treatment from clinical records...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!treatment) {
+    return (
+      <div className="treatment-detail-page-wrapper">
+        <div className="container" style={{ padding: '8rem 1.5rem', textAlign: 'center' }}>
+          <h2>Treatment Not Found</h2>
+          <p style={{ color: 'var(--text-muted)', marginTop: '1rem' }}>The requested clinical treatment is currently unavailable.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="laser-page-wrapper">
+    <div className="treatment-detail-page-wrapper">
       
-      {/* 1. ASYMMETRICAL HERO SECTION */}
-      <section className="laser-hero-section">
+      {/* 1. ASYMMETRICAL HERO (ZERO GAP) */}
+      <section className="treatment-hero-section">
         <div className="container">
-          <div className="laser-hero-grid">
-            <motion.div 
-              className="laser-hero-media"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              <img src={ASSETS.service_detail_hero} alt="Laser Hair Removal Clinical Result" />
-            </motion.div>
+          <div className="treatment-hero-grid">
+            {treatment.image && (
+              <motion.div 
+                className="treatment-hero-media"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+              >
+                <img src={treatment.image} alt={treatment.title} />
+              </motion.div>
+            )}
 
             <motion.div 
-              className="laser-hero-card"
+              className="treatment-hero-card"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
             >
-              <span className="ry-gold-badge">LASER TREATMENTS</span>
-              <h1 className="laser-hero-title">LASER HAIR<br />REMOVAL</h1>
-              <p className="laser-hero-desc">
-                Laser hair removal is a medical procedure that uses a concentrated beam of light (laser) to remove unwanted hair.
-              </p>
-              
+              <span className="ry-gold-badge">{treatment.category}</span>
+              <h1 className="treatment-hero-title">{treatment.title}</h1>
+              {treatment.description && (
+                <p className="treatment-hero-desc">{treatment.description}</p>
+              )}
               <div className="ry-metrics-row">
                 <div className="ry-metric"><h3>50+</h3><p>PATIENTS TREATED</p></div>
                 <div className="ry-metric"><h3>5.0</h3><p>STAR REVIEWS</p></div>
               </div>
-              <div className="laser-btn-wrap">
+              <div className="treatment-btn-wrap">
                 <motion.a 
                   href={BOOKING_URL} 
                   target="_blank" 
@@ -101,25 +116,26 @@ export default function LaserHairRemoval() {
         </div>
       </section>
 
-      {/* 2. ABOUT SERVICE NARRATIVE */}
-      <section className="laser-about-section">
+      {/* 2. ABOUT SECTION */}
+      <section className="treatment-about-section">
         <div className="container">
-          <div className="laser-about-content">
-            <KineticText text="About Laser Hair Removal" className="laser-about-title" tag="h2" />
-            <p className="laser-about-text">{CLINIC_CONTENT.about.practitioner_statement}</p>
-            <p className="laser-about-text" style={{ marginTop: '1.25rem' }}>{CLINIC_CONTENT.about.p1}</p>
+          <div className="treatment-about-content">
+            <KineticText text={`About ${treatment.title}`} className="treatment-about-title" tag="h2" />
+            <p className="treatment-about-text">
+              {treatment.content || CLINIC_CONTENT.about.practitioner_statement}
+            </p>
           </div>
         </div>
       </section>
 
       {/* 3. HOW IT WORKS */}
-      <section className="laser-hiw-section">
+      <section className="treatment-hiw-section">
         <div className="container">
-          <div className="laser-hiw-card">
-            <div className="laser-hiw-left">
+          <div className="treatment-hiw-card">
+            <div className="treatment-hiw-left">
               <span className="hiw-standalone-heading">HOW IT WORKS</span>
               <div className="hiw-accordion-list">
-                {LASER_HOW_IT_WORKS.map((faq, idx) => (
+                {TREATMENT_HOW_IT_WORKS.map((faq, idx) => (
                   <div 
                     key={faq.id} 
                     className={`hiw-row ${activeHiw === idx ? 'open' : ''}`} 
@@ -145,33 +161,35 @@ export default function LaserHairRemoval() {
               </div>
             </div>
 
-            <motion.div 
-              className="laser-hiw-right"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <img src={ASSETS.service_detail_hiw} alt="Clinical Wand Procedure Action" loading="lazy" />
-            </motion.div>
+            {treatment.howItWorksImage && (
+              <motion.div 
+                className="treatment-hiw-right"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <img src={treatment.howItWorksImage} alt="Clinical Treatment Procedure" loading="lazy" />
+              </motion.div>
+            )}
           </div>
         </div>
       </section>
 
-      {/* 4. BOOKING POLICY BAR (MOVED IMMEDIATELY AFTER HOW IT WORKS) [1] */}
+      {/* 4. BOOKING POLICY (MOVED DIRECTLY AFTER HOW IT WORKS) */}
       <BookingPolicy />
 
-      {/* 5. UNIFIED DYNAMIC CLIENT REVIEW CAROUSEL */}
+      {/* 5. CLIENT REVIEWS CAROUSEL */}
       <Review />
 
-      {/* 6. BORROWED CASE STUDIES SECTION */}
+      {/* 6. CASE STUDIES SECTION */}
       <BeforeAfterGrid title="CASE STUDIES" badge="RESULTS" />
 
-      {/* 7. SERVICE FAQ SECTION */}
-      <section className="laser-faq-section">
+      {/* 7. SERVICE FAQ */}
+      <section className="treatment-faq-section">
         <div className="faq-watermark" aria-hidden="true">FAQ</div>
         <div className="container">
-          <div className="laser-faq-container">
+          <div className="treatment-faq-container">
             <div className="faq-list-container">
               {clinicalFaqs.map((faq, index) => {
                 const isOpen = activeFaq === index;
@@ -202,7 +220,7 @@ export default function LaserHairRemoval() {
               })}
             </div>
 
-            <div className="laser-faq-btn-wrap">
+            <div className="treatment-faq-btn-wrap">
               <motion.a 
                 href={BOOKING_URL} 
                 target="_blank" 
@@ -218,9 +236,7 @@ export default function LaserHairRemoval() {
         </div>
       </section>
 
-      {/* 8. CTA BANNER */}
       <CtaBanner />
-
     </div>
   );
 }

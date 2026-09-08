@@ -20,8 +20,6 @@ export default function Contact() {
     <div className="contact-page-wrapper">
       <section className="contact-main-section">
         <div className="container">
-          
-          {/* CENTERED FORM CONTAINER: ZERO REDUNDANT NEWSLETTER COLUMN [2] */}
           <motion.div 
             className="contact-centered-wrapper"
             initial={{ opacity: 0, y: 30 }}
@@ -31,7 +29,7 @@ export default function Contact() {
             <div className="contact-header-block">
               <span className="contact-badge-tag">SPEAK TO US</span>
               <KineticText text="Need Help?" className="contact-title" tag="h1" />
-              {submitted && <div className="contact-success-msg">Thank you! Your message has been received.</div>}
+              {submitted && <div className="contact-success-msg">Thank you! Your consultation request has been received.</div>}
             </div>
 
             <form onSubmit={handleSubmit} className="contact-form">
@@ -59,7 +57,7 @@ export default function Contact() {
 
               <div className="contact-field-group full-width">
                 <label htmlFor="message">Your message (optional)</label>
-                <textarea id="message" name="message" rows="6" placeholder="Send us a message or ask your question" value={form.message} onChange={handleChange}></textarea>
+                <textarea id="message" name="message" rows="6" placeholder="Send us a message or clinical enquiry" value={form.message} onChange={handleChange}></textarea>
               </div>
 
               <motion.button type="submit" className="contact-submit-btn" whileTap={universalTouchSquash}>
@@ -70,10 +68,8 @@ export default function Contact() {
               </motion.button>
             </form>
           </motion.div>
-
         </div>
       </section>
-      
       <CtaBanner />
     </div>
   );

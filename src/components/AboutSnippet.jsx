@@ -10,7 +10,7 @@ export default function AboutSnippet() {
       <div className="container">
         <motion.div 
           className="about-floating-pod"
-          initial={{ opacity: 0, scale: 0.94, y: 30 }}
+          initial={{ opacity: 0, scale: 0.94, y: 35 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ type: "spring", stiffness: 140, damping: 18 }}
@@ -25,9 +25,8 @@ export default function AboutSnippet() {
             tag="h2"
           />
 
-          {/* VERBATIM CONCISE PARAGRAPH */}
           <p className="about-pod-desc">
-            {CLINIC_CONTENT.about.concise}
+            {CLINIC_CONTENT.about.conciseStatement}
           </p>
         </motion.div>
       </div>

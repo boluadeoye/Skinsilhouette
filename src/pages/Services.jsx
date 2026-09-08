@@ -1,59 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CtaBanner from '../components/CtaBanner.jsx';
 import BookingPolicy from '../components/BookingPolicy.jsx';
 import RestoringYouth from '../components/RestoringYouth.jsx';
 import Review from '../components/Review.jsx';
-import { CLINIC_CONTENT, BOOKING_URL } from '../data/content.js';
+import { fetchTreatments } from '../services/api.js';
+import { CLINIC_CONTENT } from '../data/content.js';
 import { ASSETS } from '../assets.js';
 import './Services.css';
 
 const CATEGORIES = ["All", "Consultation", "Treatments", "Injectables"];
 
-/* STRICT SEQUENCE OF CORE CLINICAL TREATMENTS WITH VERIFIED ASSETS */
-const SERVICES_DATA = [
-  {
-    id: 1,
-    slug: "laser-hair-removal",
-    category: "CONSULTATION",
-    title: "Initial Assessment",
-    description: "A comprehensive clinical consultation with our lead practitioner to analyze skin health, discuss goals, and craft your bespoke roadmap.",
-    image: ASSETS.blog_4
-  },
-  {
-    id: 2,
-    slug: "laser-hair-removal",
-    category: "TREATMENTS",
-    title: "Anti-Wrinkle Treatments",
-    description: "Advanced clinical treatments designed to relax facial muscles, smoothing fine lines and restoring a youthful, refreshed appearance.",
-    image: ASSETS.available_3 // White Lady Shot
-  },
-  {
-    id: 3,
-    slug: "laser-hair-removal",
-    category: "INJECTABLES",
-    title: "Facial Harmonisation – Dermal Fillers",
-    description: "Targeted dermal filler therapies designed to restore lost structural volume, enhance facial contours, and balance natural symmetry.",
-    image: ASSETS.available_fillers // NEW CLINICAL INJECTABLE ASSET
-  },
-  {
-    id: 4,
-    slug: "laser-hair-removal",
-    category: "TREATMENTS",
-    title: "Skin Regenerative",
-    description: "Cutting-edge bio-stimulators, hydrofacials, and skin boosters that trigger natural collagen synthesis and restore deep tissue elasticity.",
-    image: ASSETS.available_1 // High-Action Male Procedure Shot
-  }
-];
-
 export default function Services() {
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeFaq, setActiveFaq] = useState(0);
+
   const clinicalFaqs = CLINIC_CONTENT.treatmentFAQs.slice(0, 5);
 
+  useEffect(() => {
+    fetchTreatments().then((data) => {
+      setServices(data);
+      setLoading(false);
+    });
+  }, []);
+
   const filteredServices = activeCategory === "All"
-    ? SERVICES_DATA
-    : SERVICES_DATA.filter(item => item.category.toUpperCase() === activeCategory.toUpperCase());
+    ? services
+    : services.filter(item => item.category.toUpperCase() === activeCategory.toUpperCase());
 
   return (
     <div className="services-page-wrapper">
@@ -99,20 +74,36 @@ export default function Services() {
 
       <section className="services-grid-section">
         <div className="container">
-          <div className="services-3x3-grid">
-            {filteredServices.map((item) => (
-              <Link to={`/services/${item.slug}`} key={item.id} className="treatment-card" style={{ textDecoration: 'none' }}>
-                <div className="treatment-card-content">
-                  <span className="treatment-card-cat">{item.category}</span>
-                  <h3 className="treatment-card-title">{item.title}</h3>
-                  <p className="treatment-card-desc">{item.description}</p>
-                </div>
-                <div className="treatment-card-image-wrap">
-                  <img src={item.image} alt={item.title} loading="lazy" />
-                </div>
-              </Link>
-            ))}
-          </div>
+          {loading && (
+            <div className="services-empty-state">
+              <p>Loading treatments from clinic records...</p>
+            </div>
+          )}
+
+          {!loading && filteredServices.length === 0 && (
+            <div className="services-empty-state">
+              <p>No treatments available in this category.</p>
+            </div>
+          )}
+
+          {!loading && filteredServices.length > 0 && (
+            <div className="services-3x3-grid">
+              {filteredServices.map((item) => (
+                <Link to={`/services/${item.slug}`} key={item.id} className="treatment-card" style={{ textDecoration: 'none' }}>
+                  <div className="treatment-card-content">
+                    <span className="treatment-card-cat">{item.category}</span>
+                    <h3 className="treatment-card-title">{item.title}</h3>
+                    <p className="treatment-card-desc">{item.description}</p>
+                  </div>
+                  {item.image && (
+                    <div className="treatment-card-image-wrap">
+                      <img src={item.image} alt={item.title} loading="lazy" />
+                    </div>
+                  )}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

@@ -3,7 +3,7 @@
   width: 100%;
 }
 
-/* 1. ATELIER TAN HERO SECTION WITH UNIFIED OUTER CARD */
+/* 1. ATELIER TAN HERO SECTION */
 .blog-detail-hero-section {
   padding: 3.5rem 0 !important;
   background: var(--bg-nude) !important;
@@ -36,10 +36,10 @@
 }
 
 .blog-detail-hero-media img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .blog-detail-hero-card {
@@ -107,74 +107,115 @@
 /* 2. NARRATIVE SECTIONS */
 .blog-detail-narrative-section,
 .blog-detail-outro-section {
-  padding: clamp(4rem, 6vw, 5.5rem) 0;
+  padding: clamp(3.5rem, 6vw, 5rem) 0;
   background: var(--bg-nude);
 }
 
 .blog-detail-narrative-box {
   max-width: 820px;
   margin: 0 auto;
-  text-align: center;
-}
-
-.blog-detail-narrative-box p {
   font-family: var(--font-sans);
   color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.85;
 }
 
-/* 3. THE 4-IMAGE MOSAIC GRID */
+.blog-detail-narrative-box p {
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   3. ADAPTIVE GALLERY ENGINE (1, 2, 3, 4, 6+ IMAGES) [1, 2]
+   ========================================================================== */
 .blog-detail-mosaic-section {
-  padding: 2rem 0 4rem 0;
+  padding: 1.5rem 0 3.5rem 0;
   background: var(--bg-nude);
 }
 
-.blog-detail-mosaic-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem !important;
-  max-width: 980px;
+.blog-detail-adaptive-gallery {
+  max-width: 1040px;
   margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
 }
 
-@media (min-width: 640px) {
-  .blog-detail-mosaic-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.25rem !important;
-  }
-}
-
-.blog-detail-mosaic-card {
-  position: relative;
-  width: 100%;
+.blog-gallery-item {
+  border-radius: 28px !important;
   overflow: hidden !important;
-  box-shadow: 0 15px 35px rgba(12, 6, 8, 0.05);
+  box-shadow: 0 12px 30px rgba(12, 6, 8, 0.05);
   border: 1px solid var(--border-light);
   background: var(--bg-sand);
 }
 
-.blog-detail-mosaic-card.card-tall {
-  aspect-ratio: 1.05 / 1 !important;
-  border-radius: 32px !important;
+.blog-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 28px !important;
 }
 
-.blog-detail-mosaic-card.card-short {
-  aspect-ratio: 1.55 / 1 !important;
-  border-radius: 32px !important;
+/* 1 IMAGE: CINEMATIC FULL BANNER */
+.gallery-count-1 {
+  grid-template-columns: 1fr;
+}
+.gallery-count-1 .blog-gallery-item {
+  aspect-ratio: 16 / 9;
 }
 
-.blog-detail-mosaic-card img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
-  border-radius: 32px !important;
+/* 2 IMAGES: 50/50 SYMMETRICAL SPLIT */
+.gallery-count-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.gallery-count-2 .blog-gallery-item {
+  aspect-ratio: 4 / 3.5;
+}
+
+/* 3 IMAGES: 1 LARGE + 2 STACKED SMALL */
+@media (min-width: 740px) {
+  .gallery-count-3 {
+    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-rows: repeat(2, 220px);
+  }
+  .gallery-count-3 .item-1 {
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
+}
+
+/* 4 IMAGES: ORIGINAL FIGMA MOSAIC (2 TALL TOP, 2 SHORT BOTTOM) [1, 2] */
+.gallery-count-4 {
+  grid-template-columns: 1fr;
+  gap: 2rem !important;
+}
+@media (min-width: 640px) {
+  .gallery-count-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-count-4 .item-1,
+  .gallery-count-4 .item-2 {
+    aspect-ratio: 1.05 / 1 !important;
+  }
+  .gallery-count-4 .item-3,
+  .gallery-count-4 .item-4 {
+    aspect-ratio: 1.55 / 1 !important;
+  }
+}
+
+/* 5+ / 6 IMAGES: BALANCED MASONRY */
+@media (min-width: 640px) {
+  .gallery-count-5,
+  .gallery-count-6,
+  .gallery-count-7,
+  .gallery-count-8 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
 }
 
 /* 4. SPECIALIST SECTION */
 .blog-detail-specialist-section {
-  padding: clamp(4rem, 6vw, 5.5rem) 0;
+  padding: clamp(3.5rem, 6vw, 5rem) 0;
   background: var(--bg-nude);
   text-align: center;
 }
@@ -198,9 +239,7 @@
   line-height: 1.85;
 }
 
-/* ==========================================================================
-   5. RESTORING YOUTH: PURE WHITE CONTAINER - ISOLATED PIP ENGINE
-   ========================================================================== */
+/* 5. RESTORING YOUTH CONTAINER */
 .blog-detail-ry-section {
   padding: clamp(4rem, 6vw, 6rem) 0;
   background: var(--bg-nude);
@@ -301,7 +340,6 @@
   transform: translateY(-2px) !important;
 }
 
-/* RIGHT MEDIA COLUMN - PIP ENGINE STYLES */
 .blog-detail-ry-media-col {
   width: 100% !important;
   position: relative !important;
@@ -366,7 +404,6 @@
   border-radius: 5px;
   text-transform: uppercase;
   z-index: 10;
-  transition: opacity 0.35s ease !important;
 }
 
 .blog-detail-ry-badge-before {

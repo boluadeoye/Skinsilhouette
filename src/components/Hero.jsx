@@ -11,8 +11,6 @@ export default function Hero() {
     <section className="luxury-hero">
       <div className="container">
         <div className="luxury-hero-content">
-          
-          {/* ADJUSTED HOMEPAGE HEADLINE */}
           <KineticText 
             text="Clinical Aesthetics, Tailored to You." 
             className="luxury-hero-title"
@@ -38,8 +36,6 @@ export default function Hero() {
               <span>Explore Treatments</span>
               <ArrowRightIcon size={14} color="currentColor" />
             </MagneticButton>
-            
-            {/* LIVE FACES CONSENT BOOKING LINK */}
             <MagneticButton 
               href={BOOKING_URL}
               target="_blank" 
@@ -50,7 +46,6 @@ export default function Hero() {
               Book a Consultation
             </MagneticButton>
           </motion.div>
-
         </div>
       </div>
     </section>

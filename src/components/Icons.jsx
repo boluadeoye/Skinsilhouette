@@ -1,9 +1,5 @@
 import React from 'react';
 
-/* ==========================================================================
-   IMMUNIZED VECTOR ICON REGISTRY: HARD-CODED SVG PATHS (ZERO EMOJI HIJACK) [1]
-   ========================================================================== */
-
 export function ArrowUpRightIcon({ className = "", size = 12, color = "currentColor" }) {
   return (
     <svg 

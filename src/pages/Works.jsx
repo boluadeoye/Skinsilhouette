@@ -1,29 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import KineticText from '../components/KineticText.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
+import { fetchCaseStudies } from '../services/api.js';
 import { ASSETS } from '../assets.js';
 import { BOOKING_URL } from '../data/content.js';
 import { staggerGridContainer, staggerCardExtreme, universalTouchSquash } from '../utils/motion.js';
 import './Works.css';
-
-const CATEGORIES = ["All", "Consultation", "Treatments", "Injectables", "Cosmetology"];
-
-const WORKS_ITEMS = [
-  { id: 1, category: "Consultation", image: ASSETS.works_matrix[0] },
-  { id: 2, category: "Treatments", image: ASSETS.works_matrix[1] },
-  { id: 3, category: "Injectables", image: ASSETS.works_matrix[2] },
-  { id: 4, category: "Treatments", image: ASSETS.works_matrix[3] },
-  { id: 5, category: "Cosmetology", image: ASSETS.works_matrix[4] },
-  { id: 6, category: "Consultation", image: ASSETS.works_matrix[5] },
-  { id: 7, category: "Treatments", image: ASSETS.works_matrix[6] },
-  { id: 8, category: "Injectables", image: ASSETS.works_matrix[7] },
-  { id: 9, category: "Treatments", image: ASSETS.works_matrix[8] },
-  { id: 10, category: "Cosmetology", image: ASSETS.works_matrix[9] },
-  { id: 11, category: "Injectables", image: ASSETS.works_matrix[10] },
-  { id: 12, category: "Treatments", image: ASSETS.works_matrix[11] }
-];
 
 function InteractiveWorkCard({ item }) {
   return (
@@ -39,16 +23,18 @@ function InteractiveWorkCard({ item }) {
       whileHover={{ scale: 1.04, y: -8 }}
       whileTap={universalTouchSquash}
     >
-      <Link to={`/works/case-study-${item.id}`} className="works-card-nav-link" aria-label={`View Case Study ${item.id}`}>
+      <Link to={`/works/${item.slug}`} className="works-card-nav-link" aria-label={`View Case Study ${item.id}`}>
         <div className="works-matrix-pip-bg">
-          <img src={item.image} alt={item.category} className="works-matrix-fused-img works-matrix-img-right" loading="lazy" />
+          <img src={item.afterImage || item.image} alt={item.title} className="works-matrix-fused-img works-matrix-img-right" loading="lazy" />
           <span className="works-matrix-badge badge-after">AFTER</span>
         </div>
 
-        <div className="works-matrix-pip-inset">
-          <img src={item.image} alt={item.category} className="works-matrix-fused-img works-matrix-img-left" loading="lazy" />
-          <span className="works-matrix-badge badge-before">BEFORE</span>
-        </div>
+        {item.beforeImage && (
+          <div className="works-matrix-pip-inset">
+            <img src={item.beforeImage} alt={item.title} className="works-matrix-fused-img works-matrix-img-left" loading="lazy" />
+            <span className="works-matrix-badge badge-before">BEFORE</span>
+          </div>
+        )}
 
         <div className="works-matrix-junction-badge" aria-hidden="true">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -66,12 +52,23 @@ function InteractiveWorkCard({ item }) {
 }
 
 export default function Works() {
+  const [caseStudies, setCaseStudies] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("All");
   const [swapped, setSwapped] = useState(false);
 
+  useEffect(() => {
+    fetchCaseStudies().then((data) => {
+      setCaseStudies(data);
+      setLoading(false);
+    });
+  }, []);
+
+  const dynamicCategories = ["All", ...new Set(caseStudies.map(item => item.category).filter(Boolean))];
+
   const filteredWorks = activeCategory === "All"
-    ? WORKS_ITEMS
-    : WORKS_ITEMS.filter(item => item.category.toLowerCase() === activeCategory.toLowerCase());
+    ? caseStudies
+    : caseStudies.filter(item => item.category.toLowerCase() === activeCategory.toLowerCase());
 
   return (
     <div className="works-page-wrapper">
@@ -99,10 +96,11 @@ export default function Works() {
         </div>
       </section>
 
+      {/* DYNAMIC CATEGORY FILTER TRACK */}
       <section className="works-filter-section">
         <div className="container">
           <div className="works-filter-bar">
-            {CATEGORIES.map((cat) => (
+            {dynamicCategories.map((cat) => (
               <motion.button
                 key={cat}
                 type="button"
@@ -120,31 +118,42 @@ export default function Works() {
 
       <section className="works-matrix-section">
         <div className="container">
-          <motion.div 
-            className="works-matrix-grid"
-            layout
-            variants={staggerGridContainer}
-            initial="hidden"
-            animate="visible"
-          >
-            <AnimatePresence>
-              {filteredWorks.map((item) => (
-                <InteractiveWorkCard key={item.id} item={item} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
+          {loading && (
+            <div className="works-empty-state">
+              <p>Loading case studies from clinic records...</p>
+            </div>
+          )}
+
+          {!loading && filteredWorks.length === 0 && (
+            <div className="works-empty-state">
+              <p>No case studies available.</p>
+            </div>
+          )}
+
+          {!loading && filteredWorks.length > 0 && (
+            <motion.div 
+              className="works-matrix-grid"
+              layout
+              variants={staggerGridContainer}
+              initial="hidden"
+              animate="visible"
+            >
+              <AnimatePresence>
+                {filteredWorks.map((item) => (
+                  <InteractiveWorkCard key={item.id} item={item} />
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          )}
         </div>
       </section>
 
-      {/* RESTORING YOUTH BREAKOUT VARIANT */}
       <section className="works-ry-section">
         <div className="container">
           <div className="works-ry-grid-master">
             <div className="works-ry-dark-card">
               <div className="works-ry-content">
                 <span className="ry-gold-badge">ADVANCED AESTHETIC CLINIC</span>
-                
-                {/* UPDATED HEADING & COPY */}
                 <h2 className="ry-title">Your Treatment Begins<br />With a Consultation.</h2>
                 <p className="ry-desc">
                   Individualised recommendations. Evidence-led treatment. No pressure.

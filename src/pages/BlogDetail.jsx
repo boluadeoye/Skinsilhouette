@@ -1,87 +1,149 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import KineticText from '../components/KineticText.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
-import { CLINIC_CONTENT, BOOKING_URL } from '../data/content.js';
+import { fetchPostBySlug } from '../services/api.js';
 import { ASSETS } from '../assets.js';
+import { BOOKING_URL } from '../data/content.js';
 import { universalTouchSquash } from '../utils/motion.js';
 import './BlogDetail.css';
 
 export default function BlogDetail() {
+  const { slug } = useParams();
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [swapped, setSwapped] = useState(false);
+
+  useEffect(() => {
+    fetchPostBySlug(slug).then((data) => {
+      setPost(data);
+      setLoading(false);
+    });
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="blog-detail-page-wrapper">
+        <div className="container" style={{ padding: '8rem 1.5rem', textAlign: 'center' }}>
+          <p style={{ color: 'var(--text-muted)' }}>Loading article from clinical records...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!post) {
+    return (
+      <div className="blog-detail-page-wrapper">
+        <div className="container" style={{ padding: '8rem 1.5rem', textAlign: 'center' }}>
+          <h2>Article Not Found</h2>
+          <p style={{ color: 'var(--text-muted)', marginTop: '1rem' }}>The requested clinical journal entry is unavailable.</p>
+        </div>
+      </div>
+    );
+  }
+
+  const gallery = post.gallery || [];
+  const galleryCount = gallery.length;
 
   return (
     <div className="blog-detail-page-wrapper">
+      
+      {/* 1. ATELIER TAN HERO (SLUG HYDRATED) */}
       <section className="blog-detail-hero-section">
         <div className="container">
           <div className="blog-detail-hero-banner-card">
-            <motion.div className="blog-detail-hero-media" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-              <img src={ASSETS.blog_detail_hero} alt="Aesthetic Medicine Specialist" />
-            </motion.div>
-            <motion.div className="blog-detail-hero-card" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.15 }}>
-              <span className="blog-detail-gold-badge">INSPIRATION</span>
-              <h1 className="blog-detail-hero-title">AESTHETIC MEDICINE:<br />CHOOSING THE<br />RIGHT SPECIALIST</h1>
-              <p className="blog-detail-hero-desc">
-                Aesthetic medicine is a fusion of the concepts of health, beauty and science. I want to emphasize, certain methods of which can be used by nursing staff.
-              </p>
+            
+            {post.image && (
+              <motion.div 
+                className="blog-detail-hero-media"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+              >
+                <img src={post.image} alt={post.title} />
+              </motion.div>
+            )}
+
+            <motion.div 
+              className="blog-detail-hero-card"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+            >
+              <span className="blog-detail-gold-badge">{post.category}</span>
+              <h1 className="blog-detail-hero-title">{post.title}</h1>
+              {post.excerpt && <p className="blog-detail-hero-desc">{post.excerpt}</p>}
+              
               <div className="blog-detail-meta-row">
-                <div className="blog-detail-meta-item"><span className="meta-label">Posted by</span><span className="meta-val">Admin</span></div>
-                <div className="blog-detail-meta-item"><span className="meta-label">Date</span><span className="meta-val">Aug 15, 2026</span></div>
+                <div className="blog-detail-meta-item">
+                  <span className="meta-label">Posted by</span>
+                  <span className="meta-val">{post.author}</span>
+                </div>
+                <div className="blog-detail-meta-item">
+                  <span className="meta-label">Date</span>
+                  <span className="meta-val">{post.date}</span>
+                </div>
               </div>
             </motion.div>
+
           </div>
         </div>
       </section>
 
-      <section className="blog-detail-narrative-section">
-        <div className="container">
-          <div className="blog-detail-narrative-box">
-            <p>{CLINIC_CONTENT.about.practitioner_statement}</p>
-            <p style={{ marginTop: '1.25rem' }}>{CLINIC_CONTENT.about.p1}</p>
+      {/* 2. DYNAMIC NARRATIVE CONTENT */}
+      {post.content && (
+        <section className="blog-detail-narrative-section">
+          <div className="container">
+            <div className="blog-detail-narrative-box" dangerouslySetInnerHTML={{ __html: post.content }} />
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section className="blog-detail-mosaic-section">
-        <div className="container">
-          <motion.div className="blog-detail-mosaic-grid" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8 }}>
-            <motion.div className="blog-detail-mosaic-card card-tall" whileHover={{ scale: 1.03 }} whileTap={universalTouchSquash}>
-              <img src={ASSETS.blog_detail_m1} alt="Clinical LED Light Therapy" loading="lazy" />
-            </motion.div>
-            <motion.div className="blog-detail-mosaic-card card-tall" whileHover={{ scale: 1.03 }} whileTap={universalTouchSquash}>
-              <img src={ASSETS.blog_detail_m2} alt="Infrared Light Panel Therapy" loading="lazy" />
-            </motion.div>
-            <motion.div className="blog-detail-mosaic-card card-short" whileHover={{ scale: 1.03 }} whileTap={universalTouchSquash}>
-              <img src={ASSETS.blog_detail_m3} alt="Body Cupping Treatment" loading="lazy" />
-            </motion.div>
-            <motion.div className="blog-detail-mosaic-card card-short" whileHover={{ scale: 1.03 }} whileTap={universalTouchSquash}>
-              <img src={ASSETS.blog_detail_m4} alt="Red Light Body Therapy" loading="lazy" />
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="blog-detail-specialist-section">
-        <div className="container">
-          <div className="blog-detail-specialist-box">
-            <span className="blog-detail-gold-badge">WHAT TO LOOK AT IN A SPECIALIST</span>
-            <KineticText text="SERVICES OF THE HIGHEST QUALITY" className="blog-detail-specialist-title" tag="h2" />
-            <p className="blog-detail-specialist-p">{CLINIC_CONTENT.about.practitioner_statement}</p>
-            <p className="blog-detail-specialist-p" style={{ marginTop: '1.25rem' }}>{CLINIC_CONTENT.about.p2}</p>
+      {/* 3. ADAPTIVE GALLERY ENGINE (1, 2, 3, 4, OR 6+ IMAGES) */}
+      {galleryCount > 0 && (
+        <section className="blog-detail-mosaic-section">
+          <div className="container">
+            <div className={`blog-detail-adaptive-gallery gallery-count-${galleryCount}`}>
+              {gallery.map((imgUrl, index) => (
+                <motion.div 
+                  key={index} 
+                  className={`blog-gallery-item item-${index + 1}`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={universalTouchSquash}
+                >
+                  <img src={imgUrl} alt={`Clinical Detail ${index + 1}`} loading="lazy" />
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* RESTORING YOUTH WITH NEW HEADLINE & COPY */}
+      {/* 4. EDITORIAL SPECIALIST SECTION */}
+      {post.specialistText && (
+        <section className="blog-detail-specialist-section">
+          <div className="container">
+            <div className="blog-detail-specialist-box">
+              <span className="blog-detail-gold-badge">WHAT TO LOOK AT IN A SPECIALIST</span>
+              <KineticText text={post.specialistTitle} className="blog-detail-specialist-title" tag="h2" />
+              <p className="blog-detail-specialist-p">{post.specialistText}</p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 5. RESTORING YOUTH BREAKOUT (DYNAMIC IMAGE) */}
       <section className="blog-detail-ry-section">
         <div className="container">
           <div className="blog-detail-ry-white-card">
             <div className="blog-detail-ry-flex-wrapper">
+              
               <div className="blog-detail-ry-text-block">
                 <span className="ry-gold-badge">ADVANCED AESTHETIC CLINIC</span>
                 <h2 className="ry-title-dark">Your Treatment Begins<br />With a Consultation.</h2>
                 <p className="ry-desc-dark">
-                  Individualised recommendations. Evidence-led treatment. No pressure.
+                  On your first visit to the clinic, you will receive an in-depth consultation with our lead practitioner.
                 </p>
                 <div className="ry-metrics-row-dark">
                   <div className="ry-metric-dark"><h3>50+</h3><p>PATIENTS TREATED</p></div>
@@ -94,16 +156,34 @@ export default function BlogDetail() {
                 </div>
               </div>
 
-              <div className="blog-detail-ry-media-col" onClick={() => setSwapped(!swapped)} style={{ cursor: 'pointer' }} role="button" aria-label="Click to swap before and after views">
+              <div 
+                className="blog-detail-ry-media-col" 
+                onClick={() => setSwapped(!swapped)} 
+                style={{ cursor: 'pointer' }}
+                role="button"
+                aria-label="Click to swap before and after views"
+              >
                 <div className="blog-detail-ry-image-frame">
                   <div className="blog-detail-ry-pip-bg">
-                    <img src={ASSETS.blog_detail_ry} alt={swapped ? "Before Result" : "After Result"} className={`blog-detail-ry-fused-img ${swapped ? 'blog-detail-ry-img-left' : 'blog-detail-ry-img-right'}`} loading="lazy" />
+                    <img 
+                      src={post.ryImage || ASSETS.blog_detail_ry} 
+                      alt="Clinical Transformation" 
+                      className={`blog-detail-ry-fused-img ${swapped ? 'blog-detail-ry-img-left' : 'blog-detail-ry-img-right'}`}
+                      loading="lazy" 
+                    />
                     <span className="blog-detail-ry-badge blog-detail-ry-badge-after">{swapped ? 'BEFORE' : 'AFTER'}</span>
                   </div>
+
                   <div className="blog-detail-ry-pip-inset">
-                    <img src={ASSETS.blog_detail_ry} alt={swapped ? "After Result" : "Before Result"} className={`blog-detail-ry-fused-img ${swapped ? 'blog-detail-ry-img-right' : 'blog-detail-ry-img-left'}`} loading="lazy" />
+                    <img 
+                      src={post.ryImage || ASSETS.blog_detail_ry} 
+                      alt="Clinical Transformation" 
+                      className={`blog-detail-ry-fused-img ${swapped ? 'blog-detail-ry-img-right' : 'blog-detail-ry-img-left'}`}
+                      loading="lazy" 
+                    />
                     <span className="blog-detail-ry-badge blog-detail-ry-badge-before">{swapped ? 'AFTER' : 'BEFORE'}</span>
                   </div>
+
                   <div className="blog-detail-ry-junction-badge" aria-hidden="true">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="15 18 9 12 15 6"></polyline>
@@ -112,14 +192,9 @@ export default function BlogDetail() {
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="blog-detail-outro-section">
-        <div className="container">
-          <div className="blog-detail-narrative-box"><p>{CLINIC_CONTENT.about.p1}</p></div>
         </div>
       </section>
 

@@ -12,8 +12,6 @@ export default function About() {
 
   return (
     <div className="about-page-wrapper">
-      
-      {/* TIER 1: HIGH-CONTRAST MARQUEE RIBBON */}
       <div className="about-marquee-ribbon">
         <div className="about-marquee-track">
           <span className="about-marquee-item">
@@ -25,10 +23,8 @@ export default function About() {
         </div>
       </div>
 
-      {/* TIER 2: COMPANY OVERVIEW NARRATIVE INSIDE WHITE CARD */}
       <section className="about-hero-section">
         <div className="container about-hero-grid">
-          
           <motion.div 
             className="about-hero-card"
             initial={{ opacity: 0, x: -25 }}
@@ -45,7 +41,6 @@ export default function About() {
               tag="h1"
             />
 
-            {/* EXTRACTED NARRATIVE FROM COMPANY OVERVIEW */}
             <p className="about-hero-body">
               {CLINIC_CONTENT.about.p1}
             </p>
@@ -53,7 +48,6 @@ export default function About() {
               {CLINIC_CONTENT.about.p2}
             </p>
 
-            {/* IMMUNIZED VECTOR DOWNLOAD BUTTON */}
             <div className="about-hero-btns">
               <a 
                 href="/profile.pdf" 
@@ -67,7 +61,6 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* BRANDED MIRROR & PRODUCT HERO ASSET */}
           <motion.div 
             className="about-hero-image-wrap"
             initial={{ opacity: 0, scale: 0.95 }}
@@ -76,22 +69,17 @@ export default function About() {
           >
             <img src={ASSETS.about_hero} alt="Skin Silhouette Aesthetics Official Branding" />
           </motion.div>
-
         </div>
       </section>
 
-      {/* TIER 3: VERBATIM MISSION & VISION DARK ACCORDION */}
       <section className="about-dark-section">
         <div className="container">
           <div className="about-accordion-list">
-            
-            {/* OUR VISION ACCORDION */}
             <div className={`about-accordion-item ${activeTab === 'vision' ? 'active' : ''}`}>
               <div className="about-accordion-header" onClick={() => setActiveTab('vision')}>
                 <h3>Our Vision</h3>
                 <span className="about-accordion-icon">{activeTab === 'vision' ? '−' : '+'}</span>
               </div>
-              
               <AnimatePresence initial={false}>
                 {activeTab === 'vision' && (
                   <motion.div 
@@ -102,7 +90,6 @@ export default function About() {
                     transition={{ duration: 0.4 }}
                   >
                     <div className="about-accordion-content-grid">
-                      {/* VERBATIM VISION TEXT */}
                       <p className="about-accordion-desc">
                         {CLINIC_CONTENT.missionVision.vision}
                       </p>
@@ -115,13 +102,11 @@ export default function About() {
               </AnimatePresence>
             </div>
 
-            {/* OUR MISSION ACCORDION */}
             <div className={`about-accordion-item ${activeTab === 'mission' ? 'active' : ''}`}>
               <div className="about-accordion-header" onClick={() => setActiveTab('mission')}>
                 <h3>Our Mission</h3>
                 <span className="about-accordion-icon">{activeTab === 'mission' ? '−' : '+'}</span>
               </div>
-              
               <AnimatePresence initial={false}>
                 {activeTab === 'mission' && (
                   <motion.div 
@@ -132,7 +117,6 @@ export default function About() {
                     transition={{ duration: 0.4 }}
                   >
                     <div className="about-accordion-content-grid">
-                      {/* VERBATIM MISSION TEXT */}
                       <p className="about-accordion-desc">
                         {CLINIC_CONTENT.missionVision.mission}
                       </p>
@@ -144,7 +128,6 @@ export default function About() {
                 )}
               </AnimatePresence>
             </div>
-
           </div>
         </div>
       </section>

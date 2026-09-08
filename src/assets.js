@@ -5,37 +5,30 @@ export const ASSETS = {
   laser_hiw: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788277702/blog_assets/q8s1q6qmbxiodktrkuad.jpg",
   works_hero: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788260862/blog_assets/dkpebhhurctjz5chzcrt.jpg",
 
-  // Official About Page Hero (Branded Mirror & Juvéderm Box)
   about_hero: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788514772/blog_assets/qw97siv6ch1iiy2oqonp.jpg",
   about_mission: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788270022/blog_assets/awjdwnovec0q8u75fudh.jpg",
 
-  // 4 Core Treatments Assets
-  available_1: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788514765/blog_assets/d8t3cabf3slym255awyx.jpg", // Male Procedure
-  available_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788169316/blog_assets/szow5k7cnsvbohml3q0m.jpg", // Skin Remodelling
-  available_3: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614410/blog_assets/ug9n4ftwuhmetl1jkgkp.jpg", // White Lady Anti-Wrinkle
-  available_fillers: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788773709/blog_assets/onulhn92xedivnqdb0wi.jpg", // NEW Dermal Fillers Action Shot
+  available_1: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788514765/blog_assets/d8t3cabf3slym255awyx.jpg",
+  available_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788169316/blog_assets/szow5k7cnsvbohml3q0m.jpg",
+  available_3: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614410/blog_assets/ug9n4ftwuhmetl1jkgkp.jpg",
+  available_dermal: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788773709/blog_assets/onulhn92xedivnqdb0wi.jpg",
 
-  // Restoring Youth Breakout Specific Assets
-  ry_home: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788514772/blog_assets/qw97siv6ch1iiy2oqonp.jpg",
+  ry_home: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788173271/blog_assets/mc9z4rxslrmutkld5y4t.jpg",
   ry_services: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788270248/blog_assets/drptucb1bdjdg3wffyx3.jpg",
   ry_works: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788270422/blog_assets/zmev94jazzlk9e7tdun8.jpg",
 
-  // Service Detail Specific Assets
   service_detail_hero: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788277696/blog_assets/z4a3efbqff28ycbvz74n.jpg",
   service_detail_hiw: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788277702/blog_assets/q8s1q6qmbxiodktrkuad.jpg",
 
-  // Case Study Specific Assets
   case_study_work_main: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788276151/blog_assets/yxbwagcxigxeg4yvw94e.jpg",
   case_study_ry_body: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788276161/blog_assets/daksslleivbjp6dbjbr5.jpg",
 
-  // Hydrofacial Case Study "THE WORK" 4-Mosaic Grid
   hydro_work_face: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788276151/blog_assets/yxbwagcxigxeg4yvw94e.jpg",
   hydro_mosaic_1: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788279959/blog_assets/kxhxuefkgulnqxqknqim.jpg",
   hydro_mosaic_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788279966/blog_assets/ggh2ztjjromktru2djuq.jpg",
   hydro_mosaic_3: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788279974/blog_assets/wpyfr5l2gwfoszhdlkbc.jpg",
   hydro_mosaic_4: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788280053/blog_assets/lbpizaf0ocm0fn7fght6.jpg",
 
-  // Journal / Blog Detail Specific Assets
   blog_hero: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788270488/blog_assets/gifjzn4pbpjx5bubw8tl.jpg",
   blog_1: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787907903/blog_assets/rsqcxfwmmvsdb0hjqq3w.jpg",
   blog_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787908113/blog_assets/yqr2uytxqa4r8hs643ov.jpg",
@@ -43,6 +36,7 @@ export const ASSETS = {
   blog_4: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787907896/blog_assets/nrptmnbkjzdtrtuvzqzg.jpg",
   blog_5: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787907887/blog_assets/b7j7l6gej3k9hxoifjox.jpg",
   blog_6: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787908211/blog_assets/dwijxdw3hcwlueiafhy2.jpg",
+
   blog_detail_hero: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788279952/blog_assets/wgdp0bqkz9d6bhe5olre.jpg",
   blog_detail_m1: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788279959/blog_assets/kxhxuefkgulnqxqknqim.jpg",
   blog_detail_m2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788279966/blog_assets/ggh2ztjjromktru2djuq.jpg",
@@ -50,13 +44,11 @@ export const ASSETS = {
   blog_detail_m4: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788280053/blog_assets/lbpizaf0ocm0fn7fght6.jpg",
   blog_detail_ry: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788280123/blog_assets/hmkg3iccrpfxqvicng9s.jpg",
 
-  // Real Results Grid / Case Studies
   results_1: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788259321/blog_assets/rz5pksbnx7gjbqoe1lzy.jpg",
   results_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788259326/blog_assets/zp6rycms0caupyrgkecg.jpg",
   results_3: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788259331/blog_assets/yibbckslwqlv2sd554lg.jpg",
   results_4: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788259335/blog_assets/kqbosy8xvhbambfkgjdh.jpg",
 
-  // Works Matrix 12 Unique Assets
   works_matrix: [
     "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788260683/blog_assets/g69zu2pc6smml5lmcqdn.jpg",
     "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788260686/blog_assets/g4ovwzxescs3pd15bfgb.jpg",
@@ -79,7 +71,6 @@ export const ASSETS = {
   social_2: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1787914771/blog_assets/nx5fosjxe8b9sxj9bgws.jpg",
   works_redhead: "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788173271/blog_assets/mc9z4rxslrmutkld5y4t.jpg",
 
-  // 6 Accredited Logos
   honours: [
     "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788634288/blog_assets/oact7nx52ucdq4fmmxuh.png",
     "https://res.cloudinary.com/dwbjb3svx/image/upload/v1788614141/blog_assets/j6g7uy566bqspucbprc3.png",

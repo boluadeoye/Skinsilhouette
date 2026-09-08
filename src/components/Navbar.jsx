@@ -6,12 +6,11 @@ import { BOOKING_URL } from '../data/content.js';
 import { universalTouchSquash, SPRINGS } from '../utils/motion.js';
 import './Navbar.css';
 
-// 5-LINK LUXURY MENU: RENAMED "BLOG" TO "JOURNAL" [1]
 const NAV_LINKS = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
   { path: '/services', label: 'Treatments' },
-  { path: '/journal', label: 'Journal' }, // Renamed from Blog
+  { path: '/blog', label: 'Journal' },
   { path: '/contact', label: 'Contact' }
 ];
 
@@ -32,7 +31,6 @@ export default function Navbar() {
     <header className={`luxury-navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-container">
         
-        {/* TWO-TIER ATELIER LOGO */}
         <motion.div whileHover={{ scale: 1.02 }} whileTap={universalTouchSquash}>
           <Link to="/" className="navbar-logo-lockup" aria-label="Skin Silhouette Aesthetics Home">
             <span className="logo-brand-main">Skin Silhouette</span>
@@ -40,12 +38,11 @@ export default function Navbar() {
           </Link>
         </motion.div>
 
-        {/* DESKTOP 5-LINK SERIF MENU */}
         <nav className="navbar-links">
           {NAV_LINKS.map(({ path, label }) => {
             const isActive = path === '/' 
               ? location.pathname === '/' 
-              : (location.pathname.startsWith(path) || (path === '/journal' && location.pathname.startsWith('/blog')) || (path === '/services' && location.pathname.startsWith('/treatments')));
+              : (location.pathname.startsWith(path) || (path === '/services' && location.pathname.startsWith('/treatments')) || (path === '/blog' && location.pathname.startsWith('/journal')));
 
             return (
               <motion.div key={path} whileHover={{ y: -2 }} whileTap={universalTouchSquash}>
@@ -57,7 +54,6 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* LIVE FACES CONSENT BOOKING CTA */}
         <div className="navbar-actions">
           <motion.a
             href={BOOKING_URL}
@@ -84,7 +80,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE SERIF DRAWER */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.nav 

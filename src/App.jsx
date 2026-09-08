@@ -7,9 +7,9 @@ import PageTransition from './components/PageTransition.jsx';
 
 import Home from './pages/Home.jsx';
 import Services from './pages/Services.jsx';
-import Hydrofacial from './pages/Hydrofacial.jsx';
-import LaserHairRemoval from './pages/LaserHairRemoval.jsx';
+import TreatmentDetail from './pages/TreatmentDetail.jsx';
 import Works from './pages/Works.jsx';
+import CaseStudyDetail from './pages/CaseStudyDetail.jsx';
 import About from './pages/About.jsx';
 import Blog from './pages/Blog.jsx';
 import BlogDetail from './pages/BlogDetail.jsx';
@@ -30,22 +30,22 @@ export default function App() {
             <Route path="/" element={<PageTransition><Home /></PageTransition>} />
             <Route path="/about" element={<PageTransition><About /></PageTransition>} />
             
-            {/* TREATMENTS / SERVICES ALIASES */}
+            {/* DYNAMIC TREATMENT CATALOG & DETAIL ROUTES */}
             <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
             <Route path="/treatments" element={<PageTransition><Services /></PageTransition>} />
-            <Route path="/services/:slug" element={<PageTransition><LaserHairRemoval /></PageTransition>} />
-            <Route path="/treatments/:slug" element={<PageTransition><LaserHairRemoval /></PageTransition>} />
+            <Route path="/services/:slug" element={<PageTransition><TreatmentDetail /></PageTransition>} />
+            <Route path="/treatments/:slug" element={<PageTransition><TreatmentDetail /></PageTransition>} />
             
-            {/* WORKS / CASE STUDIES */}
+            {/* DYNAMIC CASE STUDY MATRIX & DETAIL ROUTES */}
             <Route path="/works" element={<PageTransition><Works /></PageTransition>} />
-            <Route path="/works/:slug" element={<PageTransition><Hydrofacial /></PageTransition>} />
+            <Route path="/works/:slug" element={<PageTransition><CaseStudyDetail /></PageTransition>} />
             
-            {/* JOURNAL / BLOG ALIASES */}
-            <Route path="/journal" element={<PageTransition><Blog /></PageTransition>} />
+            {/* DYNAMIC JOURNAL & ARTICLE ROUTES */}
             <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
-            <Route path="/journal/:slug" element={<PageTransition><BlogDetail /></PageTransition>} />
+            <Route path="/journal" element={<PageTransition><Blog /></PageTransition>} />
             <Route path="/blog/:slug" element={<PageTransition><BlogDetail /></PageTransition>} />
-
+            <Route path="/journal/:slug" element={<PageTransition><BlogDetail /></PageTransition>} />
+            
             <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
             <Route path="/terms" element={<PageTransition><Terms /></PageTransition>} />
             <Route path="/privacy" element={<PageTransition><Privacy /></PageTransition>} />

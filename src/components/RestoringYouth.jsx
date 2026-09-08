@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ASSETS } from '../assets.js';
 import { BOOKING_URL } from '../data/content.js';
@@ -6,29 +6,26 @@ import { universalTouchSquash } from '../utils/motion.js';
 import './RestoringYouth.css';
 
 export default function RestoringYouth({ customImage }) {
-  const activeSrc = customImage || ASSETS.ry_home;
+  const [swapped, setSwapped] = useState(false);
+  const activeSrc = customImage || ASSETS.ry_home || ASSETS.works_redhead;
 
   return (
     <section className="ry-boundary-section">
       <div className="container">
         <div className="ry-grid-master">
           
-          {/* SLIM SHARP BLACK CARD */}
           <div className="ry-dark-card">
             <div className="ry-content-inner">
               <span className="ry-gold-badge">ADVANCED AESTHETIC CLINIC</span>
               
-              {/* UPDATED HEADING */}
               <h2 className="ry-title">
                 Your Treatment Begins<br />With a Consultation.
               </h2>
               
-              {/* UPDATED SUBTEXT DIRECTIVE */}
               <p className="ry-desc">
                 Individualised recommendations. Evidence-led treatment. No pressure.
               </p>
               
-              {/* METRIC: 50+ PATIENTS TREATED */}
               <div className="ry-metrics-row">
                 <div className="ry-metric">
                   <h3>50+</h3>
@@ -40,7 +37,6 @@ export default function RestoringYouth({ customImage }) {
                 </div>
               </div>
 
-              {/* ACTION: BOOK CONSULTATION LINKING TO FACES CONSENT */}
               <div className="ry-btn-wrap">
                 <motion.a 
                   href={BOOKING_URL} 
@@ -56,15 +52,42 @@ export default function RestoringYouth({ customImage }) {
             </div>
           </div>
 
-          {/* TALL BREAKOUT MEDIA COLUMN */}
-          <div className="ry-media-col">
+          <div 
+            className="ry-media-col" 
+            onClick={() => setSwapped(!swapped)} 
+            style={{ cursor: 'pointer' }}
+            role="button"
+            tabIndex={0}
+            aria-label="Click to swap before and after views"
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setSwapped(!swapped); }}
+          >
             <div className="ry-image-frame">
-              <img 
-                src={activeSrc} 
-                alt="Skin Silhouette Aesthetics Clinical Excellence" 
-                className="ry-fused-img"
-                loading="lazy" 
-              />
+              <div className="ry-pip-bg">
+                <img 
+                  src={activeSrc} 
+                  alt={swapped ? "Before Clinical Result" : "After Clinical Result"} 
+                  className={`ry-fused-img ${swapped ? 'ry-img-left' : 'ry-img-right'}`}
+                  loading="lazy" 
+                />
+                <span className="ry-badge ry-badge-after">{swapped ? 'BEFORE' : 'AFTER'}</span>
+              </div>
+
+              <div className="ry-pip-inset">
+                <img 
+                  src={activeSrc} 
+                  alt={swapped ? "After Clinical Result" : "Before Clinical Result"} 
+                  className={`ry-fused-img ${swapped ? 'ry-img-right' : 'ry-img-left'}`}
+                  loading="lazy" 
+                />
+                <span className="ry-badge ry-badge-before">{swapped ? 'AFTER' : 'BEFORE'}</span>
+              </div>
+
+              <div className="ry-junction-badge" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                  <polyline points="9 18 15 12 9 6" transform="translate(6, 0)"></polyline>
+                </svg>
+              </div>
             </div>
           </div>
 

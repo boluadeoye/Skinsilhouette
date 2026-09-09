@@ -1,0 +1,201 @@
+.journey-section {
+  background-color: var(--bg-tan) !important;
+  color: var(--dark-onyx) !important;
+  padding: clamp(3rem, 5vw, 4.25rem) 0 !important;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-top: 1px solid rgba(12, 6, 8, 0.06);
+  border-bottom: 1px solid rgba(12, 6, 8, 0.06);
+}
+
+.journey-header {
+  text-align: center;
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
+.journey-badge-tag {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--dark-onyx);
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.55);
+  padding: 4px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(12, 6, 8, 0.06);
+  margin-bottom: 0.4rem;
+  display: inline-block;
+}
+
+.journey-main-title {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(1.65rem, 3.2vw, 2.4rem) !important;
+  font-weight: 700 !important;
+  color: var(--dark-onyx) !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  line-height: 1.15 !important;
+}
+
+.journey-timeline-container {
+  position: relative;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.journey-track-line {
+  display: none;
+}
+
+.journey-steps-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .journey-steps-grid::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 18px;
+    width: 1.5px;
+    background: rgba(12, 6, 8, 0.2);
+    z-index: 1;
+  }
+
+  .journey-step-node {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.15rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .journey-node-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: var(--dark-onyx);
+    border: 1.5px solid rgba(12, 6, 8, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(12, 6, 8, 0.06);
+  }
+
+  .journey-node-content {
+    flex: 1;
+    padding-top: 0.15rem;
+  }
+
+  .journey-step-title {
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--dark-onyx);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+  }
+
+  .journey-step-num-inline {
+    display: none;
+  }
+
+  .journey-step-desc {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: rgba(12, 6, 8, 0.72);
+  }
+}
+
+@media (min-width: 768px) {
+  .journey-track-line {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: rgba(12, 6, 8, 0.18);
+    z-index: 1;
+  }
+
+  .journey-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(1rem, 2vw, 2.25rem);
+  }
+
+  .journey-step-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .journey-node-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: var(--dark-onyx);
+    border: 1.5px solid rgba(12, 6, 8, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-bottom: 1.15rem;
+    box-shadow: 0 4px 12px rgba(12, 6, 8, 0.05);
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .journey-step-node:hover .journey-node-circle {
+    transform: scale(1.12);
+    background: var(--dark-onyx);
+    color: #FFFFFF;
+    border-color: var(--dark-onyx);
+  }
+
+  .journey-node-content {
+    width: 100%;
+  }
+
+  .journey-step-title {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--dark-onyx);
+    margin-bottom: 0.45rem;
+    text-transform: uppercase;
+  }
+
+  .journey-step-num-inline {
+    display: none;
+  }
+
+  .journey-step-desc {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: rgba(12, 6, 8, 0.72);
+    max-width: 220px;
+    margin: 0 auto;
+  }
+}

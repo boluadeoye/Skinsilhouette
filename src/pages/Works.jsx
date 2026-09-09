@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import KineticText from '../components/KineticText.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
-import { fetchCaseStudies } from '../services/api.js';
+import { fetchCaseStudies, fetchCaseStudyCategories } from '../services/api.js';
 import { ASSETS } from '../assets.js';
 import { BOOKING_URL } from '../data/content.js';
 import { staggerGridContainer, staggerCardExtreme, universalTouchSquash } from '../utils/motion.js';
@@ -53,18 +53,18 @@ function InteractiveWorkCard({ item }) {
 
 export default function Works() {
   const [caseStudies, setCaseStudies] = useState([]);
+  const [categories, setCategories] = useState(["All"]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("All");
   const [swapped, setSwapped] = useState(false);
 
   useEffect(() => {
-    fetchCaseStudies().then((data) => {
-      setCaseStudies(data);
+    Promise.all([fetchCaseStudies(), fetchCaseStudyCategories()]).then(([caseStudiesData, catsData]) => {
+      setCaseStudies(caseStudiesData);
+      setCategories(catsData);
       setLoading(false);
     });
   }, []);
-
-  const dynamicCategories = ["All", ...new Set(caseStudies.map(item => item.category).filter(Boolean))];
 
   const filteredWorks = activeCategory === "All"
     ? caseStudies
@@ -96,15 +96,15 @@ export default function Works() {
         </div>
       </section>
 
-      {/* DYNAMIC CATEGORY FILTER TRACK */}
+      {/* DYNAMIC CATEGORY FILTER TRACK FROM CASE_STUDY_CATEGORY TAXONOMY */}
       <section className="works-filter-section">
         <div className="container">
           <div className="works-filter-bar">
-            {dynamicCategories.map((cat) => (
+            {categories.map((cat) => (
               <motion.button
                 key={cat}
                 type="button"
-                className={`works-filter-btn ${activeCategory === cat ? 'active' : ''}`}
+                className={`works-filter-btn ${activeCategory.toLowerCase() === cat.toLowerCase() ? 'active' : ''}`}
                 onClick={() => setActiveCategory(cat)}
                 whileHover={{ scale: 1.08 }}
                 whileTap={universalTouchSquash}
@@ -126,7 +126,7 @@ export default function Works() {
 
           {!loading && filteredWorks.length === 0 && (
             <div className="works-empty-state">
-              <p>No case studies available.</p>
+              <p>No case studies available in this category.</p>
             </div>
           )}
 

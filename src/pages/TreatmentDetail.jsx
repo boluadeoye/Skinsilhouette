@@ -66,10 +66,12 @@ export default function TreatmentDetail() {
     );
   }
 
+  const validHiwImage = typeof treatment.howItWorksImage === 'string' && (treatment.howItWorksImage.startsWith('http') || treatment.howItWorksImage.startsWith('/'));
+
   return (
     <div className="treatment-detail-page-wrapper">
       
-      {/* 1. ASYMMETRICAL HERO (ZERO GAP) */}
+      {/* 1. ASYMMETRICAL HERO */}
       <section className="treatment-hero-section">
         <div className="container">
           <div className="treatment-hero-grid">
@@ -92,9 +94,8 @@ export default function TreatmentDetail() {
             >
               <span className="ry-gold-badge">{treatment.category}</span>
               <h1 className="treatment-hero-title">{treatment.title}</h1>
-              {treatment.description && (
-                <p className="treatment-hero-desc">{treatment.description}</p>
-              )}
+              <p className="treatment-hero-desc">{treatment.summaryHook}</p>
+              
               <div className="ry-metrics-row">
                 <div className="ry-metric"><h3>50+</h3><p>PATIENTS TREATED</p></div>
                 <div className="ry-metric"><h3>5.0</h3><p>STAR REVIEWS</p></div>
@@ -122,16 +123,16 @@ export default function TreatmentDetail() {
           <div className="treatment-about-content">
             <KineticText text={`About ${treatment.title}`} className="treatment-about-title" tag="h2" />
             <p className="treatment-about-text">
-              {treatment.content || CLINIC_CONTENT.about.practitioner_statement}
+              {treatment.description || CLINIC_CONTENT.about.practitioner_statement}
             </p>
           </div>
         </div>
       </section>
 
-      {/* 3. HOW IT WORKS */}
+      {/* 3. HOW IT WORKS (VALIDATED RESOLVER RENDERING) */}
       <section className="treatment-hiw-section">
         <div className="container">
-          <div className="treatment-hiw-card">
+          <div className={`treatment-hiw-card ${validHiwImage ? 'has-image' : 'no-image'}`}>
             <div className="treatment-hiw-left">
               <span className="hiw-standalone-heading">HOW IT WORKS</span>
               <div className="hiw-accordion-list">
@@ -161,7 +162,7 @@ export default function TreatmentDetail() {
               </div>
             </div>
 
-            {treatment.howItWorksImage && (
+            {validHiwImage && (
               <motion.div 
                 className="treatment-hiw-right"
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -176,7 +177,7 @@ export default function TreatmentDetail() {
         </div>
       </section>
 
-      {/* 4. BOOKING POLICY (MOVED DIRECTLY AFTER HOW IT WORKS) */}
+      {/* 4. BOOKING POLICY BAR */}
       <BookingPolicy />
 
       {/* 5. CLIENT REVIEWS CAROUSEL */}

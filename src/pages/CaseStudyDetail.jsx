@@ -6,6 +6,7 @@ import Review from '../components/Review.jsx';
 import RestoringYouth from '../components/RestoringYouth.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
 import { fetchCaseStudyBySlug } from '../services/api.js';
+import { ASSETS } from '../assets.js';
 import { BOOKING_URL } from '../data/content.js';
 import { universalTouchSquash } from '../utils/motion.js';
 import './CaseStudyDetail.css';
@@ -43,22 +44,23 @@ export default function CaseStudyDetail() {
     );
   }
 
-  const bgImage = caseStudy.featuredImage || caseStudy.workMainImage;
+  const bgImage = caseStudy.featuredImage || caseStudy.workMainImage || caseStudy.afterImage || caseStudy.beforeImage || ASSETS.treatment_hydrofacial;
+  const mainProcedureImage = caseStudy.workMainImage || caseStudy.afterImage || bgImage;
   const gallery = caseStudy.gallery || [];
   const galleryCount = gallery.length;
 
   return (
     <div className="case-study-page-wrapper">
       
-      {/* 1. DYNAMIC EDITORIAL HERO */}
+      {/* 1. DYNAMIC EDITORIAL HERO (NEVER PITCH BLACK) */}
       <section 
         className="cs-hero-section" 
-        style={bgImage ? { 
+        style={{ 
           backgroundImage: `url(${bgImage})`,
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat'
-        } : { backgroundColor: 'var(--dark-onyx)' }}
+        }}
       >
         <div className="cs-hero-bg-overlay"></div>
         <div className="container">
@@ -95,46 +97,41 @@ export default function CaseStudyDetail() {
         </section>
       )}
 
-      {/* 4. THE WORK: RENDERS ONLY IF IMAGES ARE ACTUALLY UPLOADED IN WORDPRESS */}
-      {(caseStudy.workMainImage || galleryCount > 0) && (
-        <section className="cs-work-section">
-          <div className="container">
-            <div className="cs-work-head">
-              <span className="cs-work-tag">THE WORK</span>
-            </div>
-
-            {caseStudy.workMainImage && (
-              <div className="cs-featured-frame">
-                <img src={caseStudy.workMainImage} alt="Clinical Treatment Result" />
-              </div>
-            )}
-
-            {/* ADAPTIVE LIVE GALLERY: 0 FALLBACKS */}
-            {galleryCount > 0 && (
-              <div className={`cs-adaptive-mosaic-grid count-${galleryCount}`}>
-                {gallery.map((imgUrl, index) => (
-                  <motion.div 
-                    key={index} 
-                    className={`cs-mosaic-card item-${index + 1}`}
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={universalTouchSquash}
-                  >
-                    <img src={imgUrl} alt={`Clinical Step ${index + 1}`} loading="lazy" />
-                  </motion.div>
-                ))}
-              </div>
-            )}
+      {/* 4. THE WORK: RENDERS MAIN PROCEDURE IMAGE + GALLERY */}
+      <section className="cs-work-section">
+        <div className="container">
+          <div className="cs-work-head">
+            <span className="cs-work-tag">THE WORK</span>
           </div>
-        </section>
-      )}
+
+          {mainProcedureImage && (
+            <div className="cs-featured-frame">
+              <img src={mainProcedureImage} alt="Clinical Treatment Result" />
+            </div>
+          )}
+
+          {galleryCount > 0 && (
+            <div className={`cs-adaptive-mosaic-grid count-${galleryCount}`}>
+              {gallery.map((imgUrl, index) => (
+                <motion.div 
+                  key={index} 
+                  className={`cs-mosaic-card item-${index + 1}`}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={universalTouchSquash}
+                >
+                  <img src={imgUrl} alt={`Clinical Step ${index + 1}`} loading="lazy" />
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* 5. CLIENT REVIEW */}
       <Review />
 
-      {/* 6. DYNAMIC RESTORING YOUTH BREAKOUT */}
-      {caseStudy.breakoutImage && (
-        <RestoringYouth customImage={caseStudy.breakoutImage} />
-      )}
+      {/* 6. DYNAMIC RESTORING YOUTH BREAKOUT (NEVER DISAPPEARS) */}
+      <RestoringYouth customImage={caseStudy.breakoutImage || ASSETS.ry_home} />
 
       {/* 7. CTA BANNER */}
       <CtaBanner />

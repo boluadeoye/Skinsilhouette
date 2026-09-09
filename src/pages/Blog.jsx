@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import KineticText from '../components/KineticText.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
-import { fetchJournalPosts, fetchCategories } from '../services/api.js';
+import { fetchJournalPosts, fetchJournalCategories } from '../services/api.js';
 import { ASSETS } from '../assets.js';
 import { staggerGridContainer, staggerCardExtreme, universalTouchSquash } from '../utils/motion.js';
 import './Blog.css';
@@ -15,7 +15,7 @@ export default function Blog() {
   const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
-    Promise.all([fetchJournalPosts(), fetchCategories()]).then(([postsData, catsData]) => {
+    Promise.all([fetchJournalPosts(), fetchJournalCategories()]).then(([postsData, catsData]) => {
       setArticles(postsData);
       setCategories(catsData);
       setLoading(false);
@@ -57,7 +57,6 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* DYNAMIC CATEGORIES FETCHED FROM API */}
       <section className="blog-filter-section" id="articles">
         <div className="container">
           <div className="blog-tags-scroll-track">

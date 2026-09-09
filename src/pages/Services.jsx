@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import CtaBanner from '../components/CtaBanner.jsx';
 import BookingPolicy from '../components/BookingPolicy.jsx';
 import RestoringYouth from '../components/RestoringYouth.jsx';
 import Review from '../components/Review.jsx';
-import { fetchTreatments } from '../services/api.js';
+import { fetchTreatments, fetchTreatmentCategories } from '../services/api.js';
 import { CLINIC_CONTENT } from '../data/content.js';
 import { ASSETS } from '../assets.js';
+import { staggerGridContainer, staggerCardExtreme, universalTouchSquash } from '../utils/motion.js';
 import './Services.css';
-
-const CATEGORIES = ["All", "Consultation", "Treatments", "Injectables"];
 
 export default function Services() {
   const [services, setServices] = useState([]);
+  const [categories, setCategories] = useState(["All"]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeFaq, setActiveFaq] = useState(0);
@@ -20,8 +21,9 @@ export default function Services() {
   const clinicalFaqs = CLINIC_CONTENT.treatmentFAQs.slice(0, 5);
 
   useEffect(() => {
-    fetchTreatments().then((data) => {
-      setServices(data);
+    Promise.all([fetchTreatments(), fetchTreatmentCategories()]).then(([treatmentsData, catsData]) => {
+      setServices(treatmentsData);
+      setCategories(catsData);
       setLoading(false);
     });
   }, []);
@@ -44,13 +46,14 @@ export default function Services() {
         </div>
       </section>
 
+      {/* MARQUEE OVERHAULED WITH 4 OFFICIAL BRAND SERVICES */}
       <div className="services-marquee-ribbon">
         <div className="marquee-track">
           <span className="marquee-item">
-            WRINKLES <span className="gold-star spinning-star">✦</span> HAIR THINNING <span className="gold-star spinning-star">✦</span> LASER TREATMENT <span className="gold-star spinning-star">✦</span> ALOPECIA TREATMENT <span className="gold-star spinning-star">✦</span> DARK SPOTS <span className="gold-star spinning-star">✦</span> OILY <span className="gold-star spinning-star">✦</span> ACNE <span className="gold-star spinning-star">✦</span> FACIALS <span className="gold-star spinning-star">✦</span> PIGMENTATION <span className="gold-star spinning-star">✦</span> ANTI-AGING <span className="gold-star spinning-star">✦</span> WRINKLES <span className="gold-star spinning-star">✦</span> HAIR THINNING <span className="gold-star spinning-star">✦</span> LASER TREATMENT <span className="gold-star spinning-star">✦</span> ALOPECIA TREATMENT <span className="gold-star spinning-star">✦</span> DARK SPOTS <span className="gold-star spinning-star">✦</span> OILY <span className="gold-star spinning-star">✦</span> ACNE <span className="gold-star spinning-star">✦</span> FACIALS <span className="gold-star spinning-star">✦</span> PIGMENTATION <span className="gold-star spinning-star">✦</span> ANTI-AGING <span className="gold-star spinning-star">✦</span>
+            INITIAL ASSESSMENT <span className="gold-star spinning-star">✦</span> ANTI-WRINKLE TREATMENTS <span className="gold-star spinning-star">✦</span> FACIAL HARMONISATION – DERMAL FILLERS <span className="gold-star spinning-star">✦</span> SKIN REGENERATIVE <span className="gold-star spinning-star">✦</span> INITIAL ASSESSMENT <span className="gold-star spinning-star">✦</span> ANTI-WRINKLE TREATMENTS <span className="gold-star spinning-star">✦</span> FACIAL HARMONISATION – DERMAL FILLERS <span className="gold-star spinning-star">✦</span> SKIN REGENERATIVE <span className="gold-star spinning-star">✦</span>
           </span>
           <span className="marquee-item" aria-hidden="true">
-            WRINKLES <span className="gold-star spinning-star">✦</span> HAIR THINNING <span className="gold-star spinning-star">✦</span> LASER TREATMENT <span className="gold-star spinning-star">✦</span> ALOPECIA TREATMENT <span className="gold-star spinning-star">✦</span> DARK SPOTS <span className="gold-star spinning-star">✦</span> OILY <span className="gold-star spinning-star">✦</span> ACNE <span className="gold-star spinning-star">✦</span> FACIALS <span className="gold-star spinning-star">✦</span> PIGMENTATION <span className="gold-star spinning-star">✦</span> ANTI-AGING <span className="gold-star spinning-star">✦</span> WRINKLES <span className="gold-star spinning-star">✦</span> HAIR THINNING <span className="gold-star spinning-star">✦</span> LASER TREATMENT <span className="gold-star spinning-star">✦</span> ALOPECIA TREATMENT <span className="gold-star spinning-star">✦</span> DARK SPOTS <span className="gold-star spinning-star">✦</span> OILY <span className="gold-star spinning-star">✦</span> ACNE <span className="gold-star spinning-star">✦</span> FACIALS <span className="gold-star spinning-star">✦</span> PIGMENTATION <span className="gold-star spinning-star">✦</span> ANTI-AGING <span className="gold-star spinning-star">✦</span>
+            INITIAL ASSESSMENT <span className="gold-star spinning-star">✦</span> ANTI-WRINKLE TREATMENTS <span className="gold-star spinning-star">✦</span> FACIAL HARMONISATION – DERMAL FILLERS <span className="gold-star spinning-star">✦</span> SKIN REGENERATIVE <span className="gold-star spinning-star">✦</span> INITIAL ASSESSMENT <span className="gold-star spinning-star">✦</span> ANTI-WRINKLE TREATMENTS <span className="gold-star spinning-star">✦</span> FACIAL HARMONISATION – DERMAL FILLERS <span className="gold-star spinning-star">✦</span> SKIN REGENERATIVE <span className="gold-star spinning-star">✦</span>
           </span>
         </div>
       </div>
@@ -58,11 +61,11 @@ export default function Services() {
       <section className="services-filter-bar-section">
         <div className="container">
           <div className="services-filter-bar">
-            {CATEGORIES.map((cat) => (
+            {categories.map((cat) => (
               <button
                 key={cat}
                 type="button"
-                className={`services-filter-btn ${activeCategory === cat ? 'active' : ''}`}
+                className={`services-filter-btn ${activeCategory.toUpperCase() === cat.toUpperCase() ? 'active' : ''}`}
                 onClick={() => setActiveCategory(cat)}
               >
                 {cat}
@@ -87,22 +90,37 @@ export default function Services() {
           )}
 
           {!loading && filteredServices.length > 0 && (
-            <div className="services-3x3-grid">
-              {filteredServices.map((item) => (
-                <Link to={`/services/${item.slug}`} key={item.id} className="treatment-card" style={{ textDecoration: 'none' }}>
-                  <div className="treatment-card-content">
-                    <span className="treatment-card-cat">{item.category}</span>
-                    <h3 className="treatment-card-title">{item.title}</h3>
-                    <p className="treatment-card-desc">{item.description}</p>
-                  </div>
-                  {item.image && (
-                    <div className="treatment-card-image-wrap">
-                      <img src={item.image} alt={item.title} loading="lazy" />
-                    </div>
-                  )}
-                </Link>
-              ))}
-            </div>
+            <motion.div 
+              className="services-cards-grid"
+              variants={staggerGridContainer}
+              initial="hidden"
+              animate="visible"
+            >
+              <AnimatePresence>
+                {filteredServices.map((item) => (
+                  <motion.div
+                    key={item.id}
+                    variants={staggerCardExtreme}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    whileTap={universalTouchSquash}
+                    layout
+                  >
+                    <Link to={`/services/${item.slug}`} className="treatment-card" style={{ textDecoration: 'none' }}>
+                      <div className="treatment-card-content">
+                        <span className="treatment-card-cat">{item.category}</span>
+                        <h3 className="treatment-card-title">{item.title}</h3>
+                        <p className="treatment-card-desc">{item.description}</p>
+                      </div>
+                      {item.image && (
+                        <div className="treatment-card-image-wrap">
+                          <img src={item.image} alt={item.title} loading="lazy" />
+                        </div>
+                      )}
+                    </Link>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
           )}
         </div>
       </section>

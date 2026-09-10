@@ -1,6 +1,11 @@
 .treatment-detail-page-wrapper {
   background: var(--bg-nude);
   width: 100%;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  flex: 1 0 auto !important;
+  min-height: 100% !important;
 }
 
 .treatment-hero-section {
@@ -91,9 +96,6 @@
   line-height: 1.85;
 }
 
-/* ==========================================================================
-   HOW IT WORKS AUTO-COLLAPSE ARCHITECTURE (ZERO EMPTY VOIDS) [1]
-   ========================================================================== */
 .treatment-hiw-section {
   padding: clamp(3.5rem, 6vw, 5.5rem) 0;
   background: var(--bg-nude);
@@ -107,7 +109,6 @@
   border: 1px solid var(--border-light);
 }
 
-/* CASE A: HAS IMAGE (2-COLUMN HORIZONTAL) [1] */
 .treatment-hiw-card.has-image {
   display: grid;
   grid-template-columns: 1fr;
@@ -129,7 +130,6 @@
   justify-content: center;
 }
 
-/* CASE B: NO IMAGE (CENTERED 1-COLUMN, ZERO GHOST VOIDS) [1] */
 .treatment-hiw-card.no-image {
   display: block !important;
   max-width: 800px !important;

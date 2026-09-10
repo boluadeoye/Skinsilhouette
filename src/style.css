@@ -1,16 +1,12 @@
-/* ==========================================================================
-   ATELIER NUDE TOKENS & SYSTEM TYPOGRAPHY RESETS
-   ========================================================================== */
-
 :root {
-  --bg-nude: #E8DED1;       /* Master Canvas Palette */
-  --bg-warm-silk: #EFE6DB;   /* Tonal Section Bridge */
-  --bg-sand: #F4F3EE;        /* Surface Cards */
-  --bg-tan: #E2C8B1;         /* Policy & CTA Accent */
-  --dark-onyx: #0C0608;      /* Deep Onyx Black */
-  --primary-gold: #C8A96A;   /* Champagne Gold */
+  --bg-nude: #E8DED1;
+  --bg-warm-silk: #EFE6DB;
+  --bg-sand: #F4F3EE;
+  --bg-tan: #E2C8B1;
+  --dark-onyx: #0C0608;
+  --primary-gold: #C8A96A;
   --primary-gold-hover: #D8B97A;
-  --text-muted: #6E685F;     /* Warm Charcoal Subtext */
+  --text-muted: #6E685F;
   --border-light: rgba(12, 6, 8, 0.06);
 
   --font-serif: 'Playfair Display', Georgia, serif;
@@ -29,7 +25,15 @@
   padding: 0;
 }
 
-html, body {
+html {
+  height: 100%;
+  background-color: var(--bg-nude);
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   overflow-x: hidden;
   background-color: var(--bg-nude);
@@ -37,13 +41,22 @@ html, body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-variant-emoji: text; /* HARD-BLOCKS OS EMOJI FALLBACK INJECTIONS [1] */
+  font-variant-emoji: text;
 }
 
-/* STICKY FOOTER FLEXBOX ENGINE */
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+}
+
 .app-layout {
   display: flex;
   flex-direction: column;
+  flex: 1 0 auto;
   min-height: 100vh;
   min-height: 100dvh;
   width: 100%;

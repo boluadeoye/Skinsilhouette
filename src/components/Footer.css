@@ -1,7 +1,3 @@
-/* ==========================================================================
-   LUXURY ATELIER FOOTER: MOBILE 2-COLUMN BREAK & DESKTOP SINGLE-HORIZON [1]
-   ========================================================================== */
-
 .luxury-footer {
   background-color: var(--dark-onyx);
   color: #FFFFFF;
@@ -9,36 +5,30 @@
   width: 100%;
   position: relative;
   z-index: 10;
+  margin-top: auto !important; /* ABSORBS ALL RESIDUAL SPACE ABOVE, FORCING FOOTER TO SCREEN BOTTOM */
 }
 
-/* ==========================================================================
-   MOBILE DEFAULT (< 768PX): BALANCED 2-COLUMN SITEMAP BREAK [1]
-   ========================================================================== */
 .footer-grid-4col {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 COLUMNS ON MOBILE: CUTS HEIGHT IN HALF [1] */
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.25rem 1.25rem;
   margin-bottom: 3rem;
   align-items: start;
 }
 
-/* FULL-WIDTH SPAN FOR CONTACT & NEWSLETTER ON MOBILE [1] */
 @media (max-width: 767px) {
   .footer-col:nth-child(3),
   .footer-newsletter-col {
-    grid-column: span 2 !important; /* Full width prevents text squashing [1] */
+    grid-column: span 2 !important;
   }
 
   .footer-links a,
   .menu-disabled-link {
-    white-space: normal !important; /* Allows clean multi-line wrapping on tiny screens [1] */
+    white-space: normal !important;
     line-height: 1.35 !important;
   }
 }
 
-/* ==========================================================================
-   DESKTOP (>= 768PX): SINGLE CONTINUOUS 4-COLUMN HORIZON [1]
-   ========================================================================== */
 @media (min-width: 768px) {
   .footer-grid-4col {
     grid-template-columns: 1fr 1fr 1.25fr 1.65fr !important;
@@ -59,7 +49,6 @@
   }
 }
 
-/* COLUMN TITLES */
 .footer-col-title {
   font-family: var(--font-serif);
   font-size: clamp(1.05rem, 2vw, 1.18rem);
@@ -111,7 +100,6 @@
   font-weight: 600;
 }
 
-/* CONTACT LIST */
 .footer-contact-list {
   gap: 1rem;
 }
@@ -142,7 +130,6 @@
   flex-shrink: 0;
 }
 
-/* COLUMN 4: THE SILHOUETTE CLUB (NEWSLETTER) */
 .footer-newsletter-col {
   width: 100%;
 }
@@ -213,7 +200,6 @@
   background: #FFFFFF;
 }
 
-/* COPYRIGHT BAR */
 .footer-bottom-bar {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 1.75rem;

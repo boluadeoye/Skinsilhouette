@@ -1,11 +1,11 @@
 .social-journey-section {
-  padding: clamp(4.5rem, 8vw, 6.5rem) 0;
+  padding: 2rem 0 clamp(4.5rem, 7vw, 6rem) 0 !important;
   background: var(--bg-nude);
 }
 
 .social-journey-head {
   text-align: center;
-  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .social-journey-head h2 {
@@ -14,10 +14,9 @@
   color: var(--dark-onyx);
   font-weight: 700;
   line-height: 1.18;
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.15rem;
 }
 
-/* CENTER-SYMMETRICAL PARAGRAPH CONTAINER */
 .social-handle-badge {
   font-family: var(--font-sans);
   font-size: clamp(0.88rem, 2.2vw, 0.98rem);
@@ -39,12 +38,11 @@
   color: var(--dark-onyx);
 }
 
-/* OPTICALLY BALANCED INLINE ICON ANCHOR (NUDGED UP TO MATCH CAPITAL 'F') */
 .insta-icon-inline {
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
-  transform: translateY(-1.5px); /* Micro-nudge upward aligns with cap-height */
+  transform: translateY(-1.5px);
   margin-right: 6px;
 }
 

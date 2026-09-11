@@ -3,32 +3,24 @@ import { ASSETS } from '../assets.js';
 import './HonoursMarquee.css';
 
 export default function HonoursMarquee() {
-  const marqueeTrack = [...ASSETS.honours, ...ASSETS.honours, ...ASSETS.honours];
+  const logoList = ASSETS.honours || [];
+  const marqueeTrack = [...logoList, ...logoList, ...logoList];
 
   return (
-    <section className="honours-section">
-      <div className="container" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-        <span className="badge-tag">CLINICAL STANDARDS</span>
-        {/* REPLACED "Explore our honours" [1] */}
-        <h2>Accreditations & Certifications</h2>
-      </div>
-
+    <section className="marquee-section">
       <div className="marquee-container">
-        <div className="honours-marquee-track">
+        <div className="marquee-track">
           {marqueeTrack.map((img, i) => {
-            const isScaleUp = img.includes('p84hy5slcbfmjncpksbt') || img.includes('eet69hk5vaaflnhl6xqv') || img.includes('eeqd85ysl3uwo0dkoxdk');
-            const isScaleDown = img.includes('j6g7uy566bqspucbprc3'); // Capsule Clinics
+            const isEnlarged = img.includes('eet69hk5vaaflnhl6xqv') || img.includes('eeqd85ysl3uwo0dkoxdk') || img.includes('p84hy5slcbfmjncpksbt');
+            const isReduced = img.includes('j6g7uy566bqspucbprc3');
 
-            let modifierClass = '';
-            if (isScaleUp) modifierClass = 'brand-img-scale-up';
-            if (isScaleDown) modifierClass = 'brand-img-scale-down';
+            let sizeClass = "";
+            if (isEnlarged) sizeClass = "brand-img-enlarged";
+            if (isReduced) sizeClass = "brand-img-reduced";
 
             return (
-              <div 
-                key={i} 
-                className={`brand-img-wrap ${modifierClass}`}
-              >
-                <img src={img} alt="" loading="lazy" />
+              <div key={i} className={`brand-img-wrap ${sizeClass}`}>
+                <img src={img} alt="Accredited Clinical Partner" loading="lazy" />
               </div>
             );
           })}

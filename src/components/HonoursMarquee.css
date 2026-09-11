@@ -1,52 +1,38 @@
-.honours-section {
-  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+.marquee-section {
+  padding: clamp(2rem, 3.5vw, 2.75rem) 0 !important;
   background: var(--bg-sand) !important;
+  overflow: hidden;
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
   width: 100%;
-}
-
-.badge-tag {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--dark-onyx);
-  text-transform: uppercase;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
-
-.honours-section h2 {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
-  color: var(--dark-onyx);
-  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(12, 6, 8, 0.02);
 }
 
 .marquee-container {
-  position: relative;
-  overflow: hidden;
   width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
   display: flex;
   align-items: center;
 }
 
-.honours-marquee-track {
+.marquee-track {
   display: flex;
+  align-items: center;
   gap: 3rem;
-  animation: honours-scroll 38s linear infinite;
+  width: max-content;
+  animation: scroll-left 24s linear infinite;
   will-change: transform;
-  align-items: center;
 }
 
-@keyframes honours-scroll {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-33.333%, 0, 0); }
+@media (min-width: 740px) {
+  .marquee-track {
+    gap: 5.5rem;
+  }
 }
 
 .brand-img-wrap {
-  width: 165px;
+  width: 170px;
   height: 65px;
   display: flex;
   align-items: center;
@@ -55,12 +41,17 @@
   padding: 0.5rem;
 }
 
+@media (min-width: 740px) {
+  .brand-img-wrap {
+    width: 240px !important;
+    height: 95px !important;
+  }
+}
+
 .brand-img-wrap img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: none !important;
-  opacity: 1 !important;
   transition: transform 0.3s ease;
 }
 
@@ -68,32 +59,29 @@
   transform: scale(1.06);
 }
 
-/* TARGETED SCALE UP (+35%) FOR COMPACT SEALS & NEW LOGO */
-.brand-img-wrap.brand-img-scale-up img {
-  transform: scale(1.35) !important;
-  transform-origin: center center !important;
+.brand-img-wrap.brand-img-enlarged img {
+  transform: scale(1.38);
+  transform-origin: center center;
 }
 
-.brand-img-wrap.brand-img-scale-up:hover img {
-  transform: scale(1.42) !important;
+.brand-img-wrap.brand-img-enlarged:hover img {
+  transform: scale(1.44) !important;
 }
 
-/* TARGETED SCALE DOWN (-18%) FOR CAPSULE CLINICS LOGO */
-.brand-img-wrap.brand-img-scale-down img {
-  transform: scale(0.82) !important;
-  transform-origin: center center !important;
+.brand-img-wrap.brand-img-reduced img {
+  transform: scale(0.82);
+  transform-origin: center center;
 }
 
-.brand-img-wrap.brand-img-scale-down:hover img {
-  transform: scale(0.90) !important;
+.brand-img-wrap.brand-img-reduced:hover img {
+  transform: scale(0.88) !important;
 }
 
-@media (min-width: 740px) {
-  .honours-marquee-track {
-    gap: 5.5rem !important;
-  }
-  .brand-img-wrap {
-    width: 230px !important;
-    height: 90px !important;
-  }
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
 }

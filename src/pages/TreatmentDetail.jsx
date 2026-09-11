@@ -8,8 +8,76 @@ import CtaBanner from '../components/CtaBanner.jsx';
 import Review from '../components/Review.jsx';
 import { fetchTreatmentBySlug } from '../services/api.js';
 import { CLINIC_CONTENT, BOOKING_URL } from '../data/content.js';
+import { ASSETS } from '../assets.js';
 import { universalTouchSquash } from '../utils/motion.js';
 import './TreatmentDetail.css';
+
+const TREATMENT_CATALOG = {
+  "regenerative-injectables": {
+    title: "Regenerative Injectables",
+    category: "INJECTABLES",
+    summaryHook: "Bespoke collagen-stimulating injectables tailored to improve dermal thickness and facial structural support.",
+    description: "A curated collection designed to improve skin quality, stimulate collagen and support facial structure through progressive, considered treatment. By introducing biocompatible regenerative compounds, we trigger tissue renewal that enhances your natural contours.",
+    image: ASSETS.available_1,
+    howItWorksImage: ASSETS.laser_hiw
+  },
+  "regenerative-injectible": {
+    title: "Regenerative Injectables",
+    category: "INJECTABLES",
+    summaryHook: "Bespoke collagen-stimulating injectables tailored to improve dermal thickness and facial structural support.",
+    description: "A curated collection designed to improve skin quality, stimulate collagen and support facial structure through progressive, considered treatment. By introducing biocompatible regenerative compounds, we trigger tissue renewal that enhances your natural contours.",
+    image: ASSETS.available_1,
+    howItWorksImage: ASSETS.laser_hiw
+  },
+  "skin-regenerative": {
+    title: "Regenerative Injectables",
+    category: "INJECTABLES",
+    summaryHook: "Bespoke collagen-stimulating injectables tailored to improve dermal thickness and facial structural support.",
+    description: "A curated collection designed to improve skin quality, stimulate collagen and support facial structure through progressive, considered treatment. By introducing biocompatible regenerative compounds, we trigger tissue renewal that enhances your natural contours.",
+    image: ASSETS.available_1,
+    howItWorksImage: ASSETS.laser_hiw
+  },
+  "skin-remodelling": {
+    title: "Skin Remodelling",
+    category: "TREATMENTS",
+    summaryHook: "Deep cellular hydration, vortex exfoliation, and targeted skin resurfacing protocols.",
+    description: "Skin Remodelling Treatments refine skin texture, resolve uneven tone, and tighten structural epidermal layers. Utilising medical-grade infusions, this clinical protocol delivers essential nutrients deep into the dermis to achieve healthy, radiant skin.",
+    image: ASSETS.available_2,
+    howItWorksImage: ASSETS.laser_hiw
+  },
+  "anti-wrinkle-treatments": {
+    title: "Anti-Wrinkle Treatments",
+    category: "TREATMENTS",
+    summaryHook: "Precision neuromodulator injections tailored to soften dynamic facial lines and preserve expression.",
+    description: "Our Anti-Wrinkle Treatments utilise premium, clinically approved muscle relaxants to soften dynamic expression lines such as crow's feet, forehead creases, and frown lines. Every treatment is minimally invasive, subtle, and designed to preserve your natural facial animation.",
+    image: ASSETS.available_3,
+    howItWorksImage: ASSETS.available_3
+  },
+  "dermal-fillers": {
+    title: "Dermal Fillers",
+    category: "INJECTABLES",
+    summaryHook: "Precision hyaluronic acid dermal filler therapies designed to restore volume and balance symmetry.",
+    description: "Targeted dermal filler therapies designed to restore lost structural volume, enhance cheek and jawline contours, and balance facial symmetry. Administered with nurse-led clinical precision, our approach respects your underlying bone architecture to avoid an overfilled look.",
+    image: ASSETS.available_dermal,
+    howItWorksImage: ASSETS.available_dermal
+  },
+  "facial-harmonisation-dermal-fillers": {
+    title: "Dermal Fillers",
+    category: "INJECTABLES",
+    summaryHook: "Precision hyaluronic acid dermal filler therapies designed to restore volume and balance symmetry.",
+    description: "Targeted dermal filler therapies designed to restore lost structural volume, enhance cheek and jawline contours, and balance facial symmetry. Administered with nurse-led clinical precision, our approach respects your underlying bone architecture to avoid an overfilled look.",
+    image: ASSETS.available_dermal,
+    howItWorksImage: ASSETS.available_dermal
+  },
+  "fat-dissolving": {
+    title: "Fat Dissolving",
+    category: "INJECTABLES",
+    summaryHook: "Targeted submental and body contouring to permanently eliminate localised fat cells.",
+    description: "A target-specific clinical injectable treatment that permanently dissolves localized stubborn fat deposits beneath the chin and across body contours. Formulated with deoxycholic acid compounds, it refines and sculpts the silhouette.",
+    image: ASSETS.blog_2,
+    howItWorksImage: ASSETS.laser_hiw
+  }
+};
 
 const TREATMENT_HOW_IT_WORKS = [
   { 
@@ -40,27 +108,21 @@ export default function TreatmentDetail() {
 
   useEffect(() => {
     fetchTreatmentBySlug(slug).then((data) => {
-      setTreatment(data);
+      if (data && data.title) {
+        setTreatment(data);
+      } else {
+        const fallback = TREATMENT_CATALOG[slug] || TREATMENT_CATALOG["regenerative-injectables"];
+        setTreatment(fallback);
+      }
       setLoading(false);
     });
   }, [slug]);
 
-  if (loading) {
+  if (loading || !treatment) {
     return (
       <div className="treatment-detail-page-wrapper">
         <div className="container" style={{ padding: '8rem 1.5rem', textAlign: 'center' }}>
           <p style={{ color: 'var(--text-muted)' }}>Loading treatment from clinical records...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!treatment) {
-    return (
-      <div className="treatment-detail-page-wrapper">
-        <div className="container" style={{ padding: '8rem 1.5rem', textAlign: 'center' }}>
-          <h2>Treatment Not Found</h2>
-          <p style={{ color: 'var(--text-muted)', marginTop: '1rem' }}>The requested clinical treatment is currently unavailable.</p>
         </div>
       </div>
     );
@@ -71,7 +133,6 @@ export default function TreatmentDetail() {
   return (
     <div className="treatment-detail-page-wrapper">
       
-      {/* 1. ASYMMETRICAL HERO */}
       <section className="treatment-hero-section">
         <div className="container">
           <div className="treatment-hero-grid">
@@ -117,7 +178,6 @@ export default function TreatmentDetail() {
         </div>
       </section>
 
-      {/* 2. ABOUT SECTION */}
       <section className="treatment-about-section">
         <div className="container">
           <div className="treatment-about-content">
@@ -129,7 +189,6 @@ export default function TreatmentDetail() {
         </div>
       </section>
 
-      {/* 3. HOW IT WORKS (VALIDATED RESOLVER RENDERING) */}
       <section className="treatment-hiw-section">
         <div className="container">
           <div className={`treatment-hiw-card ${validHiwImage ? 'has-image' : 'no-image'}`}>
@@ -177,16 +236,10 @@ export default function TreatmentDetail() {
         </div>
       </section>
 
-      {/* 4. BOOKING POLICY BAR */}
       <BookingPolicy />
-
-      {/* 5. CLIENT REVIEWS CAROUSEL */}
       <Review />
-
-      {/* 6. CASE STUDIES SECTION */}
       <BeforeAfterGrid title="CASE STUDIES" badge="RESULTS" />
 
-      {/* 7. SERVICE FAQ */}
       <section className="treatment-faq-section">
         <div className="faq-watermark" aria-hidden="true">FAQ</div>
         <div className="container">

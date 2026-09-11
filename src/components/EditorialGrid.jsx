@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import KineticText from './KineticText.jsx';
 import MagneticButton from './MagneticButton.jsx';
 import { ASSETS } from '../assets.js';
 import { universalTouchSquash } from '../utils/motion.js';
@@ -8,63 +8,61 @@ import './EditorialGrid.css';
 
 export default function EditorialGrid() {
   return (
-    <section className="editorial-grid-section">
+    <section className="editorial-journal-section">
       <div className="container">
-        <div className="editorial-asym-layout">
-          
-          <motion.div 
-            className="editorial-card-large"
-            initial={{ opacity: 0, x: -70, scale: 0.9 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ type: "spring", stiffness: 140, damping: 16 }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={universalTouchSquash}
-          >
-            <img src={ASSETS.editorial_main} alt="5 Tips to Look Younger" loading="lazy" />
-            <div className="editorial-glass-overlay">
-              <h3>5 Tips on How to Look Younger than Your Age</h3>
+        
+        <div className="editorial-section-head">
+          <span className="editorial-section-badge">• Editorial</span>
+          <KineticText text="From Our Journal" tag="h2" />
+          <p>Clinical perspectives, skin health philosophy, and evidence-led aesthetic insights.</p>
+        </div>
+
+        <div className="editorial-dual-grid">
+          <motion.div className="editorial-card-main" whileTap={universalTouchSquash}>
+            <div className="editorial-media-frame">
+              <img src={ASSETS.editorial_main} alt="Clinical Specialist Journal" loading="lazy" />
+            </div>
+            <div className="editorial-card-body">
+              <span className="editorial-meta-date">AUGUST 2026</span>
+              <h3 className="editorial-title">Aesthetic Medicine: Choosing The Right Specialist</h3>
+              <p className="editorial-snippet">
+                Why practitioner qualification, anatomical mastery, and ethical consultation planning dictate clinical longevity.
+              </p>
+              <a href="/journal" className="editorial-read-link">READ ARTICLE &rarr;</a>
             </div>
           </motion.div>
 
-          <div className="editorial-right-stack">
-            <motion.div 
-              className="editorial-card-small"
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ type: "spring", stiffness: 160, damping: 15, delay: 0.1 }}
-              whileHover={{ scale: 1.03 }}
-              whileTap={universalTouchSquash}
-            >
-              <img src={ASSETS.editorial_top} alt="How to Care For Your Skin" loading="lazy" />
-              <div className="editorial-glass-overlay">
-                <h3>How To Care For Your Skin After Aesthetic Procedures</h3>
+          <div className="editorial-side-stack">
+            <motion.div className="editorial-card-stacked" whileTap={universalTouchSquash}>
+              <div className="editorial-stack-media">
+                <img src={ASSETS.editorial_top} alt="Skin Remodelling Philosophy" loading="lazy" />
+              </div>
+              <div className="editorial-stack-body">
+                <span className="editorial-meta-date">JULY 2026</span>
+                <h4 className="editorial-stack-title">Understanding Melanin-Rich Skin in Aesthetics</h4>
+                <a href="/journal" className="editorial-read-link">READ ARTICLE &rarr;</a>
               </div>
             </motion.div>
 
-            <motion.div 
-              className="editorial-card-small"
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ type: "spring", stiffness: 160, damping: 15, delay: 0.2 }}
-              whileHover={{ scale: 1.03 }}
-              whileTap={universalTouchSquash}
-            >
-              <img src={ASSETS.editorial_bot} alt="Lip Fillers Guide" loading="lazy" />
-              <div className="editorial-glass-overlay">
-                <h3>Lip Fillers: the Best Drugs and Brands</h3>
+            <motion.div className="editorial-card-stacked" whileTap={universalTouchSquash}>
+              <div className="editorial-stack-media">
+                <img src={ASSETS.editorial_bot} alt="Cellular Skin Health" loading="lazy" />
+              </div>
+              <div className="editorial-stack-body">
+                <span className="editorial-meta-date">JUNE 2026</span>
+                <h4 className="editorial-stack-title">The Role of Regenerative Bio-Stimulators</h4>
+                <a href="/journal" className="editorial-read-link">READ ARTICLE &rarr;</a>
               </div>
             </motion.div>
           </div>
         </div>
 
-        <div className="editorial-cta-row">
-          <MagneticButton href="/blog" className="btn-editorial-all" strength={25}>
-            View All Blogs
+        <div className="editorial-cta-wrap">
+          <MagneticButton href="/journal" className="btn-black-center" strength={25}>
+            Explore Journal
           </MagneticButton>
         </div>
+
       </div>
     </section>
   );

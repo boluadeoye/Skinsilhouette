@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import KineticText from '../components/KineticText.jsx';
 import CtaBanner from '../components/CtaBanner.jsx';
+import { ArrowRightIcon } from '../components/Icons.jsx';
 import { universalTouchSquash } from '../utils/motion.js';
 import './Contact.css';
 
@@ -29,7 +30,7 @@ export default function Contact() {
             <div className="contact-header-block">
               <span className="contact-badge-tag">SPEAK TO US</span>
               <KineticText text="Need Help?" className="contact-title" tag="h1" />
-              {submitted && <div className="contact-success-msg">Thank you! Your consultation request has been received.</div>}
+              {submitted && <div className="contact-success-msg">Thank you! Your enquiry has been received.</div>}
             </div>
 
             <form onSubmit={handleSubmit} className="contact-form">
@@ -61,10 +62,8 @@ export default function Contact() {
               </div>
 
               <motion.button type="submit" className="contact-submit-btn" whileTap={universalTouchSquash}>
-                <span>BOOK A CONSULTATION</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '10px' }}>
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
+                <span>CONTACT US</span>
+                <ArrowRightIcon size={12} color="currentColor" />
               </motion.button>
             </form>
           </motion.div>

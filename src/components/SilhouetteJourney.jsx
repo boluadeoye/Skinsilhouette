@@ -32,7 +32,6 @@ export default function SilhouetteJourney() {
     <section className="journey-section">
       <div className="container">
         <div className="journey-header">
-          <span className="journey-badge-tag">• CLINICAL PATHWAY</span>
           <KineticText 
             text="THE SILHOUETTE JOURNEY" 
             className="journey-main-title" 

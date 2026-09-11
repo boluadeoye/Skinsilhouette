@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import KineticText from './KineticText.jsx';
 import MagneticButton from './MagneticButton.jsx';
+import { ArrowRightIcon } from './Icons.jsx';
 import { ASSETS } from '../assets.js';
 import { universalTouchSquash } from '../utils/motion.js';
 import './EditorialGrid.css';
@@ -12,7 +13,7 @@ export default function EditorialGrid() {
       <div className="container">
         
         <div className="editorial-section-head">
-          <span className="editorial-section-badge">• Editorial</span>
+          <span className="editorial-section-badge">• Journal</span>
           <KineticText text="From Our Journal" tag="h2" />
           <p>Clinical perspectives, skin health philosophy, and evidence-led aesthetic insights.</p>
         </div>
@@ -28,7 +29,10 @@ export default function EditorialGrid() {
               <p className="editorial-snippet">
                 Why practitioner qualification, anatomical mastery, and ethical consultation planning dictate clinical longevity.
               </p>
-              <a href="/journal" className="editorial-read-link">READ ARTICLE &rarr;</a>
+              <a href="/journal" className="editorial-read-link">
+                <span>READ ARTICLE</span>
+                <ArrowRightIcon size={11} color="currentColor" />
+              </a>
             </div>
           </motion.div>
 
@@ -40,7 +44,10 @@ export default function EditorialGrid() {
               <div className="editorial-stack-body">
                 <span className="editorial-meta-date">JULY 2026</span>
                 <h4 className="editorial-stack-title">Understanding Melanin-Rich Skin in Aesthetics</h4>
-                <a href="/journal" className="editorial-read-link">READ ARTICLE &rarr;</a>
+                <a href="/journal" className="editorial-read-link">
+                  <span>READ ARTICLE</span>
+                  <ArrowRightIcon size={11} color="currentColor" />
+                </a>
               </div>
             </motion.div>
 
@@ -51,7 +58,10 @@ export default function EditorialGrid() {
               <div className="editorial-stack-body">
                 <span className="editorial-meta-date">JUNE 2026</span>
                 <h4 className="editorial-stack-title">The Role of Regenerative Bio-Stimulators</h4>
-                <a href="/journal" className="editorial-read-link">READ ARTICLE &rarr;</a>
+                <a href="/journal" className="editorial-read-link">
+                  <span>READ ARTICLE</span>
+                  <ArrowRightIcon size={11} color="currentColor" />
+                </a>
               </div>
             </motion.div>
           </div>

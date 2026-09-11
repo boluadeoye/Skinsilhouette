@@ -1,0 +1,445 @@
+.assessment-hub-wrapper {
+  background: var(--bg-sand);
+  width: 100%;
+}
+
+.ah-hero {
+  background: var(--dark-onyx);
+  color: #FFFFFF;
+  padding: clamp(4.5rem, 8vw, 6.5rem) 0 4.5rem 0;
+}
+
+.ah-hero-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 860px) {
+  .ah-hero-container {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 3.5rem;
+  }
+}
+
+.ah-badge {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--primary-gold);
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.ah-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.ah-sub {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+  max-width: 540px;
+}
+
+.ah-btn-white {
+  display: inline-flex;
+  background: #FFFFFF;
+  color: var(--dark-onyx);
+  padding: 0.85rem 1.75rem;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.ah-btn-white:hover {
+  background: var(--primary-gold);
+  color: #FFFFFF;
+}
+
+.ah-hero-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 860px) {
+  .ah-hero-right {
+    align-items: flex-end;
+  }
+}
+
+.ah-hero-art {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  width: 180px;
+  height: 180px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.ah-hero-art svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ah-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: right;
+  position: relative;
+  z-index: 2;
+}
+
+.ah-pillars span {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #FFFFFF;
+}
+
+.ah-section-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.ah-about {
+  padding: clamp(4rem, 6vw, 5.5rem) 0;
+  background: var(--bg-sand);
+}
+
+.ah-about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 860px) {
+  .ah-about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+  }
+}
+
+.ah-about-left h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  color: var(--dark-onyx);
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+.ah-about-left p {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.ah-about-right {
+  background: var(--bg-nude);
+  border-radius: 18px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ah-about-row {
+  display: flex;
+  gap: 1.15rem;
+  align-items: flex-start;
+}
+
+.ah-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--primary-gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ah-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ah-row-text h4 {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--dark-onyx);
+  margin-bottom: 0.25rem;
+}
+
+.ah-row-text p {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.ah-areas {
+  padding: clamp(3.5rem, 6vw, 5rem) 0;
+  background: var(--bg-sand);
+}
+
+.ah-areas-head {
+  margin-bottom: 2.5rem;
+}
+
+.ah-areas-head h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.2vw, 2.5rem);
+  color: var(--dark-onyx);
+  margin-bottom: 0.65rem;
+}
+
+.ah-areas-head p {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.ah-areas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 540px) {
+  .ah-areas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 860px) {
+  .ah-areas-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.ah-area-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1.5rem 1.35rem;
+  box-shadow: 0 4px 15px rgba(12, 6, 8, 0.02);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.ah-area-card:hover {
+  border-color: var(--primary-gold);
+  box-shadow: 0 8px 24px rgba(12, 6, 8, 0.06);
+}
+
+.ah-area-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.45rem;
+  color: var(--dark-onyx);
+}
+
+.ah-area-card-top h4 {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.ah-area-card-top svg {
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+}
+
+.ah-area-card:hover .ah-area-card-top svg {
+  transform: translateX(3px);
+  color: var(--dark-onyx);
+}
+
+.ah-area-card p {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   FLAT HORIZONTAL CAROUSEL STRIP: REAL VECTOR ICONS WITH VERTICAL DIVIDERS
+   ========================================================================== */
+.ah-safety-section {
+  padding: clamp(3.5rem, 6vw, 5rem) 0;
+  background: var(--bg-nude);
+  width: 100%;
+}
+
+.ah-safety-head {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.ah-safety-head h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.2vw, 2.5rem);
+  color: var(--dark-onyx);
+  margin-bottom: 0.65rem;
+}
+
+.ah-safety-head p {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.ah-safety-strip-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.ah-safety-strip {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem 0.5rem;
+  scroll-snap-type: x mandatory;
+}
+
+.ah-safety-col {
+  flex: 0 0 175px;
+  padding: 0 1.15rem;
+  border-right: 1px solid rgba(12, 6, 8, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.ah-safety-col:last-child {
+  border-right: none;
+}
+
+@media (min-width: 1024px) {
+  .ah-safety-strip {
+    display: grid !important;
+    grid-template-columns: repeat(7, 1fr) !important;
+    overflow: visible;
+    padding: 1.5rem 0;
+  }
+
+  .ah-safety-col {
+    flex: none;
+    padding: 0 0.85rem;
+  }
+}
+
+.ah-safety-icon-frame {
+  width: 32px;
+  height: 32px;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ah-safety-icon-frame svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ah-safety-statement {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.ah-approach {
+  padding: clamp(4rem, 6vw, 5.5rem) 0;
+  background: var(--bg-sand);
+}
+
+.ah-approach-box {
+  background: var(--dark-onyx);
+  border-radius: 20px;
+  padding: clamp(2.25rem, 4.5vw, 3.5rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  color: #FFFFFF;
+  box-shadow: 0 15px 45px rgba(12, 6, 8, 0.12);
+}
+
+@media (min-width: 860px) {
+  .ah-approach-box {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3.5rem;
+  }
+}
+
+.ah-approach-left h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 0.85rem;
+  line-height: 1.2;
+}
+
+.ah-approach-left p {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.ah-approach-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ah-approach-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.ah-approach-row p {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  line-height: 1.4;
+}

@@ -18,34 +18,6 @@ function sanitizeText(str) {
     .trim();
 }
 
-function cleanExcerpt(excerpt, title) {
-  let clean = sanitizeText(excerpt);
-  if (!clean) return '';
-  if (!title) return clean;
-
-  const t = sanitizeText(title);
-  const tLower = t.toLowerCase();
-  let cLower = clean.toLowerCase();
-
-  if (cLower.startsWith(tLower)) {
-    clean = clean.slice(t.length).trim();
-    cLower = clean.toLowerCase();
-  }
-
-  if (t.includes(':')) {
-    const parts = t.split(':').map(p => p.trim()).filter(Boolean);
-    for (const part of parts) {
-      const pLower = part.toLowerCase();
-      if (cLower.startsWith(pLower)) {
-        clean = clean.slice(part.length).trim();
-        cLower = clean.toLowerCase();
-      }
-    }
-  }
-
-  return clean.replace(/^[-:—–.,]\s*/, '').trim();
-}
-
 function resolveImageUrl(rawImg) {
   if (!rawImg) return null;
   if (typeof rawImg === 'string') {
@@ -58,6 +30,29 @@ function resolveImageUrl(rawImg) {
     return rawImg.url || rawImg.sizes?.large || rawImg.sizes?.full || rawImg.source_url || null;
   }
   return null;
+}
+
+function parsePipedLines(rawText) {
+  if (!rawText) return [];
+  return rawText
+    .split('\n')
+    .map(line => line.trim())
+    .filter(Boolean)
+    .map(line => {
+      const parts = line.split('|').map(p => sanitizeText(p));
+      return {
+        title: parts[0] || '',
+        desc: parts[1] || ''
+      };
+    });
+}
+
+function parseSimpleLines(rawText) {
+  if (!rawText) return [];
+  return rawText
+    .split('\n')
+    .map(line => sanitizeText(line))
+    .filter(Boolean);
 }
 
 export async function fetchJournalCategories() {
@@ -117,7 +112,7 @@ export async function fetchJournalPosts() {
         id: post.id,
         slug: post.slug,
         title: title,
-        excerpt: cleanExcerpt(post.excerpt?.rendered, title),
+        excerpt: sanitizeText(post.excerpt?.rendered),
         content: post.content?.rendered || '',
         date: new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
         image: featuredImg,
@@ -165,7 +160,7 @@ export async function fetchPostBySlug(slug) {
       id: post.id,
       slug: post.slug,
       title: title,
-      excerpt: cleanExcerpt(post.excerpt?.rendered, title),
+      excerpt: sanitizeText(post.excerpt?.rendered),
       content: post.content?.rendered || '',
       date: new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
       image: featuredImg,
@@ -191,10 +186,10 @@ export async function fetchTreatments() {
       id: item.id,
       slug: item.slug,
       title: sanitizeText(item.title?.rendered),
-      description: sanitizeText(item.acf?.summary_description || item.excerpt?.rendered),
+      description: sanitizeText(item.acf?.hero_subtitle || item.excerpt?.rendered),
       category: (sanitizeText(item.primary_category) || 'TREATMENTS').toUpperCase(),
       image: item.featured_image_url || item._embedded?.['wp:featuredmedia']?.[0]?.source_url || null,
-      howItWorksImage: item.how_it_works_image_url || resolveImageUrl(item.acf?.how_it_works_image)
+      archetype: item.acf?.treatment_archetype || 'assessment'
     }));
   } catch {
     return [];
@@ -208,19 +203,66 @@ export async function fetchTreatmentBySlug(slug) {
     const data = await response.json();
     if (!Array.isArray(data) || data.length === 0) return null;
     const item = data[0];
-    const title = sanitizeText(item.title?.rendered);
-    const fullText = sanitizeText(item.content?.rendered || item.excerpt?.rendered);
-    const summary = sanitizeText(item.acf?.summary_description);
     
+    const acf = item.acf || {};
+    const resolvedImgs = item.resolved_images || {};
+    const title = sanitizeText(item.title?.rendered);
+    const category = (sanitizeText(item.primary_category) || 'TREATMENTS').toUpperCase();
+    const featuredImg = item.featured_image_url || item._embedded?.['wp:featuredmedia']?.[0]?.source_url || null;
+    const archetype = acf.treatment_archetype || 'assessment';
+
+    const subServices = [];
+    for (let i = 1; i <= 6; i++) {
+      if (acf[`sub_${i}_title`]) {
+        const imgUrl = resolvedImgs[`sub_${i}_img`] || resolveImageUrl(acf[`sub_${i}_img`]);
+        subServices.push({
+          title: sanitizeText(acf[`sub_${i}_title`]),
+          desc: sanitizeText(acf[`sub_${i}_desc`]),
+          img: imgUrl,
+          link: sanitizeText(acf[`sub_${i}_link`]) || '#'
+        });
+      }
+    }
+
     return {
       id: item.id,
       slug: item.slug,
+      archetype: archetype,
       title: title,
-      summaryHook: summary || cleanExcerpt(fullText.length > 140 ? fullText.slice(0, 140) + '…' : fullText, title),
-      description: fullText || summary,
-      category: (sanitizeText(item.primary_category) || 'TREATMENTS').toUpperCase(),
-      image: item.featured_image_url || item._embedded?.['wp:featuredmedia']?.[0]?.source_url || null,
-      howItWorksImage: item.how_it_works_image_url || resolveImageUrl(item.acf?.how_it_works_image)
+      category: category,
+      image: featuredImg,
+      heroSub: sanitizeText(acf.hero_subtitle || item.excerpt?.rendered),
+      heroPillars: parseSimpleLines(acf.hero_pillars_text),
+      aboutTitle: sanitizeText(acf.about_headline) || `About ${title}`,
+      aboutText: sanitizeText(acf.about_content_text || item.content?.rendered),
+      aboutRows: parsePipedLines(acf.about_rows_data),
+      areasTitle: sanitizeText(acf.areas_headline) || 'Areas we can treat',
+      areasSub: sanitizeText(acf.areas_subtext),
+      areas: parsePipedLines(acf.areas_cards_data),
+      safety: parseSimpleLines(acf.safety_cards_data),
+      approachTitle: sanitizeText(acf.approach_headline) || 'Individual features. Considered results.',
+      approachSub: sanitizeText(acf.approach_subtext),
+      approachRows: parseSimpleLines(acf.approach_rows_data),
+      indicationsTitle: 'Targets more than just surface change.',
+      indicationsSub: sanitizeText(acf.hero_subtitle),
+      indications: parseSimpleLines(acf.indications_data),
+      centerImage: resolvedImgs.center_image || resolveImageUrl(item.center_image_url || acf.center_image_upload) || featuredImg,
+      howItWorks: {
+        title: 'HOW IT WORKS',
+        desc: sanitizeText(acf.how_it_works_desc)
+      },
+      results: {
+        title: 'PROGRESSIVE RESULTS',
+        desc: sanitizeText(acf.results_desc)
+      },
+      collectionTitle: 'Advanced treatments. Real skin benefits.',
+      collection: subServices,
+      comboTitle: 'A more complete approach.',
+      comboSub: sanitizeText(acf.hero_subtitle),
+      combos: parsePipedLines(acf.combination_pairs_data),
+      anchorHeadline: sanitizeText(acf.bottom_anchor_text) || 'Your skin determines the plan — not a preset package.',
+      anchorSubtext: sanitizeText(acf.bottom_anchor_sub) || 'A personalised, expert-led approach to real, lasting skin improvement.',
+      anchorImage: resolvedImgs.bottom_anchor_img || resolveImageUrl(item.bottom_anchor_img_url || acf.bottom_anchor_img) || featuredImg
     };
   } catch {
     return null;
@@ -250,7 +292,7 @@ export async function fetchCaseStudies() {
         beforeImage: beforeImg,
         afterImage: afterImg,
         briefTitle: sanitizeText(item.acf?.brief_title),
-        briefDescription: cleanExcerpt(item.acf?.brief_description || item.excerpt?.rendered, title),
+        briefDescription: sanitizeText(item.acf?.brief_description || item.excerpt?.rendered),
         breakoutImage: breakoutImg,
         image: featuredImg
       };
@@ -302,7 +344,7 @@ export async function fetchCaseStudyBySlug(slug) {
       beforeImage: beforeImg,
       afterImage: afterImg,
       briefTitle: sanitizeText(item.acf?.brief_title) || title || 'CLINICAL OVERVIEW',
-      briefDescription: cleanExcerpt(item.acf?.brief_description || item.content?.rendered, title),
+      briefDescription: sanitizeText(item.acf?.brief_description) || sanitizeText(item.content?.rendered),
       breakoutImage: breakoutImg,
       featuredImage: featuredImg,
       workMainImage: afterImg || featuredImg,

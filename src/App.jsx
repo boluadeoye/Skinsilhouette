@@ -7,7 +7,7 @@ import PageTransition from './components/PageTransition.jsx';
 
 import Home from './pages/Home.jsx';
 import Services from './pages/Services.jsx';
-import TreatmentDetail from './pages/TreatmentDetail.jsx';
+import TreatmentDispatcher from './pages/TreatmentDispatcher.jsx';
 import Works from './pages/Works.jsx';
 import CaseStudyDetail from './pages/CaseStudyDetail.jsx';
 import About from './pages/About.jsx';
@@ -30,17 +30,15 @@ export default function App() {
             <Route path="/" element={<PageTransition><Home /></PageTransition>} />
             <Route path="/about" element={<PageTransition><About /></PageTransition>} />
             
-            {/* DYNAMIC TREATMENT CATALOG & DETAIL ROUTES */}
             <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
             <Route path="/treatments" element={<PageTransition><Services /></PageTransition>} />
-            <Route path="/services/:slug" element={<PageTransition><TreatmentDetail /></PageTransition>} />
-            <Route path="/treatments/:slug" element={<PageTransition><TreatmentDetail /></PageTransition>} />
             
-            {/* DYNAMIC CASE STUDY MATRIX & DETAIL ROUTES */}
+            <Route path="/services/:slug" element={<PageTransition><TreatmentDispatcher /></PageTransition>} />
+            <Route path="/treatments/:slug" element={<PageTransition><TreatmentDispatcher /></PageTransition>} />
+            
             <Route path="/works" element={<PageTransition><Works /></PageTransition>} />
             <Route path="/works/:slug" element={<PageTransition><CaseStudyDetail /></PageTransition>} />
             
-            {/* DYNAMIC JOURNAL & ARTICLE ROUTES */}
             <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
             <Route path="/journal" element={<PageTransition><Blog /></PageTransition>} />
             <Route path="/blog/:slug" element={<PageTransition><BlogDetail /></PageTransition>} />

@@ -55,7 +55,7 @@ export default function AvailableTreatments() {
         <div className="editorial-section-head">
           <span className="editorial-section-badge">THE TREATMENT EDIT</span>
           <KineticText text="Our Treatments" tag="h2" />
-          <p>Bespoke aesthetic and regenerative procedures tailored to enhance your natural features.</p>
+          <p>A considered collection of treatments, selected around your skin, facial structure and individual goals.</p>
         </div>
 
         <motion.div 

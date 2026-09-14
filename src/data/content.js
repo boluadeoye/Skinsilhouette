@@ -31,7 +31,7 @@ export const CLINIC_CONTENT = {
   reviews: [
     {
       initials: "KI",
-      name: "K.i",
+      name: "k.I",
       role: "Verified Client",
       date: "August 2026",
       stars: 5,
@@ -39,7 +39,7 @@ export const CLINIC_CONTENT = {
     },
     {
       initials: "JM",
-      name: "James M.",
+      name: "J.M",
       role: "Verified Client",
       date: "July 2026",
       stars: 5,

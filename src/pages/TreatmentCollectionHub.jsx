@@ -24,6 +24,8 @@ export default function TreatmentCollectionHub({ treatment }) {
     anchorImage
   } = treatment;
 
+  const hasCenterImage = Boolean(centerImage);
+
   return (
     <div className="collection-hub-wrapper">
       
@@ -62,9 +64,9 @@ export default function TreatmentCollectionHub({ treatment }) {
         </div>
       </section>
 
-      {(indications.length > 0 || centerImage || howItWorks.desc) && (
+      {(indications.length > 0 || hasCenterImage || howItWorks.desc) && (
         <section className="ch-indications">
-          <div className="container ch-ind-grid">
+          <div className={`container ch-ind-grid ${hasCenterImage ? 'has-center-image' : 'no-center-image'}`}>
             {indications.length > 0 && (
               <div className="ch-ind-left">
                 <span className="ch-section-label">IS THIS FOR YOU?</span>
@@ -83,7 +85,7 @@ export default function TreatmentCollectionHub({ treatment }) {
               </div>
             )}
 
-            {centerImage && (
+            {hasCenterImage && (
               <div className="ch-ind-center">
                 <img src={centerImage} alt={title} />
               </div>

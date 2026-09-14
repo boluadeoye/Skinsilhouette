@@ -220,6 +220,9 @@
   display: block;
 }
 
+/* ==========================================================================
+   ADAPTIVE INDICATIONS GRID (AUTO-COLLAPSES TO 2 COLUMNS IF NO IMAGE) [3]
+   ========================================================================== */
 .ch-indications {
   padding: clamp(4rem, 6vw, 5.5rem) 0;
   background: var(--bg-nude);
@@ -232,10 +235,18 @@
 }
 
 @media (min-width: 960px) {
-  .ch-ind-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    gap: 2rem;
+  .ch-ind-grid.has-center-image {
+    grid-template-columns: 1fr 1fr 1fr !important;
+    align-items: center !important;
+    gap: 2rem !important;
+  }
+
+  .ch-ind-grid.no-center-image {
+    grid-template-columns: 1.15fr 0.85fr !important;
+    align-items: start !important;
+    gap: 3.5rem !important;
+    max-width: 1060px !important;
+    margin: 0 auto !important;
   }
 }
 
@@ -325,7 +336,7 @@
 }
 
 /* ==========================================================================
-   MINIMALIST SUB-SERVICES COLLECTION (PHOTOS REMOVED, PRICING ADDED) [1]
+   MINIMALIST SUB-SERVICES COLLECTION (PHOTOS REMOVED, PRICING ADDED) [3]
    ========================================================================== */
 .ch-collection {
   padding: clamp(3.5rem, 6vw, 5.5rem) 0;

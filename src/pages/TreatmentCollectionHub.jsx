@@ -119,17 +119,15 @@ export default function TreatmentCollectionHub({ treatment }) {
             <div className="ch-coll-grid">
               {collection.map((item, i) => (
                 <motion.div className="ch-coll-card" key={i} whileHover={{ y: -4 }} whileTap={universalTouchSquash}>
-                  {item.img && (
-                    <div className="ch-coll-img">
-                      <img src={item.img} alt={item.title} loading="lazy" />
-                    </div>
-                  )}
                   <div className="ch-coll-content">
                     <h4>{item.title}</h4>
                     <p>{item.desc}</p>
-                    <a href={item.link || BOOKING_URL} className="ch-learn-more">
-                      LEARN MORE &rarr;
-                    </a>
+                    <div className="ch-coll-footer">
+                      <span className="ch-coll-price">{item.price || "From £250"}</span>
+                      <a href={item.link || BOOKING_URL} className="ch-learn-more">
+                        LEARN MORE &rarr;
+                      </a>
+                    </div>
                   </div>
                 </motion.div>
               ))}

@@ -324,6 +324,9 @@
   line-height: 1.6;
 }
 
+/* ==========================================================================
+   MINIMALIST SUB-SERVICES COLLECTION (PHOTOS REMOVED, PRICING ADDED) [1]
+   ========================================================================== */
 .ch-collection {
   padding: clamp(3.5rem, 6vw, 5.5rem) 0;
   background: var(--bg-sand);
@@ -340,7 +343,6 @@
   color: var(--dark-onyx);
 }
 
-/* FRAMED MOBILE SLIDER WITH CONTAINER-ALIGNED PADDING */
 .ch-coll-grid {
   display: flex !important;
   overflow-x: auto !important;
@@ -387,51 +389,49 @@
 .ch-coll-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 32px rgba(12, 6, 8, 0.07);
-}
-
-.ch-coll-img {
-  width: 100%;
-  height: 170px;
-  background: var(--bg-nude);
-  overflow: hidden;
-  position: relative;
-}
-
-.ch-coll-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.ch-coll-card:hover .ch-coll-img img {
-  transform: scale(1.04);
+  border-color: rgba(200, 169, 106, 0.35);
 }
 
 .ch-coll-content {
-  padding: 1.5rem 1.35rem;
+  padding: 1.75rem 1.5rem;
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-height: 220px;
 }
 
 .ch-coll-content h4 {
   font-family: var(--font-serif);
-  font-size: 1.18rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--dark-onyx);
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.65rem;
   line-height: 1.25;
 }
 
 .ch-coll-content p {
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   color: var(--text-muted);
-  line-height: 1.55;
-  margin-bottom: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
   flex: 1;
+}
+
+.ch-coll-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: auto;
+}
+
+.ch-coll-price {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--primary-gold);
+  letter-spacing: 0.05em;
+  display: block;
 }
 
 .ch-learn-more {
@@ -445,7 +445,6 @@
   align-items: center;
   gap: 0.25rem;
   transition: var(--transition);
-  margin-top: auto;
   white-space: nowrap;
 }
 

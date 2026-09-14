@@ -13,7 +13,6 @@ export default function BlogDetail() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [swapped, setSwapped] = useState(false);
 
   useEffect(() => {
     fetchPostBySlug(slug).then((data) => {
@@ -45,17 +44,17 @@ export default function BlogDetail() {
 
   const gallery = post.gallery || [];
   const galleryCount = gallery.length;
+  const hasFeaturedImage = Boolean(post.image);
 
   return (
     <div className="blog-detail-page-wrapper">
-      
-      {/* 1. ATELIER TAN HERO (SLUG HYDRATED) */}
+
       <section className="blog-detail-hero-section">
         <div className="container">
-          <div className="blog-detail-hero-banner-card">
-            
-            {post.image && (
-              <motion.div 
+          <div className={`blog-detail-hero-banner-card ${hasFeaturedImage ? 'has-image' : 'no-image'}`}>
+
+            {hasFeaturedImage && (
+              <motion.div
                 className="blog-detail-hero-media"
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -65,7 +64,7 @@ export default function BlogDetail() {
               </motion.div>
             )}
 
-            <motion.div 
+            <motion.div
               className="blog-detail-hero-card"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -74,7 +73,7 @@ export default function BlogDetail() {
               <span className="blog-detail-gold-badge">{post.category}</span>
               <h1 className="blog-detail-hero-title">{post.title}</h1>
               {post.excerpt && <p className="blog-detail-hero-desc">{post.excerpt}</p>}
-              
+
               <div className="blog-detail-meta-row">
                 <div className="blog-detail-meta-item">
                   <span className="meta-label">Posted by</span>
@@ -91,7 +90,6 @@ export default function BlogDetail() {
         </div>
       </section>
 
-      {/* 2. DYNAMIC NARRATIVE CONTENT */}
       {post.content && (
         <section className="blog-detail-narrative-section">
           <div className="container">
@@ -100,14 +98,13 @@ export default function BlogDetail() {
         </section>
       )}
 
-      {/* 3. ADAPTIVE GALLERY ENGINE (1, 2, 3, 4, OR 6+ IMAGES) */}
       {galleryCount > 0 && (
         <section className="blog-detail-mosaic-section">
           <div className="container">
             <div className={`blog-detail-adaptive-gallery gallery-count-${galleryCount}`}>
               {gallery.map((imgUrl, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   className={`blog-gallery-item item-${index + 1}`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={universalTouchSquash}
@@ -120,7 +117,6 @@ export default function BlogDetail() {
         </section>
       )}
 
-      {/* 4. EDITORIAL SPECIALIST SECTION */}
       {post.specialistText && (
         <section className="blog-detail-specialist-section">
           <div className="container">
@@ -133,12 +129,11 @@ export default function BlogDetail() {
         </section>
       )}
 
-      {/* 5. RESTORING YOUTH BREAKOUT (DYNAMIC IMAGE) */}
       <section className="blog-detail-ry-section">
         <div className="container">
           <div className="blog-detail-ry-white-card">
             <div className="blog-detail-ry-flex-wrapper">
-              
+
               <div className="blog-detail-ry-text-block">
                 <span className="ry-gold-badge">ADVANCED AESTHETIC CLINIC</span>
                 <h2 className="ry-title-dark">Your Treatment Begins<br />With a Consultation.</h2>
@@ -156,40 +151,14 @@ export default function BlogDetail() {
                 </div>
               </div>
 
-              <div 
-                className="blog-detail-ry-media-col" 
-                onClick={() => setSwapped(!swapped)} 
-                style={{ cursor: 'pointer' }}
-                role="button"
-                aria-label="Click to swap before and after views"
-              >
-                <div className="blog-detail-ry-image-frame">
-                  <div className="blog-detail-ry-pip-bg">
-                    <img 
-                      src={post.ryImage || ASSETS.blog_detail_ry} 
-                      alt="Clinical Transformation" 
-                      className={`blog-detail-ry-fused-img ${swapped ? 'blog-detail-ry-img-left' : 'blog-detail-ry-img-right'}`}
-                      loading="lazy" 
-                    />
-                    <span className="blog-detail-ry-badge blog-detail-ry-badge-after">{swapped ? 'BEFORE' : 'AFTER'}</span>
-                  </div>
-
-                  <div className="blog-detail-ry-pip-inset">
-                    <img 
-                      src={post.ryImage || ASSETS.blog_detail_ry} 
-                      alt="Clinical Transformation" 
-                      className={`blog-detail-ry-fused-img ${swapped ? 'blog-detail-ry-img-right' : 'blog-detail-ry-img-left'}`}
-                      loading="lazy" 
-                    />
-                    <span className="blog-detail-ry-badge blog-detail-ry-badge-before">{swapped ? 'AFTER' : 'BEFORE'}</span>
-                  </div>
-
-                  <div className="blog-detail-ry-junction-badge" aria-hidden="true">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="15 18 9 12 15 6"></polyline>
-                      <polyline points="9 18 15 12 9 6" transform="translate(6, 0)"></polyline>
-                    </svg>
-                  </div>
+              <div className="blog-detail-ry-media-col">
+                <div className="blog-detail-ry-single-frame">
+                  <img
+                    src={post.ryImage || ASSETS.ry_home}
+                    alt="Skin Silhouette Aesthetics Consultation"
+                    className="blog-detail-ry-single-img"
+                    loading="lazy"
+                  />
                 </div>
               </div>
 

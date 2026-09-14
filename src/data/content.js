@@ -31,7 +31,7 @@ export const CLINIC_CONTENT = {
   reviews: [
     {
       initials: "KI",
-      name: "Kelechi I.",
+      name: "K.i",
       role: "Verified Client",
       date: "August 2026",
       stars: 5,
@@ -46,6 +46,11 @@ export const CLINIC_CONTENT = {
       quote: "I recently visited Skin Silhouette Aesthetics for a Vitamin B12 injection, and I couldn't be happier with the experience! Nurse Christianah was incredibly professional, welcoming, and made me feel completely at ease from the moment I walked in."
     }
   ],
+  ctaBanner: {
+    title: "Exceptional Care Begins with a Conversation.",
+    desc: "A personalised consultation to understand your concerns and guide a considered treatment plan.",
+    btn: "Book Consultation"
+  },
   treatmentFAQs: [
     {
       q: "Do I need a consultation before treatment?",

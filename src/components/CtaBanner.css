@@ -1,21 +1,18 @@
-/* ==========================================================================
-   CTA BANNER: SLIM & SLEEK LOW-PROFILE HORIZONTAL RIBBON
-   ========================================================================== */
-
 .cta-banner-section {
-  background: transparent !important; /* Seamless background blending */
+  background: transparent !important;
   padding: 0 !important;
   position: relative !important;
   z-index: 20 !important;
   width: 100% !important;
+  margin-bottom: -1.25rem !important;
 }
 
 .cta-banner-card-light {
-  background: #E2C8B1 !important; /* Synchronized Atelier Tan */
+  background: #E2C8B1 !important;
   border-radius: 20px !important;
   padding: 2rem 1.5rem !important;
   margin: 0 auto !important;
-  transform: translateY(2rem) !important; /* Mobile overlap */
+  transform: translateY(1.25rem) !important;
   position: relative !important;
   z-index: 30 !important;
   box-shadow: 0 15px 35px rgba(12, 6, 8, 0.05) !important;
@@ -49,10 +46,10 @@
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background-color: #000000 !important; /* Solid Black Button */
+  background-color: #000000 !important;
   color: #FFFFFF !important;
   padding: 0.8rem 2rem !important;
-  border-radius: 9999px !important; /* Perfect Pill */
+  border-radius: 9999px !important;
   font-family: var(--font-sans) !important;
   font-size: 0.85rem !important;
   font-weight: 600 !important;
@@ -66,22 +63,22 @@
   transform: translateY(-2px) !important;
 }
 
-/* DESKTOP SLIM HORIZONTAL COMPRESSION (>= 768PX) */
 @media (min-width: 768px) {
   .cta-banner-section {
     padding: 0 !important;
+    margin-bottom: -2.25rem !important;
   }
 
   .cta-banner-card-light {
     flex-direction: row !important;
     justify-content: space-between !important;
     text-align: left !important;
-    padding: 2.25rem 4rem !important; /* Compressed vertical padding */
-    transform: translateY(3.25rem) !important; /* Recalibrated slim overlap */
+    padding: 2.25rem 4rem !important;
+    transform: translateY(2.25rem) !important;
   }
 
   .cta-heading {
-    font-size: 1.75rem !important; /* Scaled-down heading prevents block bloating */
+    font-size: 1.75rem !important;
   }
 
   .cta-subtext {

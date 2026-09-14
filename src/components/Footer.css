@@ -1,11 +1,11 @@
 .luxury-footer {
-  background-color: var(--dark-onyx);
+  background-color: var(--dark-onyx) !important;
   color: #FFFFFF;
-  padding: clamp(4rem, 8vw, 6.5rem) 0 2.5rem 0;
+  padding: clamp(5.75rem, 8vw, 7.5rem) 0 calc(2.5rem + env(safe-area-inset-bottom, 0px)) 0 !important;
   width: 100%;
   position: relative;
   z-index: 10;
-  margin-top: auto !important; /* ABSORBS ALL RESIDUAL SPACE ABOVE, FORCING FOOTER TO SCREEN BOTTOM */
+  margin-top: auto !important;
 }
 
 .footer-grid-4col {

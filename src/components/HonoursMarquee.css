@@ -1,5 +1,5 @@
 .marquee-section {
-  padding: clamp(2rem, 3.5vw, 2.75rem) 0 !important;
+  padding: clamp(0.65rem, 1.2vw, 0.95rem) 0 !important;
   background: var(--bg-sand) !important;
   overflow: hidden;
   border-top: 1px solid var(--border-light);
@@ -19,32 +19,34 @@
 .marquee-track {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 1.5rem;
   width: max-content;
-  animation: scroll-left 24s linear infinite;
+  animation: scroll-left 7s linear infinite;
   will-change: transform;
 }
 
 @media (min-width: 740px) {
   .marquee-track {
-    gap: 5.5rem;
+    gap: 2rem;
   }
 }
 
 .brand-img-wrap {
-  width: 170px;
-  height: 65px;
+  width: auto !important;
+  max-width: 100px !important;
+  height: 42px !important;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 0.5rem;
+  padding: 0 0.25rem;
 }
 
 @media (min-width: 740px) {
   .brand-img-wrap {
-    width: 240px !important;
-    height: 95px !important;
+    max-width: 130px !important;
+    height: 52px !important;
+    padding: 0 0.35rem;
   }
 }
 

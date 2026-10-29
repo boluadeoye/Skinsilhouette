@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRightIcon } from './Icons.jsx';
-import { BOOKING_URL } from '../data/content.js';
 import { universalTouchSquash, SPRINGS } from '../utils/motion.js';
 import './Navbar.css';
 
@@ -10,8 +9,10 @@ const NAV_LINKS = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
   { path: '/services', label: 'Treatments' },
+  { path: '/membership', label: 'SSA Club' },
   { path: '/blog', label: 'Journal' },
-  { path: '/contact', label: 'Contact' }
+  { path: '/contact', label: 'Contact' },
+  { path: '/account', label: 'Portal' }
 ];
 
 export default function Navbar() {
@@ -30,7 +31,6 @@ export default function Navbar() {
   return (
     <header className={`luxury-navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-container">
-        
         <motion.div whileHover={{ scale: 1.02 }} whileTap={universalTouchSquash}>
           <Link to="/" className="navbar-logo-lockup" aria-label="Skin Silhouette Aesthetics Home">
             <span className="logo-brand-main">Skin Silhouette</span>
@@ -40,8 +40,8 @@ export default function Navbar() {
 
         <nav className="navbar-links">
           {NAV_LINKS.map(({ path, label }) => {
-            const isActive = path === '/' 
-              ? location.pathname === '/' 
+            const isActive = path === '/'
+              ? location.pathname === '/'
               : (location.pathname.startsWith(path) || (path === '/services' && location.pathname.startsWith('/treatments')) || (path === '/blog' && location.pathname.startsWith('/journal')));
 
             return (
@@ -55,17 +55,13 @@ export default function Navbar() {
         </nav>
 
         <div className="navbar-actions">
-          <motion.a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-nav-cta"
-            whileTap={universalTouchSquash}
-          >
-            <span className="cta-full">BOOK CONSULTATION</span>
-            <span className="cta-short">CONSULT</span>
-            <ArrowUpRightIcon size={10} color="#FFFFFF" />
-          </motion.a>
+          <motion.div whileTap={universalTouchSquash}>
+            <Link to="/book" className="btn-nav-cta">
+              <span className="cta-full">BOOK CONSULTATION</span>
+              <span className="cta-short">BOOK</span>
+              <ArrowUpRightIcon size={10} color="#FFFFFF" />
+            </Link>
+          </motion.div>
 
           <button
             type="button"
@@ -82,7 +78,7 @@ export default function Navbar() {
 
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.nav 
+          <motion.nav
             className="navbar-links mobile-open"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}

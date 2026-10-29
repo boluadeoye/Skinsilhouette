@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BOOKING_URL } from '../data/content.js';
+import { ASSETS } from '../assets.js';
 import { universalTouchSquash } from '../utils/motion.js';
 import './TreatmentCollectionHub.css';
 
@@ -24,7 +25,11 @@ export default function TreatmentCollectionHub({ treatment }) {
     anchorImage
   } = treatment;
 
-  const hasCenterImage = Boolean(centerImage);
+  const resolvedCenterImage = (centerImage && !centerImage.includes('wrlmgkf1np5kpo5ywtmh'))
+    ? centerImage 
+    : ASSETS.clinical_skin_texture;
+
+  const hasCenterImage = Boolean(resolvedCenterImage);
 
   return (
     <div className="collection-hub-wrapper">
@@ -87,7 +92,7 @@ export default function TreatmentCollectionHub({ treatment }) {
 
             {hasCenterImage && (
               <div className="ch-ind-center">
-                <img src={centerImage} alt={title} />
+                <img src={resolvedCenterImage} alt="Clinical Treatment Area" />
               </div>
             )}
 

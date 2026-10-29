@@ -1,6 +1,57 @@
 export { ASSETS } from '../assets.js';
 
-export const BOOKING_URL = "https://facesconsent.com/v1/bookings/SkinSilhouetteAesthetics?clinicSlug=skin-silhouette-aesthetics-a37768132a8a";
+export const BOOKING_URL = "/book";
+
+export const SSA_CLUB_CONTENT = {
+  eyebrow: "SSA CLUB",
+  subtitle: "Insider · Privé",
+  intro: "The Silhouette membership for ongoing skin care, advanced treatments and exclusive member benefits.",
+  tiers: [
+    {
+      id: "insider",
+      name: "INSIDER",
+      price: "£79",
+      period: "/ month",
+      summary: "For regular facial care, gentle exfoliation and ongoing support to maintain your skin.",
+      ctaText: "Enquire about Insider",
+      benefits: [
+        "Monthly facial: one superficial peel facial with LED, subject to suitability.",
+        "Personalised skin support: treatment plan, home skincare routine and brief check-ins every two weeks.",
+        "Member savings: 10% off skincare products and eligible additional advanced treatments and non-prescription injectables.",
+        "Birthday reward: one additional complimentary mini facial annually.",
+        "Referral thank-you: £50 treatment credit after your referred client completes a qualifying paid treatment.",
+        "Six-month loyalty reward: £25 credit towards an eligible additional skin treatment.",
+        "Member care: personal welcome note, skincare routine card, digital membership card and dedicated aftercare contact during clinic hours.",
+        "Member access: priority booking and invitations to SSA events."
+      ]
+    },
+    {
+      id: "prive",
+      name: "PRIVÉ",
+      price: "£159",
+      period: "/ month",
+      featured: true,
+      summary: "For a personalised advanced treatment programme targeting concerns such as acne scarring, uneven pigmentation, fine lines or reduced firmness.",
+      ctaText: "Enquire about Privé",
+      benefits: [
+        "Advanced treatment programme: advanced facials, chemical peels, microneedling, PRP, skin boosters and polynucleotides, selected following consultation and provided within agreed treatment allowances.",
+        "Additional mini facials: included within your agreed programme.",
+        "Personalised skin support: treatment plan, home skincare routine, brief check-ins every two weeks, quarterly progress photographs and seasonal routine reviews.",
+        "Member savings: 10% off skincare products and 20% off eligible additional advanced treatments and non-prescription injectables.",
+        "Birthday reward: one additional complimentary mini facial with LED and a mask upgrade annually.",
+        "Referral thank-you: one complimentary superficial peel facial with mask and LED after your referred client completes a qualifying paid treatment.",
+        "Six-month loyalty reward: £50 credit towards an eligible additional skin treatment.",
+        "Member care: welcome note and selected skincare samples, skincare routine card, digital membership card and dedicated aftercare contact during clinic hours.",
+        "Member access: priority booking, invitations to SSA events, early access to new treatments and one annual guest skin consultation."
+      ]
+    }
+  ],
+  consultationTitle: "Your membership begins with a consultation",
+  consultationText: "We assess your skin and discuss your goals before agreeing your treatment programme. Treatment suitability, quantities and timing are confirmed before you join. Privé includes a defined treatment allowance, rather than every listed treatment each month.",
+  rewardsTitle: "Rewards and savings",
+  rewardsText1: "Referral rewards apply after the referred client completes their first qualifying full-price paid treatment. Loyalty credits are awarded after six consecutive paid months.",
+  rewardsText2: "Discounts and credits cannot be combined with other offers or exchanged for cash. Prescription-only treatments are excluded from promotional discounts."
+};
 
 export const CLINIC_CONTENT = {
   about: {
@@ -76,7 +127,7 @@ export const CLINIC_CONTENT = {
   bookingFAQs: [
     {
       q: "How do I book a consultation?",
-      a: "Consultations can be booked online through our Faces Consent booking portal. Select your preferred treatment and choose an available date."
+      a: "Consultations can be booked directly online through our Atelier Booking Page. Select your preferred treatment and choose an available date and time slot."
     },
     {
       q: "Do I need to pay a booking fee?",

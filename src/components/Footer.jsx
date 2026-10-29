@@ -21,15 +21,14 @@ export default function Footer() {
   return (
     <footer className="luxury-footer">
       <div className="container">
-        
-        <motion.div 
+
+        <motion.div
           className="footer-grid-4col"
           variants={staggerGridContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
         >
-          {/* COLUMN 1: QUICK LINKS (INCLUDES OUR WORKS SURGICALLY INSERTED) */}
           <motion.div className="footer-col" variants={staggerCardExtreme}>
             <h4 className="footer-col-title">Quick Links</h4>
             <ul className="footer-links">
@@ -37,13 +36,9 @@ export default function Footer() {
               <li><Link to="/about" onClick={scrollToTop}>About</Link></li>
               <li><Link to="/services" onClick={scrollToTop}>Treatments</Link></li>
               <li><Link to="/works" onClick={scrollToTop}>Our Works</Link></li>
+              <li><Link to="/membership" onClick={scrollToTop}>Membership</Link></li>
               <li>
-                <span className="menu-disabled-link">
-                  Membership <span className="coming-soon-pill">COMING SOON</span>
-                </span>
-              </li>
-              <li>
-                <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="highlighted-book-link">
+                <a href={BOOKING_URL} className="highlighted-book-link">
                   Book an appointment
                 </a>
               </li>
@@ -52,19 +47,17 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* COLUMN 2: INFORMATION */}
           <motion.div className="footer-col" variants={staggerCardExtreme}>
             <h4 className="footer-col-title">Information</h4>
             <ul className="footer-links">
               <li><Link to="/faq" onClick={scrollToTop}>FAQs</Link></li>
               <li><Link to="/terms" onClick={scrollToTop}>Booking Policy</Link></li>
               <li><Link to="/privacy" onClick={scrollToTop}>Privacy Policy</Link></li>
-              <li><Link to="/terms" onClick={scrollToTop}>Terms & Conditions</Link></li>
+              <li><Link to="/terms" onClick={scrollToTop}>Terms &amp; Conditions</Link></li>
               <li><Link to="/terms" onClick={scrollToTop}>Aftercare</Link></li>
             </ul>
           </motion.div>
 
-          {/* COLUMN 3: CONTACT */}
           <motion.div className="footer-col" variants={staggerCardExtreme}>
             <h4 className="footer-col-title">Contact Us</h4>
             <ul className="footer-links footer-contact-list">
@@ -102,7 +95,6 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* COLUMN 4: THE SILHOUETTE CLUB */}
           <motion.div className="footer-newsletter-col" variants={staggerCardExtreme}>
             <h4 className="footer-col-title">Join The Club</h4>
             <p className="footer-club-text">
@@ -110,12 +102,12 @@ export default function Footer() {
             </p>
             {subscribed && <div className="footer-success-msg">Welcome to the Silhouette Club!</div>}
             <form onSubmit={handleSubscribe} className="footer-club-form">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                value={newsletterEmail} 
-                onChange={(e) => setNewsletterEmail(e.target.value)} 
-                required 
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                required
               />
               <button type="submit" className="footer-club-btn">SUBSCRIBE</button>
             </form>

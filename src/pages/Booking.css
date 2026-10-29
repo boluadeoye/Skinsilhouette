@@ -1,0 +1,358 @@
+.dollz-booking-page {
+  background-color: var(--bg-nude);
+  color: var(--dark-onyx);
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
+
+.dollz-booking-hero {
+  background: radial-gradient(circle at 75% 20%, rgba(200, 169, 106, 0.22) 0%, rgba(12, 6, 8, 0.98) 60%, var(--dark-onyx) 100%);
+  color: var(--bg-sand);
+  padding: 3.5rem 0 5rem;
+  border-bottom: 1px solid rgba(200, 169, 106, 0.25);
+}
+
+.dollz-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: rgba(244, 243, 238, 0.7);
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+.dollz-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--primary-gold);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.dollz-hero-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background-color: var(--primary-gold);
+}
+
+.dollz-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.12;
+  margin-bottom: 0.75rem;
+  color: rgb(255, 255, 255);
+}
+
+.dollz-hero-title span {
+  font-style: italic;
+  color: var(--primary-gold);
+}
+
+.dollz-hero-sub {
+  font-size: 0.95rem;
+  color: rgba(244, 243, 238, 0.78);
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+.dollz-booking-stack {
+  max-width: 880px;
+  margin: -2.5rem auto 0;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.dollz-step-card {
+  background-color: var(--bg-sand);
+  border-radius: 24px;
+  padding: 1.75rem;
+  box-shadow: 0 18px 40px rgba(12, 6, 8, 0.06);
+  border: 1px solid rgba(12, 6, 8, 0.08);
+}
+
+@media (min-width: 768px) {
+  .dollz-step-card {
+    padding: 2.25rem;
+  }
+}
+
+.dollz-step-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.dollz-step-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--dark-onyx);
+  color: var(--primary-gold);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dollz-step-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.dollz-step-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.dollz-cat-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.dollz-cat-pill {
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(12, 6, 8, 0.12);
+  background: rgb(255, 255, 255);
+  color: var(--dark-onyx);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dollz-cat-pill.active {
+  background-color: var(--dark-onyx);
+  color: var(--primary-gold);
+  border-color: var(--dark-onyx);
+}
+
+.dollz-srv-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .dollz-srv-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.dollz-srv-item {
+  background: rgb(255, 255, 255);
+  border: 1px solid rgba(12, 6, 8, 0.1);
+  border-radius: 16px;
+  padding: 1rem 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dollz-srv-item.selected {
+  border-color: var(--primary-gold);
+  background-color: rgba(200, 169, 106, 0.12);
+}
+
+.dollz-radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(12, 6, 8, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dollz-srv-item.selected .dollz-radio {
+  border-color: var(--dark-onyx);
+  background-color: var(--dark-onyx);
+}
+
+.dollz-cal-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 680px) {
+  .dollz-cal-layout {
+    grid-template-columns: 1.1fr 1fr;
+  }
+}
+
+.dollz-date-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.dollz-date-btn {
+  background: rgb(255, 255, 255);
+  border: 1px solid rgba(12, 6, 8, 0.1);
+  border-radius: 12px;
+  padding: 0.65rem 0.25rem;
+  text-align: center;
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+
+.dollz-date-btn.active {
+  background-color: var(--dark-onyx);
+  color: var(--primary-gold);
+  border-color: var(--dark-onyx);
+  font-weight: 700;
+}
+
+.dollz-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+
+.dollz-input-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .dollz-input-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.dollz-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(12, 6, 8, 0.15);
+  background: rgb(255, 255, 255);
+  font-size: 0.9rem;
+  font-family: var(--font-sans);
+}
+
+.dollz-summary-card {
+  background: rgb(255, 255, 255);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(12, 6, 8, 0.12);
+  box-shadow: 0 22px 48px rgba(12, 6, 8, 0.08);
+}
+
+.dollz-summary-head {
+  background-color: var(--dark-onyx);
+  color: rgb(255, 255, 255);
+  padding: 1.5rem 2rem;
+}
+
+.dollz-receipt-card {
+  background-color: var(--dark-onyx);
+  color: var(--bg-sand);
+  border-radius: 28px;
+  padding: 2.25rem 1.5rem;
+  border: 1px solid rgba(200, 169, 106, 0.4);
+  box-shadow: 0 28px 65px rgba(12, 6, 8, 0.22);
+  max-width: 580px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .dollz-receipt-card {
+    padding: 3rem 2.75rem;
+  }
+}
+
+.dollz-receipt-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(200, 169, 106, 0.15);
+  border: 1px solid var(--primary-gold);
+  color: var(--primary-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  font-size: 1.4rem;
+}
+
+.dollz-receipt-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3.5vw, 1.95rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: rgb(255, 255, 255);
+  margin: 0.4rem auto 1.75rem;
+  max-width: 440px;
+}
+
+.dollz-receipt-table {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(200, 169, 106, 0.25);
+  border-radius: 18px;
+  padding: 1.25rem 1.35rem;
+  margin-bottom: 1.75rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.dollz-receipt-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.dollz-receipt-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.dollz-receipt-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(244, 243, 238, 0.55);
+  font-weight: 600;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.dollz-receipt-val {
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-align: right;
+  word-break: break-word;
+  font-variant-numeric: tabular-nums;
+}

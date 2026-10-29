@@ -13,7 +13,6 @@ export default function About() {
   return (
     <div className="about-page-wrapper">
       
-      {/* MARQUEE OVERHAULED WITH 4 OFFICIAL BRAND SERVICES */}
       <div className="about-marquee-ribbon">
         <div className="about-marquee-track">
           <span className="about-marquee-item">
@@ -69,7 +68,7 @@ export default function About() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <img src={ASSETS.about_hero} alt="Skin Silhouette Aesthetics Official Branding" />
+            <img src={ASSETS.founder_portrait} alt="Founder of Skin Silhouette Aesthetics" />
           </motion.div>
         </div>
       </section>
@@ -96,7 +95,7 @@ export default function About() {
                         {CLINIC_CONTENT.missionVision.vision}
                       </p>
                       <div className="about-accordion-image-wrap">
-                        <img src={ASSETS.about_mission} alt="Skin Silhouette Aesthetics Vision" loading="lazy" />
+                        <img src={ASSETS.about_mission} alt="Skin Silhouette Aesthetics Branded Elements" loading="lazy" />
                       </div>
                     </div>
                   </motion.div>
@@ -123,7 +122,7 @@ export default function About() {
                         {CLINIC_CONTENT.missionVision.mission}
                       </p>
                       <div className="about-accordion-image-wrap">
-                        <img src={ASSETS.about_mission} alt="Skin Silhouette Aesthetics Mission" loading="lazy" />
+                        <img src={ASSETS.about_mission} alt="Skin Silhouette Aesthetics Branded Elements" loading="lazy" />
                       </div>
                     </div>
                   </motion.div>
